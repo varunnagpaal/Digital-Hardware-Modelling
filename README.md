@@ -6,17 +6,15 @@ As much as possible, the models would be generic, reusable and compatible with s
 ###Following is list of some of projects
 1. Glue Logic: Register, Shift-Register, Counters, Encoder/Decoder, Mux/Demux, Block RAMs
 2. IEEE Pipelined Floating Point Fused Multiplier Accumulator Unit (32-bit and 64-bit)
-3. DSP: 2D or 3D FFT, FIR (CIC etc.) and IIR Filters(Biquad IIR etc.),
-4. Serial Interface or Controllers IP such as I2C, SPI, 16450 UART
-5. SERDES (Serializer Deserializer)
-6. Bidirectional bus master/slave interfaces(mux or tristate based), Bus arbiter for multiple masters
-7. Coherent cache controller for Multicore NUMA CPU or GPU
-8. Direct Digital Synthsizer(DDS) using external DAC
-9. Processor Microarchitecture units: Instruction Fetch, Pre-decode, Decode, ALU(scalar and simd vector), Register File, Register R/W, Register Rename, Dispatch, Retire, Branch predictors, Buffers(Instruction, BTB), Queues(Instruction Issue, Load/Store), DMA IP, DRAM Controller(Memory R/W), Cache Controller, Instruction Cache, Data Cache, Scratch pad shared memory
-10. Pipelined scalar or vector(SIMD) processor based on a RISC ISA such as ARM 7 or RISC-V using above microarchitecture units
-11. Superscalar processor using above microarchitecture units
-12. Cryptography Algorithms(AES, DES)
-13. Algorithms such as sorting, searching, scan, reduction, shuffle, run length encoding,etc. 
+3. DSP Algorithms: 2D or 3D FFT, FIR (CIC etc.) and IIR Filters(Biquad IIR etc.)
+4. Serial Interface or Controllers IP such as I2C, SPI, 16450 UART, SERDES (Serializer Deserializer)
+5. Bidirectional bus master/slave interfaces(mux or tristate based), Bus arbiter for multiple masters
+6. Direct Digital Synthsizer(DDS) using external DAC
+7. Processor Microarchitecture units: Instruction Fetch, Pre-decode, Decode, ALU(scalar and simd vector), Register File, Register R/W, Register Rename, Dispatch, Retire, Branch predictors, Buffers(Instruction, BTB), Queues(Instruction Issue, Load/Store), DMA IP, DRAM Controller(Memory R/W), Cache Controller, Instruction Cache, Data Cache, Scratch pad shared memory, Coherent cache controller
+8. Pipelined scalar or vector(SIMD) processor based on a RISC ISA such as ARM 7 or RISC-V using above microarchitecture units
+9. Superscalar processor using above microarchitecture units
+10. Cryptography Algorithms(AES, DES)
+11. Algorithms such as sorting, searching, scan, reduction, shuffle, run length encoding,etc. 
 
 ###Tools
 - **Synthesis**: Synopsys Synplify Pro
@@ -31,7 +29,6 @@ As much as possible, the models would be generic, reusable and compatible with s
 - Logic, RTL Design and Computer Architecture (VHDL/Verilog)
   - Digital Design: A Systems Approach by William J. Dally et al.
   - Digital Logic Design A Rigorous Approach BY Guy Even,Moti Medina
-  - Digital Systems Engineering by William J. Dally and John W. Poulton
   - RTL hardware using VHDL by Pong Chu
   - Circuit design and simulation with VHDL by Volnei A. Pedroni
   - Logic & Computer Design Fundamentals 5th Edition by M. Morris Mano, Charles R. Kime, Tom Martin
@@ -45,6 +42,7 @@ As much as possible, the models would be generic, reusable and compatible with s
   - Reconfigurable Computing, Volume 1: The Theory and Practice of FPGA-Based Computation (Systems on Silicon) by Scott Hauck et al.
   
 - Topic Specific Books
+  - Digital Systems Engineering by William J. Dally and John W. Poulton
   - FSM in Hardware (VHDL/SystemVerilog) by Volnei A. Pedroni
   - Constraining designs for Synthesis and Timing Analysis by Sanjay Churiwala., Sridhar Gangadharan
   - Digital Design of Signal Processing Systems by Shoab Ahmed Khan
