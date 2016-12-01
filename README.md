@@ -1,6 +1,8 @@
-Digital Hardware Design and Modelling using VHDL, SystemVerilog, SystemC
-============================
-Idea of this repo is to build hardware models in SystemC, VHDL, SystemVerilog, SystemC, HLS(OpenCL) at various levels of abstraction: RTL,TLM and Behavioral/Algorithmic.
+Digital Hardware Design and Modelling
+=====================================
+##Using VHDL, SystemVerilog, SystemC, OpenCL
+
+Idea of this repo is to build hardware models in VHDL, SystemVerilog, SystemC, HLS(OpenCL) at various levels of abstraction: RTL,TLM and Behavioral/Algorithmic.
 As much as possible, the models would be generic, reusable and compatible with standard interfaces.
 
 ###Following is list of some of projects
