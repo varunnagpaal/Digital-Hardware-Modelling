@@ -2,9 +2,14 @@ Digital Hardware Design and Modelling
 =====================================
 ##Using VHDL, SystemVerilog, SystemC, HLS(C++, OpenCL)
 
-Idea of this repo is to build hardware models in VHDL, SystemVerilog, SystemC, HLS(C++,OpenCL) at various levels of abstraction: Logic, RTL,TLM and Behavioral/Algorithmic.As much as possible, the models would be generic, reusable and compatible with standard interfaces.
+Idea of this repo came from my own answer(advice) I wrote for a question on quora: [VLSI: What are good ways to learn to get better at digital design?](https://www.quora.com/VLSI-What-are-good-ways-to-learn-to-get-better-at-digital-design/answer/Varun-Nagpal-3?srid=tSKg "VLSI: What are good ways to learn to get better at digital design?"). This repository serves as a means to accomplish some of the ways I had discussed in my answer. 
 
-###Following is list of some of projects
+The idea for this repository is to therefore build hardware models in VHDL, SystemVerilog, SystemC, HLS(C++,OpenCL) at various levels of abstraction: Logic, RTL,TLM and Behavioral/Algorithmic. Also, as much as possible, focus would be to make the hardware models:
+- Generic, Reusable and Portable
+- Compatible with standard hardware/software interfaces
+- Follow best practices for desing and coding
+
+###Following is list of some of projects I have thought about as of now for this repository:
 1. Glue Logic: Register, Shift-Register, Counters, Encoder/Decoder, Mux/Demux, Block RAMs
 2. IEEE Pipelined Floating Point Fused Multiplier Accumulator Unit (32-bit and 64-bit)
 3. DSP Algorithms: 2D or 3D FFT, FIR (CIC etc.) and IIR Filters(Biquad IIR etc.)
@@ -24,6 +29,9 @@ Idea of this repo is to build hardware models in VHDL, SystemVerilog, SystemC, H
 ###Boards and Instruments
 - **FPGA Board**: Microsemi SmartFusion Mixed Signal SoC(FPGA with ARM Cortex M3)
 - **Digital Oscilloscope**: Digilent Analog Discovery
+
+###Parts
+I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Design-Modelling/blob/master/Parts/LAOE-PE-PartsList.xlsx) from my [Analog Design and Modeling](https://github.com/varunnagpaal/Analog-Design-Modelling) github project.
 
 ###References
 - Logic, RTL Design and Computer Architecture (VHDL/Verilog)
