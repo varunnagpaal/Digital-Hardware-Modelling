@@ -24,11 +24,11 @@ The idea for this repository is to therefore build hardware models in VHDL, Syst
 ###Tools
 - **Synthesis**: Synopsys Synplify Pro
 - **Simulation** : Mentor Graphics Modelsim
-- **SoC Design**: Microsemi Libero SoC
+- **SoC Design Platforms**: Microsemi Libero SoC, Vivado HLS(SDSoC Development Environment)
 
 ###Boards and Instruments
-- **FPGA Board**: Microsemi SmartFusion Mixed Signal SoC(FPGA with ARM Cortex M3)
-- **Digital Oscilloscope**: Digilent Analog Discovery
+- **FPGA Board**: Microsemi SmartFusion Mixed Signal SoC(FPGA with ARM Cortex M3), Snickerdoodle Zynq SoC(FPGA+ARM) board
+- **Digital/Analog Oscilloscope cum Signal Generator**: Digilent Analog Discovery
 
 ###Parts
 I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Design-Modelling/blob/master/Parts/LAOE-PE-PartsList.xlsx) from my [Analog Design and Modeling](https://github.com/varunnagpaal/Analog-Design-Modelling) github project.
