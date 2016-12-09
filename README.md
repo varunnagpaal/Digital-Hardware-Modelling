@@ -19,7 +19,8 @@ The idea for this repository is to therefore build hardware models in VHDL, Syst
 7. Processor Microarchitecture units: Instruction Fetch, Pre-decode, Decode, ALU(scalar and simd vector), Register File, Register R/W, Register Rename, Dispatch, Retire, Branch predictors, Buffers(Instruction, BTB), Queues(Instruction Issue, Load/Store), DMA IP, DRAM Controller(Memory R/W), Cache Controller, Instruction Cache, Data Cache, Scratch pad shared memory, Coherent cache controller
 8. Pipelined scalar or vector(SIMD) processor based on a RISC ISA such as ARM 7 or RISC-V using above microarchitecture units
 9. Superscalar processor using above microarchitecture units
-10. Algorithms such as sorting, searching, scan, reduction, shuffle, run length encoding, cryptography(AES, DES), image processing etc.
+10. Algorithms such as sorting, searching, scan, reduction, shuffle, run length encoding, etc.
+11. Domain specific algorithms such as cryptography(AES, DES), image processing, wireless(OFDM), machine learning, deep learning, scientific computing etc.
 
 ###Tools
 - **Synthesis**: Synopsys Synplify Pro
