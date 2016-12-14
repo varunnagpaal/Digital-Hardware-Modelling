@@ -1,0 +1,27 @@
+// Signal and variable naming convention for VHDL and SystemVerilog codes described as EBNF grammar
+// Source: Top Down VLSI Design from Architectures to Gate Level Circuits and FPGAs by Hubert Kaeslin
+signal_identifier ::= signal_name "_" signal_attributes
+signal_name ::= letter { letter | digit }
+signal_attributes ::= class_char [ signal_waveform ] state_char
+three-state_mode active-low_char io_mode
+class_char ::= "R" | "A" | "C" | "S" | "D" | "T"
+signal_waveform ::= "Q" | "M" | "G"
+state_char ::= "N" | "P" | ""
+three-state_mode ::= "Z" | ""
+active-low_char ::= "B" | ""
+io_mode ::= "I" | "O" | "IO" | ""
+"R" ::= Reset signal
+"C" ::= Clock signal
+"S" ::= Status or control signal
+"D" ::= Data Signal
+"T" ::= Test Signal
+"Q" ::= Clock Qualified Signalling
+"M" ::= Impulse Signalling (Mark)
+"G" ::= Transition Signalling (Grade)
+"N" ::= Next State Signal
+"P" ::= Present State Signal
+"B" ::= Bar or active low signal
+"Z" ::= High Impedance capable signal
+"I" ::= Input Signal
+"O" ::= Ouput Signal
+"IO"::= IO or bi-directional signal
