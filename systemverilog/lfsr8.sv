@@ -8,14 +8,14 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 module lfsr8( input logic Clk_CI;
-              input logic Rst_RBI;
-              input logic Load_SI;
-              input logic Ena_SI;
+              input logic Rst_RBI;          // Async active low reset
+              input logic Load_SI;          // Sync load
+              input logic Ena_SI;           // Sync Enable
               input logic [7:0] Seed_DI;    // Initial seed value that can be loaded
               output logic Oup_DO );
 
 //---------------------------------Start Architecture------------------------------//
-    // State variables
+    // State variables (inter-process)
     logic [7:0] State_DN, State_DP;
 
 

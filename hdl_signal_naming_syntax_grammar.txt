@@ -1,27 +1,43 @@
 // Signal and variable naming convention for VHDL and SystemVerilog codes described as EBNF grammar
-// Source: Top Down VLSI Design from Architectures to Gate Level Circuits and FPGAs by Hubert Kaeslin
+// Reference: Top Down VLSI Design from Architectures to Gate Level Circuits and FPGAs by Hubert Kaeslin
+// [X] => X is optional
 signal_identifier ::= signal_name "_" signal_attributes
 signal_name ::= letter { letter | digit }
-signal_attributes ::= class_char [ signal_waveform ] state_char
-three-state_mode active-low_char io_mode
+signal_attributes ::= class_char [ signal_waveform ] state_char three-state_mode active-low_char io_mode
+
 class_char ::= "R" | "A" | "C" | "S" | "D" | "T"
+"R" ::= Reset signal [Red]
+"A" ::= Any other signal subject to asynchronous switching [Orange]
+"C" ::= Clock signal [Green]
+"S" ::= Status or control signal [Blue]
+"D" ::= Data, Address Signal [Black]
+"T" ::= Test Signal [Yellow]
+
 signal_waveform ::= "Q" | "M" | "G"
-state_char ::= "N" | "P" | ""
-three-state_mode ::= "Z" | ""
-active-low_char ::= "B" | ""
-io_mode ::= "I" | "O" | "IO" | ""
-"R" ::= Reset signal
-"C" ::= Clock signal
-"S" ::= Status or control signal
-"D" ::= Data Signal
-"T" ::= Test Signal
-"Q" ::= Clock Qualified Signalling
+"Q" ::= Clock Qualified Signalling (Default Signalling within a clock domain)
 "M" ::= Impulse Signalling (Mark)
 "G" ::= Transition Signalling (Grade)
+
+state_char ::= "N" | "P" | ""
 "N" ::= Next State Signal
 "P" ::= Present State Signal
-"B" ::= Bar or active low signal
+
+three-state_mode ::= "Z" | ""
 "Z" ::= High Impedance capable signal
+
+active-low_char ::= "B" | ""
+"B" ::= Bar or active low signal
+
+io_mode ::= "I" | "O" | "IO" | ""
 "I" ::= Input Signal
 "O" ::= Ouput Signal
 "IO"::= IO or bi-directional signal
+
+// SV is case sensistive, VHDL is case insensitive
+// Reserved words                       : lower case
+// Subprograms                          : lower case
+// Constants, Generics/Parameters       : upper case
+// VHDL variables                       : PascalCaps or camelCaps
+// VHDL signals                         : signal_identifier in PascalCaps or camelCaps
+// SV Intra-process(Local) Variables    : PascalCaps or camelCaps
+// SV Inter-process(Shared) Variables   : signal_identifier in PascalCaps or camelCaps

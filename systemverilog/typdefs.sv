@@ -1,0 +1,1 @@
+typedef logic unsigned [23:0] color;
