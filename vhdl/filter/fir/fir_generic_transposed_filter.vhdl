@@ -3,30 +3,32 @@
 -- VLSI Design Homework 1
 -- 3rd Sept, 2018
 --
--- Design: Generic Nth order (N+1 taps) Transposed FIR-filter 
+-- Design: Generic Nth order (L = N+1 taps) Transposed FIR-filter 
 -- IN:
 --      n-bit sized Input samples
 --      m-Bit sized coefficients
 -- OUT:
---      n-bit size of output samples. Note: (n+m+N) bit size is that accumulator which is finally quantized to n-bit size to produce output
--- It has maximum:
---      N register delays or N+1 taps
---      N+1 Multiplications
---      N additions
+--      n+m+log2(N+1)-1 bit size of output samples
+--
+-- Operation requires:
+--      N = no. of register delays or additions
+--      L = N+1 no. of taps or coefficients or multiplications
 
-
-
-library ieee;
+library IEEE;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.math_real.all;
+use work.fir_filter_shared_package.all;
 
 -- Top level module
 entity fir_generic_transposed_filter is
     generic (
-            FIR_ORDER: natural := 4;                                -- order of the filter
-            XBIT_SIZE: natural := 8;                                -- bit width of input samples
-            HBIT_SIZE: natural := 8;                                -- bit width of coefficients
-            ACUM_SIZE: natural := XBIT_SIZE+HBIT_SIZE+FIR_ORDER;    -- bit width of accumulator  register
-            YBIT_SIZE: natural := XBIT_SIZE;                        -- bit width of output samples
+            FIR_ORDER: natural := N;                               -- order of the filter (N). Note L = N+1 = taps
+            XBIT_SIZE: natural := N_BITS;                          -- bit width (n) of input samples (signed 2's complement)
+            HBIT_SIZE: natural := M_BITS;                          -- bit width (m) of coefficients (signed 2's complement)
+            MULT_SIZE: natural := MULT_BITS;                       -- bit width (n+m) of signed multiplier
+            EXTR_SIZE: natural := EXTRA_BITS;                      -- extra bits for accumulation = ceil(log2(L))-1
+            YBIT_SIZE: natural := Y_BITS                           -- bit width of output samples (signed 2's complement) or signed adder
         );
 
     port (
@@ -34,11 +36,13 @@ entity fir_generic_transposed_filter is
         clk        : in  std_logic;
         rst        : in  std_logic;
         
-        -- Sink handshaking interface
-        valid_in   : in  std_logic;                                 -- Valid input when acting as sink  
-        ready_out  : out std_logic;                                 -- Ready output when acting as sink
+        -- Handshaking interface as sink
+        valid_x_in  : in  std_logic;                                 -- Valid input sample when acting as sink
+        ready_x_out : out std_logic;                                 -- Ready for input samples when acting as sink
+        valid_h_in  : in  std_logic;                                 -- Valid coefficient input when acting as sink
+        ready_h_out : out std_logic;                                 -- Ready for coefficients when acting as sink
 
-        -- Source Handshaking interface
+        -- Handshaking interface as source
         valid_out  : out std_logic;                                 -- Valid output when acting as source
         ready_in   : in  std_logic;                                 -- Ready input when acting as source
 
@@ -50,6 +54,20 @@ entity fir_generic_transposed_filter is
 end fir_generic_transposed_filter;
 
 architecture fir_rtl_arch of fir_generic_transposed_filter is
+    --      N = no. of register delays or additions
+    signal 
+    --      L = N+1 no. of taps or coefficients or multiplications
 begin
+    process(clk, rst)
+    begin
+        if (rst = '1') then
+            ready_out <= '0';
+            valid_out <= '0';
+        elsif (clk'EVENT  and clk = '1') then
+            -- 
+            if( ready_in = '1' and valid_in = '1') then
 
+            end if;
+        end if;
+    end process;
 end fir_rtl_arch;
