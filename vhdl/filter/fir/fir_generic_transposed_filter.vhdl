@@ -82,22 +82,28 @@ begin
     ready_h_out <= ready_h_out_sig;
     valid_out   <= valid_out_sig;
 
-    process(clk, rst)
+    read_coefficients: process(clk, rst)
     begin
         if (rst = '1') then
-            ready_x_out_sig <= '0';
             ready_h_out_sig <= '1';
-            valid_out <= '0';
         elsif (clk'EVENT  and clk = '1') then
-            -- reading coefficients have higher priority over reading samples
             if ( ready_h_out_sig = '1' and valid_h_in = '1' ) then
                 -- while reading coefficients, deassert ready_x_out_sig
                 -- once coefficients are read, deassert ready_h_out_sig and assert ready_x_out_sig to start reading samples
-            elsif ( ready_x_out_sig = '1' and valid_x_in = '1' ) then
+            end if;
+        end if;
+    end process read_coefficients;
+
+    read_samples: process(clk, rst)
+    begin
+        if (rst = '1') then
+            ready_x_out_sig <= '0';
+        elsif (clk'EVENT  and clk = '1') then
+            if ( ready_x_out_sig = '1' and valid_x_in = '1' ) then
                 -- when reading samples, deassert ready_h_out_sig
             end if;
         end if;
-    end process;
+    end process read_samples;
 
     --coeff_read_counter: process(clk, rst)
     --begin
