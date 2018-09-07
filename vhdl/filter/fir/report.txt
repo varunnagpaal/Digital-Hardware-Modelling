@@ -1,0 +1,32 @@
+To view the simulation results, there are four options:
+	1. Examine the simulation output wlf file using modelsim by running following do script at Modelsim command line:
+
+		> do view-wlf.do
+
+		Above command opens wlf file named "vsimresult.wlf" which contains result of simulation
+
+	2. Use GTK wave open source software and open either vsimresult.gtkw (prefferred) or vsimresult.vcd to view the waveforms
+
+	3. Examine data logged in excel sheet simulation.xlsx
+
+	4. Examine screenshot of waveforms by opening either 
+		a. waveform_verified_result_gtkwave.png
+		b. waveform_verified_result_modelsim.png
+
+
+To run a simulation of the FIR filter and examine the waveforms, there are two options:
+	1. Executing do files without testbench in Modelsim command line
+
+		a. For this, open modelsim and go to File -> Change Directory. Navigate to the folder containing the vhdl, gtkw, wlf, do etc. files for this homework
+		
+		b. To compile vhdl files and run the simulation, execute following command on Modelsim command line:
+
+			> do run-sim.do
+
+			Running abive command, will create a temporary work library names "sandbox" and compiles the vhdl design for this library. After this, the script runs simulation and displays result of the simulation in waveform viewer.
+
+		b. After examining the waveforms in wavefore viewer for correctness, one may execute the following do script on Modelsim command line to stop the simulation, remove the sandbox library and quit Modelsim:
+
+			> do stop-clean-quit-sim.do
+
+	2. Execute do files with testbench in Modelsim:

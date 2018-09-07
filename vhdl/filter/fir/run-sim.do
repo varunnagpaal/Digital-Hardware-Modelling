@@ -1,12 +1,8 @@
-vlib work
-vmap work work
-vcom fir_filter_shared_package.vhdl
-vcom fir_generic_transposed_filter.vhdl
-
-vsim work.fir_generic_transposed_filter(fir_rtl_arch)
-vsim -voptargs=+acc work.fir_generic_transposed_filter(fir_rtl_arch)
-vsim -gui work.fir_generic_transposed_filter(fir_rtl_arch)
-vsim -vopt work.fir_generic_transposed_filter(fir_rtl_arch)
+vlib sandbox
+vmap sandbox sandbox
+vcom -reportprogress 300 -work sandbox fir_filter_shared_package.vhdl
+vcom -reportprogress 300 -work sandbox fir_generic_transposed_filter.vhdl
+vsim -vopt sandbox.fir_generic_transposed_filter(fir_rtl_arch)
 
 add wave -position end  sim:/fir_generic_transposed_filter/clk
 add wave -position end  sim:/fir_generic_transposed_filter/rst
@@ -68,3 +64,5 @@ run
 run
 run
 run
+
+echo "When you are done examining the waveform, you may run following do script to stop the simulation, remove sandbox and quit modelsim: \"do stop-clean-quit-sim.do\""
