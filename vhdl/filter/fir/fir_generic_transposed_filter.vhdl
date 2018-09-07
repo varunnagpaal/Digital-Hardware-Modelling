@@ -78,9 +78,9 @@ architecture fir_rtl_arch of fir_generic_transposed_filter is
     signal input_sample_mem         : std_logic_vector(x_data_in'RANGE);   -- register to store input data sample
     signal output_sample_mem        : std_logic_vector(y_data_out'RANGE);   -- register to store output data sample
 
-    signal ready_h_out_sig          : std_logic;
-    signal ready_x_out_sig          : std_logic;
-    signal valid_out_sig            : std_logic;
+    signal ready_h_out_reg          : std_logic;
+    signal ready_x_out_reg          : std_logic;
+    signal valid_out_reg            : std_logic;
 begin
     
     -- shift coefficients
@@ -91,9 +91,9 @@ begin
                 coefficient_mem_array(i) <= ( others => '0' );
             end loop;
         elsif (clk'EVENT  and clk = '1') then
-            if ( ready_h_out_sig = '1' and valid_h_in = '1' ) then
-                -- TBU: while reading coefficients, deassert ready_x_out_sig
-                -- TBU: Once coefficients are read, deassert ready_h_out_sig and assert ready_x_out_sig to start reading samples
+            if ( ready_h_out_reg = '1' and valid_h_in = '1' ) then
+                -- TBU: while reading coefficients, deassert ready_x_out_reg
+                -- TBU: Once coefficients are read, deassert ready_h_out_reg and assert ready_x_out_reg to start reading samples
                 -- shift coefficients
                 coefficient_mem_array(FIR_ORDER) <= h_data_in;                
                 for i in FIR_ORDER-1 downto 0 loop
@@ -109,8 +109,8 @@ begin
         if (rst = '1') then
             input_sample_mem <= ( others => '0' );
         elsif (clk'EVENT  and clk = '1') then
-            if ( ready_x_out_sig = '1' and valid_x_in = '1' ) then
-                -- TBU: when reading samples, deassert ready_h_out_sig
+            if ( ready_x_out_reg = '1' and valid_x_in = '1' ) then
+                -- TBU: when reading samples, deassert ready_h_out_reg
                 input_sample_mem <= x_data_in;
             end if;
         end if;
@@ -122,6 +122,9 @@ begin
         variable tempprod : std_logic_vector(YBIT_SIZE-1 downto 0) := ( others => '0');
     begin
         if (rst = '1') then
+            for i in 0 to FIR_ORDER loop
+                adder_mem_array(i) <= ( others => '0');
+            end loop;
         elsif (clk'EVENT  and clk = '1') then            
             -- N = no. of register delays or additions            
             for i in 0 to FIR_ORDER-1 loop
@@ -134,7 +137,9 @@ begin
             end loop;
 
             -- first multiplier result requires no adder and simply needs to be registered
-            adder_mem_array(FIR_ORDER) <= multiplier_sigs(FIR_ORDER);
+            signvec := ( others => multiplier_sigs(FIR_ORDER)( multiplier_sigs(FIR_ORDER)'HIGH ) );
+            tempprod := signvec & multiplier_sigs(FIR_ORDER);
+            adder_mem_array(FIR_ORDER) <= tempprod;
         end if;
     end process accumulate;
 
@@ -142,7 +147,7 @@ begin
     generate_multipliers: for i in 0 to FIR_ORDER generate 
         multiplier_sigs (i) <= coefficient_mem_array(i) * input_sample_mem;
     end generate generate_multipliers;
-    
+
     -- handshake interface
     process(clk,rst)
     begin
@@ -150,24 +155,24 @@ begin
             -- On reset, 
             -- 1. ready to read coefficients 
             -- 2. not ready to read input sample and produce output sample
-            valid_out_sig <= '0';
-            ready_h_out <= '1';
-            ready_x_out <= '0';
+            ready_h_out_reg <= '1';
+            ready_x_out_reg <= '0';
+            valid_out_reg <= '0';
         elsif (clk'EVENT and clk = '1') then
-            if ( coeff_cnt = (FIR_ORDER-1) ) then
+            if ( coeff_cnt = FIR_ORDER ) then
                 -- once coefficients are read
                 -- 1. disable reading coefficients 
                 -- 2. ready to read input sample and produce output sample
-                valid_out_sig <= '1';
-                ready_h_out_sig <= '0';
-                ready_x_out <= '1';
+                ready_h_out_reg <= '0';
+                ready_x_out_reg <= '1';
+                valid_out_reg <= '1';
             end if;
         end if;            
     end process;
 
-    valid_out   <= valid_out_sig;
-    ready_x_out <= ready_x_out_sig;
-    ready_h_out <= ready_h_out_sig;
+    valid_out   <= valid_out_reg;
+    ready_x_out <= ready_x_out_reg;
+    ready_h_out <= ready_h_out_reg;
 
     -- mod L=N+1 counter
     coeff_read_counter: process(clk, rst)
@@ -175,7 +180,9 @@ begin
         if ( rst = '1') then
             coeff_cnt <= 0;
         elsif (clk'EVENT and clk = '1') then
-            coeff_cnt <= coeff_cnt_next;    
+            if ( ready_h_out_reg = '1' and valid_h_in = '1' ) then
+                coeff_cnt <= coeff_cnt_next;
+            end if;
         end if;
     end process coeff_read_counter;
 
@@ -189,7 +196,7 @@ begin
     --    if ( rst = '1') then
     --        coeff_cnt <= 0;
     --    elsif (clk'EVENT and clk = '1') then
-    --        if ( ready_h_out_sig = '1' and valid_h_in = '1' ) then
+    --        if ( ready_h_out_reg = '1' and valid_h_in = '1' ) then
     --            if ( coeff_cnt = FIR_ORDER ) then
     --                coeff_cnt <= 0;
     --            else
@@ -200,5 +207,5 @@ begin
     --end process coeff_read_counter
 
     -- output sample is registered output of last adder
-    y_data_out <= adder_mem_array(0) when valid_out_sig = '1' else ( others=>'0' );
+    y_data_out <= adder_mem_array(0) when valid_out_reg = '1' else ( others=>'0' );
 end fir_rtl_arch;
