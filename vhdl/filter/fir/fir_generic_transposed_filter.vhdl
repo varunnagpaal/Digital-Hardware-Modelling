@@ -52,21 +52,21 @@ entity fir_generic_transposed_filter is
         ready_in   : in  std_logic;                                 -- Ready input when acting as source
 
         --  Input samples & coefficients and Output samples
-        x_data_in  : in  std_logic_vector(XBIT_SIZE-1 downto 0);    -- Input samples
-        h_data_in  : in  std_logic_vector(HBIT_SIZE-1 downto 0);    -- Coefficients of filter
-        y_data_out : out std_logic_vector(YBIT_SIZE-1 downto 0)     -- Output samples
+        x_data_in  : in  signed(XBIT_SIZE-1 downto 0);              -- Input samples
+        h_data_in  : in  signed(HBIT_SIZE-1 downto 0);              -- Coefficients of filter
+        y_data_out : out signed(YBIT_SIZE-1 downto 0)               -- Output samples
     );
 end fir_generic_transposed_filter;
 
 architecture fir_rtl_arch of fir_generic_transposed_filter is
     -- N = no. of register delays or additions
-    subtype ADD_REG_TYPE is std_logic_vector(YBIT_SIZE-1 downto 0);
+    subtype ADD_REG_TYPE is signed(YBIT_SIZE-1 downto 0);
     type ADD_REG_ARRAY is array (0 to FIR_ORDER) of ADD_REG_TYPE;
 
     -- L = N+1 no. of taps or coefficients or multiplications
-    subtype MULT_SIG_TYPE is std_logic_vector(MULT_SIZE-1 downto 0);
+    subtype MULT_SIG_TYPE is signed(MULT_SIZE-1 downto 0);
     type MULT_SIG_ARRAY is array (0 to FIR_ORDER) of MULT_SIG_TYPE;
-    subtype COEFF_REG_TYPE is std_logic_vector(HBIT_SIZE-1 downto 0);
+    subtype COEFF_REG_TYPE is signed(HBIT_SIZE-1 downto 0);
     type COEFF_REG_ARRAY is array (0 to FIR_ORDER) of COEFF_REG_TYPE;
 
     signal adder_mem_array          : ADD_REG_ARRAY;                            -- array of L = N+1 memory (registers) blocks to store adder outputs
@@ -75,8 +75,8 @@ architecture fir_rtl_arch of fir_generic_transposed_filter is
     signal coeff_cnt                : integer range 0 to FIR_ORDER;             -- counter for reading L = N+1 coefficients
     signal coeff_cnt_next           : integer range 0 to FIR_ORDER;
     
-    signal input_sample_mem         : std_logic_vector(x_data_in'RANGE);   -- register to store input data sample
-    signal output_sample_mem        : std_logic_vector(y_data_out'RANGE);   -- register to store output data sample
+    signal input_sample_mem         : signed(x_data_in'RANGE);   -- register to store input data sample
+    signal output_sample_mem        : signed(y_data_out'RANGE);   -- register to store output data sample
 
     signal ready_h_out_reg          : std_logic;
     signal ready_x_out_reg          : std_logic;
@@ -118,8 +118,8 @@ begin
 
     -- Generate N parallel signed adder (registered)
     accumulate: process(clk, rst)
-        variable signvec : std_logic_vector(EXTR_SIZE-1 downto 0) := ( others => '0' );
-        variable tempprod : std_logic_vector(YBIT_SIZE-1 downto 0) := ( others => '0');
+        variable signvec : signed(EXTR_SIZE-1 downto 0) := ( others => '0' );
+        variable tempprod : signed(YBIT_SIZE-1 downto 0) := ( others => '0');
     begin
         if (rst = '1') then
             for i in 0 to FIR_ORDER loop
