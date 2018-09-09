@@ -3,7 +3,7 @@
 -- VLSI Design Homework 1
 -- 3rd Sept, 2018
 --
--- Design: Generic Nth order (L = N+1 taps) Transposed FIR-filter 
+-- Design: Generic Nth order (L = N+1 taps) Transposed Direct-form FIR-filter 
 -- IN:
 --      n-bit sized Input samples
 --      m-Bit sized coefficients
@@ -28,7 +28,7 @@ use work.fir_filter_shared_package.all;
 -- Top level module
 entity fir_generic_transposed_filter is
     port (
-        -- Clock and reset
+        -- Clock and asynchronous reset
         clk                         : in  std_logic;
         rst                         : in  std_logic;
         
@@ -126,7 +126,7 @@ begin
     end generate generate_multipliers;
 
     -- handshake interface
-    process(clk,rst)
+    handshake_mem: process(clk,rst)
     begin
         if ( rst = '1') then
             -- On reset, 

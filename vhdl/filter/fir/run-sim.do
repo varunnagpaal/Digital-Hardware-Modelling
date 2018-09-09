@@ -1,7 +1,9 @@
 vlib sandbox
 vmap sandbox sandbox
-vcom -reportprogress 300 -work sandbox fir_filter_shared_package.vhdl
-vcom -reportprogress 300 -work sandbox fir_generic_transposed_filter.vhdl
+
+vcom -work sandbox -2008 -explicit -check_synthesis -source -vopt -stats=none -reportprogress 300 fir_filter_shared_package.vhdl
+vcom -work sandbox -2008 -explicit -check_synthesis -source -vopt -stats=none -reportprogress 300 fir_generic_transposed_filter.vhdl
+
 vsim -vopt sandbox.fir_generic_transposed_filter(fir_rtl_arch)
 
 add wave -position end  sim:/fir_generic_transposed_filter/clk

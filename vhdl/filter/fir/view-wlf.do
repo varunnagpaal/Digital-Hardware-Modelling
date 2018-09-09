@@ -1,4 +1,4 @@
-vsim -view vsimresult.wlf
+vsim -view results/without-testbench/vsimresult.wlf
 add wave -position insertpoint  \
 vsimresult:/fir_generic_transposed_filter/clk \
 vsimresult:/fir_generic_transposed_filter/rst \
