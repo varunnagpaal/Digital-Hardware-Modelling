@@ -53,8 +53,8 @@ architecture fir_rtl_arch of fir_generic_transposed_filter is
     signal adder_mem_array          : ADD_REG_ARRAY;                        -- array of L = N+1 memory (registers) blocks to store adder outputs
     signal multiplier_sigs          : MULT_SIG_ARRAY;                       -- array of L = N+1 multipler signals
     signal coefficient_mem_array    : COEFF_REG_ARRAY;                      -- array of L = N+1 memory (registers) blocks to store coefficients
-    signal coeff_cnt                : integer range 0 to FIR_ORDER;         -- counter for reading L = N+1 coefficients
-    signal coeff_cnt_next           : integer range 0 to FIR_ORDER;
+    signal coeff_cnt                : integer range 0 to FIR_ORDER+1;       -- counter for reading L = N+1 coefficients
+    signal coeff_cnt_next           : integer range 0 to FIR_ORDER+1;
     
     signal input_sample_mem         : signed(x_data_in'RANGE);              -- register to store input data sample
     signal output_sample_mem        : signed(y_data_out'RANGE);             -- register to store output data sample
@@ -136,9 +136,9 @@ begin
             ready_x_out_reg <= '0';
             valid_out_reg <= '0';
         elsif (clk'EVENT and clk = '1') then
-            if ( coeff_cnt = FIR_ORDER ) then
+            if ( coeff_cnt = (FIR_ORDER+1) ) then
                 -- Once coefficients are read,
-                -- 1. no ready to read coefficients 
+                -- 1. not ready to read coefficients 
                 -- 2. ready to read input sample and produce output sample
                 ready_h_out_reg <= '0';
                 ready_x_out_reg <= '1';
@@ -164,7 +164,7 @@ begin
     end process coeff_read_counter;
 
     -- Next state logic for mod L=N+1 counter
-    coeff_cnt_next <= 0 when (coeff_cnt = FIR_ORDER) else 
+    coeff_cnt_next <= 0 when ( coeff_cnt = ( FIR_ORDER + 1 ) ) else 
                              coeff_cnt + 1;
 
     -- mod L=N+1 counter

@@ -22,14 +22,14 @@ architecture test of testbench is
 	signal rst 			: std_logic := '0';
 
 	-- Handshaking interface as source
-	signal valid_x_out	: std_logic := 'X';
+	signal valid_x_out	: std_logic := '0';
 	signal ready_x_in	: std_logic;
-	signal valid_h_out	: std_logic := 'X';
+	signal valid_h_out	: std_logic := '0';
 	signal ready_h_in	: std_logic;
 	
 	-- Handshaking interface as sink
 	signal valid_in		: std_logic;
-	signal ready_out	: std_logic := 'X';
+	signal ready_out	: std_logic := '0';
 
 	--  Signals for Input samples & coefficients to filter and reading Output samples of filter
 	signal x_data_out	: signed(X_BIT_SIZE-1 downto 0) := (others => '0');
@@ -52,31 +52,30 @@ begin
 	-- Clock generation
 	clk_gen: process
 	begin
-		clk <= '1';
-		wait for CLK_HIGH_TIME;
 		clk <= '0';
+		wait for CLK_HIGH_TIME;
+		clk <= '1';
 		wait for CLK_LOW_TIME;
 	end process clk_gen;
 
 	-- Reset generation
-	rst <= 	'0', 
-			'1' after 1 * CLK_CYCLE_TIME, 
-			'0' after 2 * CLK_CYCLE_TIME;
+	rst <= 	'1', 
+			'0' after CLK_HIGH_TIME;
 
-	valid_h_out <= 	'X', 
-					'1' after 2 * CLK_CYCLE_TIME, 
-					'X' after 7	* CLK_CYCLE_TIME;
+	valid_h_out <= 	'0', 
+					'1' after 1 * CLK_CYCLE_TIME, 
+					'0' after 5	* CLK_CYCLE_TIME;
 
-	h_data_out 	<= 	( others => 'X' ), 
-					( 0 => '1', others => '0' )	after 2 * CLK_CYCLE_TIME,
-					( others => 'X' ) 			after 7 * CLK_CYCLE_TIME;
+	h_data_out 	<= 	( others => '0' ), 
+					( 0 => '1', others => '0' )	after 1 * CLK_CYCLE_TIME,
+					( others => '0' ) 			after 5 * CLK_CYCLE_TIME;
 
 
-	valid_x_out <= 	'X',
-					'1' after 7 * CLK_CYCLE_TIME;
+	valid_x_out <= 	'0',
+					'1' after 5 * CLK_CYCLE_TIME;
 
-	x_data_out 	<= 	( others => 'X' ),
-					( 0 => '1', others => '0' )	after 7 * CLK_CYCLE_TIME,
+	x_data_out 	<= 	( others => '0' ),
+					( 0 => '1', others => '0' )	after 5 * CLK_CYCLE_TIME,
 					( others => '1' ) 			after 15 * CLK_CYCLE_TIME;
 
 	print_messages: process begin
