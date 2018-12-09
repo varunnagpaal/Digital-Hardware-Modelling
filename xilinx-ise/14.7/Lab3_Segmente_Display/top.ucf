@@ -1,0 +1,85 @@
+# NET "rst" IOSTANDARD = LVCMOS33;
+
+## Clock signal
+NET "clk"            LOC = "V10" | IOSTANDARD = "LVCMOS33";   #Bank = 2, pin name = IO_L30N_GCLK0_USERCCLK,            Sch name = GCLK
+#Net "clk" TNM_NET = sys_clk_pin;
+#TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+
+NET "rst" IOSTANDARD = LVCMOS33;
+NET "rst" LOC = B8;
+
+NET "in_switches_p[7]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[6]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[5]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[4]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[3]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[2]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[1]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[0]" IOSTANDARD = LVCMOS33;
+NET "in_switches_p[0]" LOC = T10;
+NET "in_switches_p[1]" LOC = T9;
+NET "in_switches_p[2]" LOC = V9;
+NET "in_switches_p[3]" LOC = M8;
+NET "in_switches_p[4]" LOC = N8;
+NET "in_switches_p[5]" LOC = U8;
+NET "in_switches_p[6]" LOC = V8;
+NET "in_switches_p[7]" LOC = T5;
+
+NET "out_seg_p[6]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[5]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[4]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[3]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[2]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[1]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[0]" IOSTANDARD = LVCMOS33;
+NET "out_seg_p[0]" LOC = L14;
+NET "out_seg_p[1]" LOC = N14;
+NET "out_seg_p[2]" LOC = M14;
+NET "out_seg_p[3]" LOC = U18;
+NET "out_seg_p[4]" LOC = U17;
+NET "out_seg_p[5]" LOC = T18;
+NET "out_seg_p[6]" LOC = T17;
+
+NET "out_all_digits_enable_p[0]" IOSTANDARD = LVCMOS33;
+NET "out_all_digits_enable_p[1]" IOSTANDARD = LVCMOS33;
+NET "out_all_digits_enable_p[2]" IOSTANDARD = LVCMOS33;
+NET "out_all_digits_enable_p[3]" IOSTANDARD = LVCMOS33;
+NET "out_all_digits_enable_p[0]" LOC = N16;
+NET "out_all_digits_enable_p[1]" LOC = N15;
+NET "out_all_digits_enable_p[2]" LOC = P18;
+NET "out_all_digits_enable_p[3]" LOC = P17;
+
+NET "out_leds_p[7]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[6]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[5]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[4]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[3]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[2]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[1]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[0]" IOSTANDARD = LVCMOS33;
+NET "out_leds_p[0]" LOC = U16;
+NET "out_leds_p[1]" LOC = V16;
+NET "out_leds_p[2]" LOC = U15;
+NET "out_leds_p[3]" LOC = V15;
+NET "out_leds_p[4]" LOC = M11;
+NET "out_leds_p[5]" LOC = N11;
+NET "out_leds_p[6]" LOC = R11;
+NET "out_leds_p[7]" LOC = T11;
+
+NET "out_dp_p" IOSTANDARD = LVCMOS33;
+NET "out_dp_p" LOC = M13;
+
+NET "in_dps_p[0]" IOSTANDARD = LVCMOS33;
+NET "in_dps_p[1]" IOSTANDARD = LVCMOS33;
+NET "in_dps_p[2]" IOSTANDARD = LVCMOS33;
+NET "in_dps_p[3]" IOSTANDARD = LVCMOS33;
+
+NET "in_dps_p[3]" PULLUP;
+NET "in_dps_p[2]" PULLDOWN;
+NET "in_dps_p[1]" PULLUP;
+NET "in_dps_p[0]" PULLUP;
+
+NET "in_dps_p[3]" LOC = C4;
+NET "in_dps_p[2]" LOC = A8;
+NET "in_dps_p[1]" LOC = D9;
+NET "in_dps_p[0]" LOC = C9;
