@@ -207,17 +207,17 @@ NET "in_switches_p[7]" IOSTANDARD = LVCMOS33;
 #Bank = 0, Pin name = IO_L33N,                           Sch name = BTNU
 NET "in_buttons_p[0]" LOC = A8;
 NET "in_buttons_p[0]" IOSTANDARD = LVCMOS33;
-#Bank = 0, Pin name = IO_L1N_VREF,                       Sch name = BTNL
-NET "in_buttons_p[3]" LOC = C4;
-NET "in_buttons_p[3]" IOSTANDARD = LVCMOS33;
-#Bank = 0, Pin name = IO_L34N_GCLK18,                    Sch name = BTND
-NET "in_buttons_p[2]" LOC = C9;
-NET "in_buttons_p[2]" IOSTANDARD = LVCMOS33;
 #Bank = 0, Pin name = IO_L34P_GCLK19,                    Sch name = BTNR
 NET "in_buttons_p[1]" LOC = D9;
 NET "in_buttons_p[1]" IOSTANDARD = LVCMOS33;
-NET "in_buttons_p[4]" LOC = B8;
-NET "in_buttons_p[4]" IOSTANDARD = LVCMOS33;
+#Bank = 0, Pin name = IO_L34N_GCLK18,                    Sch name = BTND
+NET "in_buttons_p[2]" LOC = C9;
+NET "in_buttons_p[2]" IOSTANDARD = LVCMOS33;
+#Bank = 0, Pin name = IO_L1N_VREF,                       Sch name = BTNL
+NET "in_buttons_p[3]" LOC = C4;
+NET "in_buttons_p[3]" IOSTANDARD = LVCMOS33;
+NET "rst" LOC = B8;
+NET "rst" IOSTANDARD = LVCMOS33;
 
 
 ## VGA Connector
@@ -360,7 +360,3 @@ NET "in_buttons_p[4]" IOSTANDARD = LVCMOS33;
 #NET "EXP-IO_N<18>"   LOC = "C14" | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L65N_SCP2,                      Sch name = EXP_IO19_N
 #NET "EXP-IO_P<19>"   LOC = "B16" | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L66P_SCP1,                      Sch name = EXP_IO20_P
 #NET "EXP-IO_N<19>"   LOC = "A16" | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L66N_SCP0,                      Sch name = EXP_IO20_N
-
-# PlanAhead Generated IO constraints 
-
-NET "in_buttons_p[4]" IOSTANDARD = LVCMOS33;
