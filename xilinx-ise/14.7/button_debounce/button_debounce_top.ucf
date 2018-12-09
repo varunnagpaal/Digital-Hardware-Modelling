@@ -1,0 +1,27 @@
+## Clock signal
+NET "clk"            LOC = "V10" | IOSTANDARD = "LVCMOS33";   #Bank = 2, pin name = IO_L30N_GCLK0_USERCCLK,            Sch name = GCLK
+#Net "clk" TNM_NET = sys_clk_pin;
+#TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+
+NET "in_button_p" IOSTANDARD = LVCMOS33;
+# NET "in_buttons_p[3]" IOSTANDARD = LVCMOS33;
+# NET "in_buttons_p[2]" IOSTANDARD = LVCMOS33;
+# NET "in_buttons_p[1]" IOSTANDARD = LVCMOS33;
+# NET "in_buttons_p[0]" IOSTANDARD = LVCMOS33;
+
+# NET "in_buttons_p[0]" LOC = A8;
+# NET "in_buttons_p[1]" LOC = D9;
+# NET "in_buttons_p[2]" LOC = C9;
+# NET "in_buttons_p[3]" LOC = C4;
+NET "in_button_p" LOC = B8;
+
+# NET "out_leds_p[4]" LOC = M11;
+# NET "out_leds_p[3]" LOC = V15;
+# NET "out_leds_p[2]" LOC = U15;
+# NET "out_leds_p[1]" LOC = V16;
+NET "out_led_p" LOC = U16;
+# NET "out_leds_p[4]" IOSTANDARD = LVCMOS33;
+# NET "out_leds_p[3]" IOSTANDARD = LVCMOS33;
+# NET "out_leds_p[2]" IOSTANDARD = LVCMOS33;
+# NET "out_leds_p[1]" IOSTANDARD = LVCMOS33;
+NET "out_led_p" IOSTANDARD = LVCMOS33;
