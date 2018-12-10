@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="D:/github/Digital-Hardware-Modelling/xilinx-ise/14.7/sseg_picoblaze/Testbench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="jtag_loader_pkg" />
+            <top_module name="math_real" />
+            <top_module name="numeric_std" />
+            <top_module name="shared_package" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="testbench" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/testbench/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/ssd/cnt_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt_reg[18:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_reg[18:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/ssd/clk_enable_sig" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_enable_sig</obj_property>
+      <obj_property name="ObjectShortName">clk_enable_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/ssd/current_state_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/ssd/next_state_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">next_state_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state_sig[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/digits_enable_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">digits_enable_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">digits_enable_sig[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/switches_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">switches_sig[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switches_sig[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/leds_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">leds_sig[7:0]</obj_property>
+      <obj_property name="ObjectShortName">leds_sig[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/buttons_in_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">buttons_in_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">buttons_in_sig[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/ssd/current_bcd_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">current_bcd_sig[3:0]</obj_property>
+      <obj_property name="ObjectShortName">current_bcd_sig[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/seg_sig" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">seg_sig[6:0]</obj_property>
+      <obj_property name="ObjectShortName">seg_sig[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/dp_out_sig" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dp_out_sig</obj_property>
+      <obj_property name="ObjectShortName">dp_out_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/in_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in_port[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_port[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/out_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_port[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_port[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/port_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_id[7:0]</obj_property>
+      <obj_property name="ObjectShortName">port_id[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[17:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[17:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address[11:0]</obj_property>
+      <obj_property name="ObjectShortName">address[11:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/bram_enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">bram_enable</obj_property>
+      <obj_property name="ObjectShortName">bram_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/write_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">write_strobe</obj_property>
+      <obj_property name="ObjectShortName">write_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/k_write_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">k_write_strobe</obj_property>
+      <obj_property name="ObjectShortName">k_write_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/read_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">read_strobe</obj_property>
+      <obj_property name="ObjectShortName">read_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/interrupt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/interrupt_ack" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">interrupt_ack</obj_property>
+      <obj_property name="ObjectShortName">interrupt_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/sleep" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sleep</obj_property>
+      <obj_property name="ObjectShortName">sleep</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/DUT/processor/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+</wave_config>
