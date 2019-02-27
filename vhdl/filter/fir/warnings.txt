@@ -1,0 +1,47 @@
+AME
+       TRANS-4  (warning)  Target library contains no replacement for register
+       '%s' (%s).
+
+
+DESCRIPTION
+       The named register could not be  translated  into  the  target_library.
+       The  most  likely  reason  is that no cell exists in the target_library
+       that matches  the  asynchronous  requirements  of  the  original  cell.
+       Another  possible  reason is that the target_library contains no regis-
+       ters, or has not been sequentially modeled.  The register is left as  a
+       generic flip-flop (**FFGEN**).
+
+
+WHAT NEXT
+       Add  a  correctly-modeled sequential element to the target_library with
+       the same asynchronous requirements as the cell that was not translated.
+
+                          Version L-2016.03-SP3
+            Copyright (c) 2016 Synopsys, Inc. All rights reserved.
+
+
+
+
+NAME
+       LINT-28  (warning)  In  design  '%s', port '%s' is not connected to any
+       nets.
+
+
+DESCRIPTION
+       This warning alerts you that a port in a design is not connected to any
+       nets.   This  usually  indicates  that  a design has not been correctly
+       specified. However, there are some situations where, as a designer, you
+       choose  to  specify  a port on a design for compatibility reasons, even
+       though the port is not internal to  design  use.   The  Synopsys  tools
+       leave  unconnected ports alone, with one exception; that is, you speci-
+       fied that a given input port is opposite or equal to another input port
+       in a design.
+
+
+WHAT_NEXT
+       Make  sure  that  you want the named port to exist in the given design,
+       even though it has no nets connected.  Remove the port from your design
+       if you choose.
+
+                          Version L-2016.03-SP3
+            Copyright (c) 2016 Synopsys, Inc. All rights reserved.

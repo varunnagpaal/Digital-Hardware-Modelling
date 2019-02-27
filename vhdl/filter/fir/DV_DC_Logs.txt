@@ -1,0 +1,194 @@
+dc_shell> gui_start
+4.1
+design_vision> sh mkdir WORK
+design_vision> define_design_lib WORK -path ./WORK
+design_vision> analyze -library WORK -format vhdl {/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl /home/eng/v/vxn180010/cad/project1/fir/fir_filter_shared_package.vhdl}
+Running PRESTO HDLC
+
+-------------------
+    26: use work.fir_filter_shared_package.all;
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[Error] FIR_FILTER_SHARED_PACKAGE is not a primary unit of library WORK
+Compiling Entity Declaration FIR_GENERIC_TRANSPOSED_FILTER
+
+-------------------
+    46:         x_data_in                   : in  signed(X_BIT_SIZE-1 downto 0);    -- Input samples
+                                                         ^^^^^^^^^^
+[Error] Name X_BIT_SIZE is unknown
+
+-------------------
+    47:         h_data_in                   : in  signed(H_BIT_SIZE-1 downto 0);    -- Coefficients of filter
+                                                         ^^^^^^^^^^
+[Error] Name H_BIT_SIZE is unknown
+
+-------------------
+    48:         y_data_out                  : out signed(Y_BIT_SIZE-1 downto 0)     -- Output samples
+                                                         ^^^^^^^^^^
+[Error] Name Y_BIT_SIZE is unknown
+
+-------------------
+    52: architecture fir_rtl_arch of fir_generic_transposed_filter is
+        ^^^^^^^^^^^^
+[Failure] End of compilation: error(s) in design unit FIR_GENERIC_TRANSPOSED_FILTER
+Compiling Architecture FIR_RTL_ARCH of FIR_GENERIC_TRANSPOSED_FILTER
+
+-------------------
+    52: architecture fir_rtl_arch of fir_generic_transposed_filter is
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[Failure] Entity declaration FIR_GENERIC_TRANSPOSED_FILTER not found in library WORK
+Compiling Package Declaration FIR_FILTER_SHARED_PACKAGE
+Compiling Package Body FIR_FILTER_SHARED_PACKAGE
+*** Presto compilation was unsuccessful. ***
+Loading db file '/home/eng/v/vxn180010/cad/synopsys/library.db'
+design_vision> elaborate DW01_ABSVAL -architecture CLA -library DW01 -parameters "width = "
+Loading db file '/proj/cad/synopsys/syn_vL-2016.03-SP3/libraries/syn/gtech.db'
+Loading db file '/proj/cad/synopsys/syn_vL-2016.03-SP3/libraries/syn/standard.sldb'
+  Loading link library 'library'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+width = 
+-------^
+Error:  Syntax error in parameter value list at or near token ' ' (string position 7). (VER-279)
+*** Presto compilation terminated with 1 errors. ***
+design_vision> analyze -library WORK -format vhdl {/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl /home/eng/v/vxn180010/cad/project1/fir/fir_filter_shared_package.vhdl}
+Running PRESTO HDLC
+Compiling Entity Declaration FIR_GENERIC_TRANSPOSED_FILTER
+Compiling Architecture FIR_RTL_ARCH of FIR_GENERIC_TRANSPOSED_FILTER
+Compiling Package Declaration FIR_FILTER_SHARED_PACKAGE
+Compiling Package Body FIR_FILTER_SHARED_PACKAGE
+Presto compilation completed successfully.
+design_vision> elaborate FIR_GENERIC_TRANSPOSED_FILTER -architecture FIR_RTL_ARCH -library WORK
+Running PRESTO HDLC
+Warning:  /home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl:48: Real types with ranges are not supported and will be ignored. (ELAB-1002)
+Warning:  /home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl:97: Initial values for signals/variables are not supported for synthesis by default. They are ignored. (VHD-7)
+Warning:  /home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl:97: Initial values for signals/variables are not supported for synthesis by default. They are ignored. (VHD-7)
+
+Inferred memory devices in process
+        in routine fir_generic_transposed_filter line 68 in file
+                '/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+| coefficient_mem_array_reg | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+=====================================================================================
+
+Inferred memory devices in process
+        in routine fir_generic_transposed_filter line 85 in file
+                '/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| input_sample_mem_reg | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+================================================================================
+
+Inferred memory devices in process
+        in routine fir_generic_transposed_filter line 97 in file
+                '/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| adder_mem_array_reg | Flip-flop |  132  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine fir_generic_transposed_filter line 129 in file
+                '/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  valid_out_reg_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| ready_h_out_reg_reg | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+| ready_x_out_reg_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine fir_generic_transposed_filter line 155 in file
+                '/home/eng/v/vxn180010/cad/project1/fir/fir_generic_transposed_filter.vhdl'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    coeff_cnt_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'fir_generic_transposed_filter'.
+design_vision> 
+Current design is 'fir_generic_transposed_filter'.
+Loading db file '/proj/cad/synopsys/syn_vL-2016.03-SP3/libraries/syn/class.sdb'
+Loading db file '/proj/cad/synopsys/syn_vL-2016.03-SP3/libraries/syn/generic.sdb'
+design_vision> compile -exact_map -ungroup_all -auto_ungroup area -only_design_rule
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.3 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 3 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+  Processing 'fir_generic_transposed_filter'
+Warning: Target library contains no replacement for register 'ready_h_out_reg_reg' (**FFGEN**). (TRANS-4)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'fir_generic_transposed_filter' has no optimization constraints set. (OPT-108)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'DW01_add_width33'
+  Processing 'DW02_mult_A_width16_B_width16'
+  Processing 'DW01_add_width30'
+  Processing 'DW01_add_width33'
+  Processing 'DW02_mult_A_width16_B_width16'
+  Processing 'DW01_add_width30'
+  Processing 'DW01_add_width33'
+  Processing 'DW02_mult_A_width16_B_width16'
+  Processing 'DW01_add_width30'
+  Processing 'DW02_mult_A_width16_B_width16'
+  Processing 'DW01_add_width30'
+Warning: Target library contains no replacement for register 'ready_h_out_reg_reg' (**FFGEN**). (TRANS-4)
+Warning: Target library contains no replacement for register 'ready_h_out_reg_reg' (**FFGEN**). (TRANS-4)
+
+  Beginning Mapping Optimizations  (Incremental)
+  -------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11   14895.0      0.00       0.0       0.0                          
+Loading db file '/home/eng/v/vxn180010/cad/synopsys/library.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+design_vision> uplevel #0 check_design
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP3
+Date:        Sun Sep 23 20:01:45 2018
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Unconnected ports (LINT-28)                                     1
+--------------------------------------------------------------------------------
+
+Warning: In design 'fir_generic_transposed_filter', port 'ready_in' is not connected to any nets. (LINT-28)
+design_vision> 

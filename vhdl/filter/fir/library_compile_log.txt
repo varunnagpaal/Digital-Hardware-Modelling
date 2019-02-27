@@ -1,0 +1,49 @@
+{engnx06:~/cad/synopsys} source ../profile.synopsys_2018 
+*** Steve Martindell (scm019300@utdallas.edu)
+*** Mar. 11, 2014: modified to pick up Custom_WaveView_I-2013.13-SP installation
+*** Apr. 18, 2014: modified to pick up Raphael_H-2013.03 installation
+*** Apr. 30, 2014: modified to pick up Prime_Time_I-2013.12-SP3 installation
+*** Oct. 15, 2014: modified to pick up MilkyWay_vI-2013.12-SP5-1 installation
+*** Feb. 02, 2015: modified to pick up StarRC_H-2013.06-SP3 installation
+*** Aug. 06, 2016: modified to pick up SiliconSmart_ACE_2016.06-1 installation
+*** Aug. 31, 2016: modified to pick up Synthesis_2016.03-SP3 installation
+*** Sep. 02, 2016: modified to pick up Library_Compiler lc_vL-2016.06-SP1 installation
+*** Oct. 21, 2016: modified to pick up VCS-MX vcs-mx_vL-2016.06-SP1-1 installation
+*** Nov. 21, 2016: modified to pick up HSPICE_vL-2016.06-SP1-1 installation
+*** Nov. 23, 2016: modified to pick up TetraMax_vL-2016.03-SP5 installation
+*** Dec. 20, 2016: modified to pick up IC WorkBench EV vM-2016.12 installation
+*** Aug. 02, 2017: modified to pick up IIC_vM-2016.12-SP5 installation
+*** Jul. 03, 2018: modified to pick up TCAD_Sentaurus_vO_2018.06 installation
+{engnx06:~/cad/synopsys} 
+{engnx06:~/cad/synopsys} lc_shell
+
+                             Library Compiler (TM)
+                                 DesignWare (R)
+
+               Version L-2016.06-SP1 for linux64 - Jul 12, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Initializing...
+lc_shell> read_lib library.lib 
+Reading '/home/eng/v/vxn180010/cad/synopsys/library.lib' ...
+Warning: Line 1, The default_operating_conditions is not defined. operating_conditions "nom_pvt" is created 
+	and set as the default_operating_conditions. (LBDB-662)
+Warning: Line 1, The attribute 'slew_lower_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'slew_upper_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'slew_lower_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'slew_upper_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'input_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'output_threshold_pct_rise' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'input_threshold_pct_fall' is not specified. (LBDB-605)
+Warning: Line 1, The attribute 'output_threshold_pct_fall' is not specified. (LBDB-605)
+Technology library 'library' read successfully
+1
+lc_shell> write_lib library -format db -output library.db
+Wrote the 'library' library to '/home/eng/v/vxn180010/cad/synopsys/library.db' successfully
+1
+

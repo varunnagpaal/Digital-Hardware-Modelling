@@ -1,0 +1,9 @@
+{signal: [
+  {name: 'clk', wave: '0P.......'},
+  {name: 'rst', wave: '01.0......', phase: 0.5},
+  {name: 'valid', wave: 'x0.'},
+  {name: 'A'  , wave: 'x..345345x', data: ['9', 'C', 'F', 'E', '5', '1'], phase: -0.4},
+  {name: 'B'  , wave: 'x..434.34x', data: ['1', '4', '3', 'A', '2', 'F'], phase: -0.4},
+  {name: 'c_in', wave: 'x.0.1.01..x', phase: 0.4},
+  {name: 'cntrl', wave: 'x..534534x', data: ['0010', '0000', '1111', '0101', '0100', '0111'], phase: -0.6}
+]}
