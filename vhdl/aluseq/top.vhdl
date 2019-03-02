@@ -19,13 +19,13 @@ end top;
 
 architecture rtl of top is
   -- 1: FETCH
-  signal reg_i_instr_1      : std_logic_vector( i_ctrl'RANGE )      := ( others => '1' );
+  signal reg_i_instr_1      : std_logic_vector( i_ctrl'RANGE )      := ( others => '0' );
   signal reg_i_data_a_1     : std_logic_vector( i_data_a'RANGE )    := ( others => '0' );
   signal reg_i_data_b_1     : std_logic_vector( i_data_b'RANGE )    := ( others => '0' );
   signal reg_i_data_carry_1 : std_logic                             := '0';
 
   -- 2: DECODE: Input signals for ALU
-  signal reg_i_instr_2      : std_logic_vector( i_ctrl'RANGE )      := ( others => '1' );
+  signal reg_i_instr_2      : std_logic_vector( i_ctrl'RANGE )      := ( others => '0' );
   signal reg_i_data_a_2     : std_logic_vector( i_data_a'RANGE )    := ( others => '0' );
   signal reg_i_data_b_2     : std_logic_vector( i_data_b'RANGE )    := ( others => '0' );
   signal reg_i_data_carry_2 : std_logic                             := '0';
@@ -57,10 +57,10 @@ begin
     if rising_edge(clk) then
       if( rst = '1' ) then
         -- 1: FETCH
-        reg_i_instr_1 <= ( others => '1' ); -- NOP
+        reg_i_instr_1 <= ( others => '0' ); -- NOP
 
         -- 2: DECODE
-        reg_i_instr_2 <= ( others => '1' ); -- NOP
+        reg_i_instr_2 <= ( others => '0' ); -- NOP
       else
         -- 1: FETCH
         reg_i_instr_1 <= i_ctrl;
