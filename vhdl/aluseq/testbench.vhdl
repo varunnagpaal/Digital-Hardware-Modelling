@@ -3,13 +3,13 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Testbench is
-  generic( W : natural := 4;
-           CLK_CYCLE_TIME : time := 100 ns;
-           CLK_HIGH_TIME : time := 50 ns;
-           CLK_LOW_TIME : time := 50 ns );
 end Testbench;
 
-architecture test of testbench is
+architecture test of Testbench is
+
+  constant W              : natural   := 4;
+  constant CLK_CYCLE_TIME : time      := 100 ns;
+  signal   sim_end        : boolean   := false;
 
   signal clk        : std_logic                       := '0';
   signal rst        : std_logic                       := '1';
@@ -42,18 +42,34 @@ begin
   -- Clock generation
   clk_gen: process
   begin
-    clk <= '0';
-    wait for CLK_LOW_TIME;
-    clk <= '1';
-    wait for CLK_HIGH_TIME;
+    if( not sim_end ) then
+      clk <= '0';
+      wait for CLK_CYCLE_TIME/2;
+      clk <= '1';
+      wait for CLK_CYCLE_TIME/2;
+    else
+      wait;
+    end if;
   end process clk_gen;
 
   -- Reset generation
   rst <= '1',
          '0' after 2*CLK_CYCLE_TIME;
              
-  -- test vectors
+  -- Apply Stimulus to DUT
   stimulus : process
+    procedure apply_stim( constant A : in natural;
+                          constant B : in natural;
+                          constant CIN: in std_logic;
+                          constant INSTR: in natural;
+                          constant DELAY: in time ) is
+    begin
+      data_a <= std_logic_vector( to_unsigned( A, data_a'LENGTH ) );
+      data_a <= std_logic_vector( to_unsigned( B, data_b'LENGTH ) );
+      data_cin <= CIN;
+      ctrl <= std_logic_vector( to_unsigned( INSTR, ctrl'LENGTH ) );
+      wait for DELAY;
+    end procedure apply_stim;
   begin
     -- Initialize all to 0 
     data_a <= x"0";
@@ -111,5 +127,34 @@ begin
     data_b <= x"1";
     ctrl <= "0111";
     wait for CLK_CYCLE_TIME;
+
+    -- NOP
+    data_a <= x"0";
+    data_b <= x"0";
+    data_cin <= '0';
+    ctrl <= ( others => '0' ); -- NOP0
+    wait for 4 * CLK_CYCLE_TIME;
+
+    sim_end <= true;
+    wait;
   end process stimulus;
+
+
+  -- Check response of the DUT
+  checker: process
+    procedure check_resp( constant EXP_C : in natural;
+                          constant EXP_COUT: in std_logic;
+                          constant EXP_COMP : in natural;
+                          constant DELAY: in time ) is
+      variable res_c: natural;
+      variable res_cout: std_logic;
+      variable res_comp: natural;
+      variable res_valid: std_logic;
+    begin
+      -- TBU
+      wait for DELAY;
+    end procedure check_resp;
+  begin
+    wait;
+  end process checker;  
 end architecture test;

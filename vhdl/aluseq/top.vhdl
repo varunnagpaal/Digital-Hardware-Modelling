@@ -24,11 +24,17 @@ architecture rtl of top is
   signal reg_i_data_b_1     : std_logic_vector( i_data_b'RANGE )    := ( others => '0' );
   signal reg_i_data_carry_1 : std_logic                             := '0';
 
-  -- 2: DECODE: Input signals for ALU
+  -- 2: DECODE
   signal reg_i_instr_2      : std_logic_vector( i_ctrl'RANGE )      := ( others => '0' );
   signal reg_i_data_a_2     : std_logic_vector( i_data_a'RANGE )    := ( others => '0' );
   signal reg_i_data_b_2     : std_logic_vector( i_data_b'RANGE )    := ( others => '0' );
   signal reg_i_data_carry_2 : std_logic                             := '0';
+
+  -- 3: Execute
+  signal reg_i_instr_3      : std_logic_vector( i_ctrl'RANGE )      := ( others => '0' );
+  signal reg_i_data_a_3     : std_logic_vector( i_data_a'RANGE )    := ( others => '0' );
+  signal reg_i_data_b_3     : std_logic_vector( i_data_b'RANGE )    := ( others => '0' );
+  signal reg_i_data_carry_3 : std_logic                             := '0';
 
   -- Output signals of ALU
   signal sig_data_c         : std_logic_vector( o_data_c'RANGE )    := ( others=> '0' );
@@ -51,7 +57,7 @@ architecture rtl of top is
   end component alu;
 begin
 
-  -- Instruction pipeline (1: FETCH, 2: DECODE)
+  -- Instruction pipeline (1: FETCH, 2: DECODE, 3: EXECUTE)
   mem_instr: process(clk)
   begin
     if rising_edge(clk) then
@@ -61,17 +67,23 @@ begin
 
         -- 2: DECODE
         reg_i_instr_2 <= ( others => '0' ); -- NOP
+
+        -- 2: DECODE
+        reg_i_instr_3 <= ( others => '0' ); -- NOP
       else
         -- 1: FETCH
         reg_i_instr_1 <= i_ctrl;
 
         -- 2: DECODE
         reg_i_instr_2 <= reg_i_instr_1;
+
+        -- 3: Execute
+        reg_i_instr_3 <= reg_i_instr_2;        
       end if;
     end if;
   end process mem_instr;
 
-  -- Operand pipeline (1: FETCH, 2: DECODE)
+  -- Operand pipeline (1: FETCH, 2: DECODE, 3: EXECUTE)
   mem_operands: process(clk)
   begin
     if rising_edge(clk) then
@@ -85,6 +97,11 @@ begin
         reg_i_data_a_2 <= ( others => '0' );
         reg_i_data_b_2 <= ( others => '0' );
         reg_i_data_carry_2 <= '0';
+
+        -- 2: Execute
+        reg_i_data_a_3 <= ( others => '0' );
+        reg_i_data_b_3 <= ( others => '0' );
+        reg_i_data_carry_3 <= '0';        
       else
         -- 1: FETCH
         reg_i_data_a_1 <= i_data_a;
@@ -95,19 +112,24 @@ begin
         reg_i_data_a_2 <= reg_i_data_a_1;
         reg_i_data_b_2 <= reg_i_data_b_1;        
         reg_i_data_carry_2 <= reg_i_data_carry_1;
+
+        -- 2: EXECUTE
+        reg_i_data_a_3 <= reg_i_data_a_2;
+        reg_i_data_b_3 <= reg_i_data_b_2;        
+        reg_i_data_carry_3 <= reg_i_data_carry_2;        
       end if;
     end if;
   end process mem_operands;
 
   -- 2: DECODE
   -- Check if fetched instruction is a valid instruction
-  sig_valid <= '1' when reg_i_instr_1 = "0001" OR
-                        reg_i_instr_1 = "0010" OR
-                        reg_i_instr_1 = "0011" OR
-                        reg_i_instr_1 = "0100" OR
-                        reg_i_instr_1 = "0101" OR
-                        reg_i_instr_1 = "0110" OR
-                        reg_i_instr_1 = "0111" else '0';
+  sig_valid <= '1' when reg_i_instr_2 = "0001" OR
+                        reg_i_instr_2 = "0010" OR
+                        reg_i_instr_2 = "0011" OR
+                        reg_i_instr_2 = "0100" OR
+                        reg_i_instr_2 = "0101" OR
+                        reg_i_instr_2 = "0110" OR
+                        reg_i_instr_2 = "0111" else '0';
 
   -- 2: DECODE
   mem_valid: process(clk)
@@ -127,10 +149,10 @@ begin
   -- 3: EXECUTE
   alu_inst:  alu
               generic map( W => W )
-              port map( i_data_a      => reg_i_data_a_2,
-                        i_data_b      => reg_i_data_b_2,
-                        i_data_carry  => reg_i_data_carry_2,
-                        i_ctrl        => reg_i_instr_2,
+              port map( i_data_a      => reg_i_data_a_3,
+                        i_data_b      => reg_i_data_b_3,
+                        i_data_carry  => reg_i_data_carry_3,
+                        i_ctrl        => reg_i_instr_3,
                         o_data_c      => sig_data_c,
                         o_data_carry  => sig_data_carry,
                         o_data_comp   => sig_data_comp );
