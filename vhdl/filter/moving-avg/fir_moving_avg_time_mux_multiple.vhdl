@@ -35,12 +35,13 @@ use ieee.numeric_std.all;
 --      r = resource id = 0 to R-1
 --      s = sample id = 0 to M-1
 --
--- This allocates resource id
---  0 with sub-sequence     : x[n]          x[n-R]          ... x[n-RM+R]
---  1 with sub-sequence     : x[n-1]        x[n-1-R]        ... x[n-1-RM+R]
---  2 with sub-sequence     : x[n-2]        x[n-2-R]        ... x[n-2-RM+R]
---  ...
---  R-1 with sub-sequence   : x[n-R+1]      x[n-R+1-R]      ... x[n-R+1-RM+R] = x[n-L+1]
+-- This allocates rth resource id with subsequence
+--              m = 0    m = 1         m = M-1 
+--  r = 0   :   x[n-1]   x[n-1-R]  ... x[n-1-RM+R]
+--  r = 1   :   x[n-2]   x[n-2-R]  ... x[n-2-RM+R]
+--  r = 2   :   x[n-3]   x[n-3-R]  ... x[n-3-RM+R]
+--  ..
+--  r = R-1 :   x[n-R]   x[n-R-R]  ... x[n-R-RM+R] = x[n-RM]= x[n-L]
 --
 -- While we can implement any of above two equations, 
 -- in our design we implement the second of the above 
@@ -64,8 +65,8 @@ entity fir is
 end fir;
 
 architecture rtl of fir is
-    type  t_reg_xn_del is array ( 0 to L-1 ) of signed( W-1 downto 0 );
-    signal reg_x_del : t_reg_xn_del                     := ( others => ( others => '0' ) );
+    type  t_reg_x is array ( 0 to L-1 ) of signed( W-1 downto 0 );
+    signal reg_x : t_reg_x                     := ( others => ( others => '0' ) );
 
     -- R outputs of R muxes (one mux output per resource)
     type t_array_mux_out_x is array ( 0 to R-1 ) of signed( W-1 downto 0 );
@@ -96,34 +97,33 @@ architecture rtl of fir is
 
 begin
     
-    -- Generate x[n-1],xn-2]...x[n-L+1], x[n-L]
+    -- Generate x[n-1],x[n-2]...x[n-L+1], x[n-L]
     process ( clk, reset_n )
     begin
         if ( reset_n = '0' ) then
-            for i in reg_x_del'RANGE(1) loop
-                reg_x_del(i) <= ( others => '0');
+            for i in 0 to (L-1) loop
+                reg_x(i) <= ( others => '0');
             end loop;
         elsif ( rising_edge(clk) ) then
-            reg_x_del(0) <= signed(fir_in);
-            for i in 1 to reg_x_del'RIGHT(1) loop
-                reg_x_del(i) <= reg_x_del(i-1);         
+            reg_x(0) <= signed(fir_in);
+            for i in 1 to (L-1) loop
+                reg_x(i) <= reg_x(i-1);         
             end loop;
         end if;
     end process;
 
-    -- Assign delayed inputs x[n]'s to input of every mux
-    -- This is equivalent to allocating the following 
-    -- sub-sequences to each resource with resource id
-    --  r = 0   :   x[n]        x[n-R]          ... x[n-RM+R]
-    --  r = 1   :   x[n-1]      x[n-1-R]        ... x[n-1-RM+R]
-    --  r = 2   :   x[n-2]      x[n-2-R]        ... x[n-2-RM+R]
+    -- Allocate following data lines as inputs to the rth multiplexer:
+    --              m = 0    m = 1         m = M-1 
+    --  r = 0   :   x[n-1]   x[n-1-R]  ... x[n-1-RM+R]
+    --  r = 1   :   x[n-2]   x[n-2-R]  ... x[n-2-RM+R]
+    --  r = 2   :   x[n-3]   x[n-3-R]  ... x[n-3-RM+R]
     --  ..
-    --  r = R-1 :   x[n-R+1]    x[n-R+1-R]      ... x[n-R+1-RM+R] = x[n-L+1]
-    process( reg_x_del )
+    --  r = R-1 :   x[n-R]   x[n-R-R]  ... x[n-R-RM+R] = x[n-RM]= x[n-L]
+    process( reg_x )
     begin
         for r in 0 to R-1 loop
-            for s in 0 to M-1 loop
-                sig_array_mux_in_x( r*M + s ) <= reg_x_del( s*R + r );
+            for m in 0 to M-1 loop
+                sig_array_mux_in_x( r*M + m ) <= reg_x( m*R + r );
             end loop;
         end loop;
     end process;
