@@ -50,7 +50,7 @@ use ieee.numeric_std.all;
 entity fir is
     generic( L      : natural := 16;                            -- L = Filter length or number of points to be averaged
              L_BW   : natural := 4;                             -- L_BW = Ceil(Log2(L))
-             R      : natural := 4;                             -- R = Number of resources (adders)
+             R      : natural := 4;                             -- R = Number of resources (adders and multiplexers)
              R_BW   : natural := 2;                             -- R_BW = Ceil(Log2(R))
              M      : natural := 4;                             -- M = L/R = Samples to be processed per resource (adder)
              M_BW   : natural := 2;                             -- M_BW = Ceil(Log2(M)) = number of select bits for M samples
@@ -66,7 +66,7 @@ end fir;
 
 architecture rtl of fir is
     type  t_reg_x is array ( 0 to L-1 ) of signed( W-1 downto 0 );
-    signal reg_x : t_reg_x                     := ( others => ( others => '0' ) );
+    signal reg_x : t_reg_x := ( others => ( others => '0' ) );
 
     -- R outputs of R muxes (one mux output per resource)
     type t_array_mux_out_x is array ( 0 to R-1 ) of signed( W-1 downto 0 );
@@ -113,17 +113,17 @@ begin
     end process;
 
     -- Allocate following data lines as inputs to the rth multiplexer:
-    --              m = 0    m = 1         m = M-1 
-    --  r = 0   :   x[n-1]   x[n-1-R]  ... x[n-1-RM+R]
-    --  r = 1   :   x[n-2]   x[n-2-R]  ... x[n-2-RM+R]
-    --  r = 2   :   x[n-3]   x[n-3-R]  ... x[n-3-RM+R]
+    --              j = 0    j = 1         j = M-1 
+    --  i = 0   :   x[n-1]   x[n-1-R]  ... x[n-1-RM+R]
+    --  i = 1   :   x[n-2]   x[n-2-R]  ... x[n-2-RM+R]
+    --  i = 2   :   x[n-3]   x[n-3-R]  ... x[n-3-RM+R]
     --  ..
-    --  r = R-1 :   x[n-R]   x[n-R-R]  ... x[n-R-RM+R] = x[n-RM]= x[n-L]
+    --  i = R-1 :   x[n-R]   x[n-R-R]  ... x[n-R-RM+R] = x[n-RM]= x[n-L]
     process( reg_x )
     begin
-        for r in 0 to R-1 loop
-            for m in 0 to M-1 loop
-                sig_array_mux_in_x( r*M + m ) <= reg_x( m*R + r );
+        for i in 0 to R-1 loop
+            for j in 0 to M-1 loop
+                sig_array_mux_in_x( i*M + j) <= reg_x( i + j*R );
             end loop;
         end loop;
     end process;
@@ -144,8 +144,8 @@ begin
     -- Generate the R muxes
     process ( sig_array_mux_in_x, sig_mux_sel_cnt )
     begin
-        for r in 0 to R-1 loop
-            sig_array_mux_out_x( r ) <= sig_array_mux_in_x( to_integer( sig_mux_sel_cnt ) );
+        for i in 0 to R-1 loop
+            sig_array_mux_out_x( i ) <= sig_array_mux_in_x( to_integer( sig_mux_sel_cnt ) );
         end loop;
     end process;
 
@@ -163,9 +163,9 @@ begin
     begin
         sig_array_signed_adders(0) <= resize( sig_array_mux_out_x(0), sig_array_signed_adders(0)'LENGTH ) + 
                                       resize( sig_array_mux_out_x(1), sig_array_signed_adders(0)'LENGTH );
-        for r in 1 to R-2 loop
-            sig_array_signed_adders(r)<= resize( sig_array_signed_adders(r-1), sig_array_signed_adders(r)'LENGTH ) + 
-                                         resize( sig_array_mux_out_x(r+1), sig_array_signed_adders(r)'LENGTH );
+        for i in 1 to R-2 loop
+            sig_array_signed_adders(i)<= resize( sig_array_signed_adders(i-1), sig_array_signed_adders(i)'LENGTH ) + 
+                                         resize( sig_array_mux_out_x(i+1), sig_array_signed_adders(i)'LENGTH );
         end loop;
     end process comb_adders;
 
