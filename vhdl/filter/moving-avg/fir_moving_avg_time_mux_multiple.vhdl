@@ -73,8 +73,11 @@ architecture rtl of fir is
     signal sig_array_mux_out_x : t_array_mux_out_x := ( others => ( others => '0') );
 
     -- Each of the R muxes has M data inputs requiring total of L=MR data inputs
-    type t_array_mux_in_x is array ( 0 to L-1 ) of signed( W-1 downto 0 );
-    signal sig_array_mux_in_x : t_array_mux_in_x := ( others => ( others => '0') );
+    --type t_array_mux_in_x is array ( 0 to L-1 ) of signed( W-1 downto 0 );
+    --signal sig_array_mux_in_x : t_array_mux_in_x := ( others => ( others => '0') );
+
+    type t_mux_in is array ( 0 to R-1, 0 to M-1 ) of signed( W-1 downto 0 );
+    signal sig_array_mux_in_x : t_mux_in := ( others => ( others => ( others => '0') ) );
 
     -- M_BW-bit select signal for each mux where M_BW = Ceil(Log2(M)), M = L/R
     signal sig_mux_sel_cnt      : unsigned( M_BW-1 downto 0 ) := ( others => '0' );
@@ -105,10 +108,12 @@ begin
                 reg_x(i) <= ( others => '0');
             end loop;
         elsif ( rising_edge(clk) ) then
-            reg_x(0) <= signed(fir_in);
-            for i in 1 to (L-1) loop
-                reg_x(i) <= reg_x(i-1);         
-            end loop;
+            if( fir_en = '1' ) then
+                reg_x(0) <= signed(fir_in);
+                for i in 1 to (L-1) loop
+                    reg_x(i) <= reg_x(i-1);
+                end loop;
+            end if;
         end if;
     end process;
 
@@ -123,7 +128,7 @@ begin
     begin
         for i in 0 to R-1 loop
             for j in 0 to M-1 loop
-                sig_array_mux_in_x( i*M + j) <= reg_x( i + j*R );
+                sig_array_mux_in_x( i, j ) <= reg_x( i + j*R );
             end loop;
         end loop;
     end process;
@@ -132,10 +137,12 @@ begin
     process ( clk, reset_n )
     begin
         if ( reset_n = '0' ) then
-            sig_mux_sel_cnt <= ( others => '0' );
+            sig_mux_sel_cnt <= to_unsigned( M-1, sig_mux_sel_cnt'LENGTH );
         elsif ( rising_edge( clk ) ) then
-            sig_mux_sel_cnt <= sig_mux_sel_cnt_next;
-        end if ;
+            if ( fir_en = '1' ) then
+                sig_mux_sel_cnt <= sig_mux_sel_cnt_next;
+            end if;
+        end if;
     end process;
 
     sig_mux_sel_cnt_next <= ( others => '0' ) when sig_mux_sel_cnt = ( M-1 ) else
@@ -145,7 +152,7 @@ begin
     process ( sig_array_mux_in_x, sig_mux_sel_cnt )
     begin
         for i in 0 to R-1 loop
-            sig_array_mux_out_x( i ) <= sig_array_mux_in_x( to_integer( sig_mux_sel_cnt ) );
+            sig_array_mux_out_x( i ) <= sig_array_mux_in_x( i, to_integer( sig_mux_sel_cnt ) );
         end loop;
     end process;
 
@@ -182,7 +189,9 @@ begin
         if ( reset_n = '0' ) then
             reg_y_sum <= ( others => '0');
         elsif ( rising_edge(clk) ) then
-            reg_y_sum <= sig_y_sum;
+            if( fir_en = '1' ) then
+                reg_y_sum <= sig_y_sum;
+            end if;
         end if;
     end process;
 
@@ -194,7 +203,9 @@ begin
         if ( reset_n = '0' ) then
             fir_out <= ( others => '0' );
         elsif ( rising_edge( clk ) ) then
-            fir_out <= std_logic_vector( sig_y_out( W-1 downto 0 ) );
+            if( fir_en = '1' ) then
+                fir_out <= std_logic_vector( sig_y_out( W-1 downto 0 ) );
+            end if;
         end if;
     end process;
 end rtl;
