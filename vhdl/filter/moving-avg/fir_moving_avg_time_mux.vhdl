@@ -1,3 +1,6 @@
+-- Author: Varun Nagpal
+-- May 4th, 2019
+
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -36,8 +39,8 @@ entity fir is
 end fir;
 
 architecture rtl of fir is
-	type  t_reg_xn_del is array (0 to L-1) of signed( W-1 downto 0 );
-	signal reg_x_del : t_reg_xn_del				:= ( others => ( others => '0' ) );
+	type  t_reg_xn_del is array ( 0 to L-1 ) of signed( W-1 downto 0 );
+	signal reg_x_del : t_reg_xn_del					:= ( others => ( others => '0' ) );
 
 	signal sig_x_diff  	: signed( W downto 0 )		:= ( others => '0' );	-- add/sub of two W-bit signed numbers requires W+1 bits
 	signal sig_y_sum  	: signed( W+B-1 downto 0 )	:= ( others => '0' );	-- add/sub of two W+1 bit signed number did B = log2(L) 
