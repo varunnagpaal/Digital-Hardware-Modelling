@@ -1,3 +1,6 @@
+-- Author: Varun Nagpal
+-- May 4th, 2019
+
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -101,6 +104,7 @@ architecture rtl of fir is
 begin
     
     -- Generate x[n-1],x[n-2]...x[n-L+1], x[n-L]
+    -- Shift x[n] after every M clock cycles
     process ( clk, reset_n )
     begin
         if ( reset_n = '0' ) then
@@ -109,10 +113,12 @@ begin
             end loop;
         elsif ( rising_edge(clk) ) then
             if( fir_en = '1' ) then
-                reg_x(0) <= signed(fir_in);
-                for i in 1 to (L-1) loop
-                    reg_x(i) <= reg_x(i-1);
-                end loop;
+                if ( sig_mux_sel_cnt = (M-1) ) then
+                    reg_x(0) <= signed(fir_in);
+                    for i in 1 to (L-1) loop
+                        reg_x(i) <= reg_x(i-1);
+                    end loop;
+                end if;
             end if;
         end if;
     end process;
@@ -166,7 +172,7 @@ begin
     --
     -- Note: The last signed adder to be used for 
     --       accumulation is generated separately   
-    comb_adders : process ( sig_array_mux_out_x )
+    comb_adders : process ( sig_array_mux_out_x, sig_array_signed_adders )
     begin
         sig_array_signed_adders(0) <= resize( sig_array_mux_out_x(0), sig_array_signed_adders(0)'LENGTH ) + 
                                       resize( sig_array_mux_out_x(1), sig_array_signed_adders(0)'LENGTH );
@@ -190,7 +196,12 @@ begin
             reg_y_sum <= ( others => '0');
         elsif ( rising_edge(clk) ) then
             if( fir_en = '1' ) then
-                reg_y_sum <= sig_y_sum;
+                if ( sig_mux_sel_cnt = (M-1) ) then
+                    -- reset the accumulated sum after every M clock cycles
+                    reg_y_sum <= ( others => '0');
+                else
+                    reg_y_sum <= sig_y_sum;
+                end if;
             end if;
         end if;
     end process;
@@ -204,7 +215,10 @@ begin
             fir_out <= ( others => '0' );
         elsif ( rising_edge( clk ) ) then
             if( fir_en = '1' ) then
-                fir_out <= std_logic_vector( sig_y_out( W-1 downto 0 ) );
+                -- Produce filter output after every M clock cycles
+                if ( sig_mux_sel_cnt = (M-1) ) then
+                    fir_out <= std_logic_vector( sig_y_out( W-1 downto 0 ) );
+                end if;
             end if;
         end if;
     end process;
