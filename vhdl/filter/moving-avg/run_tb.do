@@ -8,6 +8,7 @@ vsim -novopt sandbox.fir(rtl) sandbox.testbench(test)
 add wave -position end sim:/testbench/DUT/clk
 add wave -position end sim:/testbench/DUT/reset_n
 add wave -position end sim:/testbench/DUT/fir_en
+add wave -position end sim:/testbench/DUT/fir_rdy
 add wave -position end -decimal sim:/testbench/DUT/fir_in
 add wave -position end -decimal sim:/testbench/DUT/reg_x
 add wave -position end -decimal sim:/testbench/DUT/sig_array_mux_in_x
@@ -22,4 +23,4 @@ add wave -position end -decimal sim:/testbench/DUT/fir_out
 
 run -all
 
-echo "When you are done examining the waveform, you may run following do script to stop the simulation, remove sandbox and quit modelsim: \"do clean.do\""
+echo "To stop and save the simulation execute command: \"do save.do\". To remove sandbox and quit modelsim execute command: \"do clean.do\""

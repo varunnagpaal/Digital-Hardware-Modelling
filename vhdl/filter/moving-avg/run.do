@@ -8,6 +8,7 @@ vsim -novopt sandbox.fir(rtl)
 add wave -position end sim:/fir/clk
 add wave -position end sim:/fir/reset_n
 add wave -position end sim:/fir/fir_en
+add wave -position end sim:/fir/fir_rdy
 add wave -position end -decimal sim:/fir/fir_in
 add wave -position end -decimal sim:/fir/fir_out
 add wave -position end -decimal sim:/fir/reg_x
@@ -64,4 +65,4 @@ run 40ns
 force -freeze sim:/fir/fir_in 16'h0010 0
 run 40ns
 
-echo "When you are done examining the waveform, you may run following do script to stop the simulation, remove sandbox and quit modelsim: \"do clean.do\""
+echo "To stop and save the simulation execute command: \"do save.do\". To remove sandbox and quit modelsim execute command: \"do clean.do\""
