@@ -1,9 +1,11 @@
 vmap -del sandbox
 vlib sandbox
 vmap sandbox sandbox
-vcom -work sandbox -check_synthesis -source -2008 fir_moving_avg_time_mux_multiple.vhdl
-vcom -work sandbox -source -2008 tb_fir_moving_avg_time_mux_multiple.vhdl
+vcom -work sandbox -check_synthesis -source -2008 d:/github/digital-Hardware-Modelling/vhdl/filter/moving-avg/fir_moving_avg_time_mux_multiple.vhdl
+vcom -work sandbox -source -2008 d:/github/digital-Hardware-Modelling/vhdl/filter/moving-avg/tb_fir_moving_avg_time_mux_multiple.vhdl
 vsim -novopt sandbox.fir(rtl) sandbox.testbench(test)
+
+set NumericStdNoWarnings 1
 
 add wave -position end sim:/testbench/DUT/clk
 add wave -position end sim:/testbench/DUT/reset_n
@@ -23,4 +25,4 @@ add wave -position end -decimal sim:/testbench/DUT/fir_out
 
 run -all
 
-echo "To stop and save the simulation execute command: \"do save.do\". To remove sandbox and quit modelsim execute command: \"do clean.do\""
+echo "To stop and save the simulation as vcd  file execute command: \"do save.do\". To remove sandbox and quit modelsim execute command: \"do clean.do\""

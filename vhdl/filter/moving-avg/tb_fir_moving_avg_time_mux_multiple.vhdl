@@ -10,18 +10,19 @@ end Testbench;
 
 architecture test of Testbench is
 
+    -- Constants to initialize generics of DUT
+    constant L      : natural := 256;
+    constant L_BW   : natural := natural(ceil(log2(real(L))));
+    constant R      : natural := 16;
+    constant R_BW   : natural := natural(ceil(log2(real(R))));
+    constant M      : natural := 16;
+    constant M_BW   : natural := natural(ceil(log2(real(M))));
+    constant W      : natural := 16;
+
     -- Simulation control
     constant CLK_CYCLE_TIME : time      := 10 ns;
     signal   sim_end        : boolean   := false;
-
-    -- Constants to initialize generics of DUT
-    constant L      : natural := 16;
-    constant L_BW   : natural := natural(ceil(log2(real(L))));
-    constant R      : natural := 4;
-    constant R_BW   : natural := natural(ceil(log2(real(R))));
-    constant M      : natural := 4;
-    constant M_BW   : natural := natural(ceil(log2(real(M))));
-    constant W      : natural := 16;
+    signal   sample_cnt     : natural   := 1024;--natural(2**(W-1));
 
     -- Signals to connect ports of DUT
     signal clk       : std_logic                        := '0';                 -- clock
@@ -99,7 +100,7 @@ begin
             wait until falling_edge( clk );
         end loop;
 
-        -- Enable filter and wait for M clock cycles
+        -- Enable filter and wait for M clock cycles (falling edges)
         en := '1';
         apply_stimulus( en, integer(x) );
         for i in 1 to M loop
@@ -107,39 +108,43 @@ begin
         end loop;
 
         -- Apply simple increasing stimulus
-        for i in 0 to 16 loop
+        for i in 0 to (sample_cnt-1) loop
             apply_stimulus( en, i+1, M*CLK_CYCLE_TIME );
         end loop;
 
         -- Apply random stimulus
-        for i in 0 to 16 loop
+        for i in 0 to (sample_cnt-1) loop
             -- x = random number between 0.0 and 1.0 (exclusive)
             uniform( seed1, seed2, x );
-            apply_stimulus( en, integer(floor(x * real( 2**W))), M*CLK_CYCLE_TIME );
+            apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
         end loop;
 
         -- Apply upward trend stimulus
-        for i in 0 to 16 loop
+        for i in 0 to (sample_cnt-1) loop
             if ( i rem 4 = 0 ) then
                 -- x = random number between 0.0 and 1.0 (exclusive)
                 uniform( seed1, seed2, x );
-                apply_stimulus( en, integer(floor(x * real( 2**W))), M*CLK_CYCLE_TIME );
+                apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
             else
                 apply_stimulus( en, i, M*CLK_CYCLE_TIME );
             end if;
         end loop;
 
         -- Apply downward trend stimulus
-        for i in 16 downto 0  loop
+        for i in (sample_cnt-1) downto 0  loop
             wait until falling_edge( clk );
             if ( i rem 4 = 0 ) then
                 -- x = random number between 0.0 and 1.0 (exclusive)
                 uniform( seed1, seed2, x );
-                apply_stimulus( en, integer(floor(x * real( 2**W))), M*CLK_CYCLE_TIME );
+                apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
             else
                 apply_stimulus( en, i, M*CLK_CYCLE_TIME );
             end if;
         end loop;
+
+        -- Disable the filter
+        en := '0';
+        apply_stimulus( en, 0, M*CLK_CYCLE_TIME );
 
         -- End simulation
         sim_end <= true;

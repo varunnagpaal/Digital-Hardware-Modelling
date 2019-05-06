@@ -101,7 +101,24 @@ architecture rtl of fir is
     signal reg_y_sum    : signed( W+L_BW-1 downto 0 )   := ( others => '0' );
     signal sig_y_out    : signed( W+L_BW-1 downto 0 )   := ( others => '0' );
 
+    signal reg_fir_rdy  : std_logic := '0';
 begin
+
+    -- Generate ready signal 1 cc after enable input changes
+    process( clk, reset_n )
+    begin
+        if( reset_n = '0' ) then
+            reg_fir_rdy <= '0';
+            fir_rdy <= '0';
+        elsif ( rising_edge(clk) ) then
+            if( fir_en = '1' ) then
+                reg_fir_rdy <= '1';
+            else
+                reg_fir_rdy <= '0';
+            end if;
+            fir_rdy <= reg_fir_rdy;
+        end if;
+    end process;
     
     -- Generate x[n-1],x[n-2]...x[n-L+1], x[n-L]
     -- Shift x[n] after every M clock cycles
@@ -112,6 +129,7 @@ begin
                 reg_x(i) <= ( others => '0');
             end loop;
         elsif ( rising_edge(clk) ) then
+            -- Shift new data only when filter is enabled
             if( fir_en = '1' ) then
                 if ( sig_mux_sel_cnt = (M-1) ) then
                     reg_x(0) <= signed(fir_in);
@@ -143,9 +161,9 @@ begin
     process ( clk, reset_n )
     begin
         if ( reset_n = '0' ) then
-            sig_mux_sel_cnt <= to_unsigned( M-1, sig_mux_sel_cnt'LENGTH );
+            sig_mux_sel_cnt <= to_unsigned( 0, sig_mux_sel_cnt'LENGTH );
         elsif ( rising_edge( clk ) ) then
-            if ( fir_en = '1' ) then
+            if ( reg_fir_rdy = '1' ) then
                 sig_mux_sel_cnt <= sig_mux_sel_cnt_next;
             end if;
         end if;
@@ -210,14 +228,26 @@ begin
     sig_y_out <= sig_y_sum srl L_BW;
 
     process ( clk, reset_n )
+        variable temp : signed( W-1 downto 0 ) := ( others => '0' );
     begin
         if ( reset_n = '0' ) then
             fir_out <= ( others => '0' );
         elsif ( rising_edge( clk ) ) then
+            temp := ( others => '0' );
             if( fir_en = '1' ) then
                 -- Produce filter output after every M clock cycles
                 if ( sig_mux_sel_cnt = (M-1) ) then
-                    fir_out <= std_logic_vector( sig_y_out( W-1 downto 0 ) );
+                    -- Round towards 0.
+                    -- This means when doing binary division of a negative signed number
+                    -- with a positive number through right shifting operation,
+                    -- the rounding of quotient happens towards +infinity.
+                    -- So there is a DC offset in negative quotients which needs to be eliminated
+                    -- by rounding negative quotients towards zero instead of +infinity
+                    temp := sig_y_out( W-1 downto 0 );
+                    if ( temp(W-1) = '1' ) then
+                        temp := temp+1;
+                    end if;
+                    fir_out <= std_logic_vector( temp );
                 end if;
             end if;
         end if;
