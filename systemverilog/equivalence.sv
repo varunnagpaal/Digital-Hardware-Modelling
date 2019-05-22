@@ -9,10 +9,8 @@
 
 
 // Interface: I/O Ports
-module equivalence(
-  input logic a,b;
-  output logic y
-  );
+module equivalence( input logic a,b;
+                   output logic y );
 
   //-----------------------------Start Architecture--------------------------//
 

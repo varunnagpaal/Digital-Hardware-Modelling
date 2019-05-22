@@ -2,18 +2,17 @@
 // Module Name  : majority
 // File name    : majority.sv
 // Description  : Majority Function
-//                Inputs: a,b,c (odd number of inputs)
-//                Output: Equal to majority input state(0 or 1) = ab+bc+ca = (a+b)c+ca
-// Type         : Combinational - Structural
+// Inputs       : a,b,c (odd number of inputs)
+// Outputs      : y = majority input state(0 or 1)=ab+bc+ca=(a+b)c+ca
+// Type         : Combinational
+// Model Style  : structural
 // Author       : Varun Nagpal
 // Revision|Date: 0.1 | 25/11/2016
 ///////////////////////////////////////////////////////////////////////////////
 
 // Interface: I/O Ports
-module majority(
-  input logic a,b,c;
-  output logic y
-  );
+module majority( input logic a,b,c;
+                output logic y );
 
   //-----------------------------Start Architecture--------------------------//
 

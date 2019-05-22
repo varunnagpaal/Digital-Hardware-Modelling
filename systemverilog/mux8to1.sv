@@ -2,17 +2,16 @@
 // Module Name  : mux8to1
 // File name    : mux8to1.sv
 // Description  : 8:1 Multiplexer
-// Type         : Combinational - structural, dataflow
+// Type         : Combinational
+// Model Style  : structural, dataflow
 // Author       : Varun Nagpal
 // Revision|Date: 0.1 | 25/11/2016
 ///////////////////////////////////////////////////////////////////////////////
 
 // Interface: I/O Ports
-module mux8to1(
-  input logic a,b,c,d,e,f,g,h;
-  input logic [2:0] sel;
-  output logic y
-  );
+module mux8to1( input   logic       a,b,c,d,e,f,g,h;
+                input   logic [2:0] sel;
+                output  logic       y );
 
   //-----------------------------Start Architecture--------------------------//
 

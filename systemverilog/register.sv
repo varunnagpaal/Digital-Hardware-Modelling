@@ -9,10 +9,10 @@
 
 module register
     #( parameter WIDTH = 8 )
-    ( input logic clk, rst_n, ld_s, en_s;
-      input logic [WIDTH-1:0] inp;
-      input logic [WIDTH-1:0] inp_ld_s;
-      output logic [WIDTH-1:0] oup
+    ( input     logic             clk, rst_n, ld_s, en_s;
+      input     logic [WIDTH-1:0] inp;
+      input     logic [WIDTH-1:0] inp_ld_s;
+      output    logic [WIDTH-1:0] oup
     );
 
     always_ff @(posedge clk, negedge rst_n)
