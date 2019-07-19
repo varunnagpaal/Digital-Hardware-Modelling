@@ -1,0 +1,91 @@
+$date
+   Date text. For example: November 11, 2009.
+$end
+
+$version
+   VCD generator tool version info text.
+$end
+
+$comment
+   Any comment text such as VCD format.
+   References
+   1. ftp://ece.buap.mx/pub/Secretaria_Academica/SDC/Active_HDL_4.2_Student_Version_Installer/Doc/avhdl/avh00229.htm
+   2. https://en.wikipedia.org/wiki/Value_change_dump
+   3. https://www.mathworks.com/help/hdlverifier/ref/tovcdfile.html?s_tid=gn_loc_drop
+$end
+
+$timescale 
+  1ps 
+$end
+
+// Format:  $scope module module_name $end
+//          $var variable_type bitwidth ascii-symbol variable_name $end
+//          $upscope $end
+// Example
+$scope module logic $end
+  $var wire 8 # data $end
+  $var wire 1 $ data_valid $end
+  $var wire 1 % en $end
+  $var wire 1 & rx_en $end
+  $var wire 1 ' tx_en $end
+  $var wire 1 ( empty $end
+  $var wire 1 ) underrun $end
+$upscope $end
+
+$enddefinitions $end
+
+// Dump of Value changes at given timestamps (absolute)
+  // Format:
+  // #simulation-initial-start-time
+  // $dumpvars
+  //  [1-bit-variable-initial-start-value][ascii-symbol]
+  //  [k-bit-variable-initial-start-value] [ascii-symbol]
+  // $end
+  //
+  //  #timestamp1
+  //  [1-bit-variable-value1][ascii-symbol]
+  //  [k-bit-variable-value1] [ascii-symbol]
+  //  #timestamp2
+  //  [1-bit-variable-value2][ascii-symbol]
+  //  [k-bit-variable-value2] [ascii-symbol]
+  //  #timestamp3
+// Example
+#0
+$dumpvars
+  bxxxxxxxx #
+  x$
+  0%
+  x&
+  x'
+  1(
+  0)
+$end
+
+#10
+b10000001 #
+0$
+1%
+0&
+1'
+0(
+0)
+#2211
+0'
+#2296
+b0 #
+1$
+#2302
+0$
+#2303
+
+
+// Marks the end of the file by dumping the values of all variables as the value x. This task stops the dumping of variables. All variables are dumped with x value and all next changes of variables will not be dumped
+$dumpoff
+  xxxxxxxxx #
+  x$
+  x%
+  x&
+  x'
+  x(
+  x)
+$end
