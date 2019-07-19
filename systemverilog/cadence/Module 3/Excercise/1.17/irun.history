@@ -1,0 +1,3 @@
+s1(19Jul2019:03:01:22):  irun counter_test.v counter.v 
+s2(19Jul2019:03:03:04):  irun --help 
+s3(19Jul2019:03:06:22):  irun counter_test.v counter.v -gui -access +rwc 

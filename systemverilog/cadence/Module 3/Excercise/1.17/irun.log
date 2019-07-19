@@ -1,0 +1,53 @@
+irun(64): 15.20-s008: (c) Copyright 1995-2016 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s008: Started on Jul 19, 2019 at 03:06:22 CDT
+irun
+	counter_test.v
+	counter.v
+	-gui
+	-access +rwc
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		counter_test
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.counter:v <0x4eb09d32>
+			streams:   3, words:   879
+		worklib.counter_test:v <0x422aaa85>
+			streams:   8, words: 14718
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           8       8
+		Scalar wires:        4       -
+		Vectored wires:      2       -
+		Always blocks:       2       2
+		Initial blocks:      2       2
+		Pseudo assignments:  5       5
+	Writing initial simulation snapshot: worklib.counter_test:v
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /proj/cad/cadence/incisive-15.20.008.lnx86/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm counter_test.cnt_out counter_test.clk counter_test.cnt_in counter_test.enab counter_test.load counter_test.rst
+Created probe 1
+ncsim> run
+At time 20 rst=0 load=1 enab=1 cnt_in=10101 cnt_out=10101
+At time 30 rst=0 load=1 enab=1 cnt_in=01010 cnt_out=01010
+At time 40 rst=0 load=1 enab=1 cnt_in=11111 cnt_out=11111
+At time 50 rst=1 load=1 enab=1 cnt_in=11111 cnt_out=00000
+At time 60 rst=0 load=1 enab=1 cnt_in=11111 cnt_out=11111
+At time 70 rst=0 load=0 enab=1 cnt_in=11111 cnt_out=00000
+TEST PASSED
+Simulation complete via $finish(1) at time 70 NS + 0
+./counter_test.v:51     $finish;
+ncsim> run
+ncsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+ncsim> ^C
+ncsim> exit
+TOOL:	irun(64)	15.20-s008: Exiting on Jul 19, 2019 at 03:13:37 CDT  (total: 00:07:15)
