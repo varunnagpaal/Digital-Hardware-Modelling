@@ -1,0 +1,45 @@
+irun(64): 15.20-s008: (c) Copyright 1995-2016 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s008: Started on Jul 23, 2019 at 01:41:44 CDT
+irun
+	multiplexer.v
+	lab4-mux/multiplexor_test.v
+file: multiplexer.v
+	module worklib.multiplexor:v
+		errors: 0, warnings: 0
+file: lab4-mux/multiplexor_test.v
+	module worklib.multiplexor_test:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		multiplexor_test
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.multiplexor:v <0x12897d7b>
+			streams:   1, words:   290
+		worklib.multiplexor_test:v <0x7ed27ded>
+			streams:   5, words:  7844
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           5       5
+		Scalar wires:        1       -
+		Vectored wires:      3       -
+		Always blocks:       1       1
+		Initial blocks:      1       1
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.multiplexor_test:v
+Loading snapshot worklib.multiplexor_test:v .................... Done
+ncsim> source /proj/cad/cadence/incisive-15.20.008.lnx86/tools/inca/files/ncsimrc
+ncsim> run
+At time 1 sel=0 in0=10101 in1=00000, mux_out=10101
+At time 2 sel=0 in0=01010 in1=00000, mux_out=01010
+At time 3 sel=1 in0=00000 in1=10101, mux_out=10101
+At time 4 sel=1 in0=00000 in1=01010, mux_out=01010
+TEST PASSED
+Simulation complete via $finish(1) at time 4 NS + 0
+./lab4-mux/multiplexor_test.v:43     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s008: Exiting on Jul 23, 2019 at 01:41:46 CDT  (total: 00:00:02)
