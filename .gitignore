@@ -1,3 +1,46 @@
+#Ignore Everything first
+*
+
+#Donot hide sub-folders
+!*/
+
+#Donot ignore gitignore
+!*.gitignore
+
+#Code files not to ignore
+!*.c
+!*.h
+!*.v
+!*.sv
+!*.vhd
+!*.vhdl
+
+#Documents not to ignore
+!*.doc*
+!*.pdf
+!*.xls*
+
+#Image files not to ignore
+!*.jpg
+!*.png
+
+#Binary Files not to ignore
+!*.bin
+!*.elf
+!*.hex
+!*.out
+!*.map
+
+#Cadence Incisive Files not to ignore
+!*.history
+!*.log
+!*.key
+
+#IDE project files not to ignore
+
+#Folders to ignore
+
+
 # Compiled Object files
 *.slo
 *.lo

@@ -60,8 +60,9 @@ module template
                           using resolution function,
                           is default data type,
                           can be ommited for example in ports,
-                          can only be connected and cannot be assigned
-                          procedurally,
+                          can only be connected (continuous assignment = i.e blocking) ,
+                          cannot be assigned procedurally,
+                          used for combinational logic,
                           globally visible )
 
                     logic [num_type_prefix] ( unsigned,
@@ -82,7 +83,9 @@ module template
                         can be assigned only inside a procedural block such as
                         initial, always,
                         represents piece of storage which retains value until
-                        next invocation of always block )
+                        next invocation of always block,
+                        use blocking assignment(=) for combinational procedural always block,
+                        use non-blocking assignment(<=) for sequential always block - ff, latch )
 
      [num_type] : byte      [num_type_prefix] (1-byte , signed, 2-states, single driver)
                   shortint  [num_type_prefix] (2-bytes, signed, 2-states, single driver)
@@ -148,7 +151,7 @@ module template
   // HOW IT DOES WHAT IT DOES (HOW IT CREATES THE BEHAVIOR)
     /*
     Summary for SystemVerilog based RTL design:
-      1. Prefer continuous assignments for uncomplicated combinational
+      1. Prefer continuous assignments(blocking) for uncomplicated combinational
          functions(MISO logic functions, multiplexer).
       2. Do not use procedural blocks other than always_comb, always_ff and
          always_latch.
@@ -161,12 +164,12 @@ module template
       ------------------------------  ------------------------------------------
       Data Object or type             Write method
       ------------------------------  ------------------------------------------
-      wire(net data types)            continuous assignment(assign wire = ...;)
+      wire(a net data type)           continuous assignment(blocking, assign wire = ...;)
       reg                             non-blocking assignment(<=) inside always
                                       block (sequential logic), initial
       wire + reg                      blocking assignment(=) inside always
                                       block(combinational logic)
-      output port(default type wire)  continuous assignment
+      output port(default type wire)  continuous assignment (blocking, assign wire = ...;)
       input port(default type wire)   N.A
       ------------------------------  ------------------------------------------
 
@@ -174,17 +177,18 @@ module template
          ports, all variables in always blocks, all nets inside the circuit
     */
 
-    /* Continuous assignment with optional delay Tpd>=0
+    /* Continuous assignment (blocking =) with optional delay Tpd>=0
 
         assign [#Tpd] [variable_1 or wire_1] = [a&l expression with one or more variables];
         assign [#Tpd] [variable_2 or wire_2] = [function calls(but no tasks)];
 
+      - blocking assignment i.e. lhs (=) rhs
       - LHS can be wire or logic but not reg.
       - RHS can be input port, literal, wire, logic, bit or reg
       - Timing expressions such as #0.05 or #10 are ignored by the logic
         synthesizer and are useful only in simulation
       - Concurrent process expressed as a single statement
-      - Represents single, permanent connections of something to a net(wire)
+      - Represents single, permanent connections of something to a net(wire is one type of net)
       - The RHS expression is evaluated and assigned to LHS after the optionally
         specified delay has elapsed i.e. if one or more variables in rhs
         expression has just been updated, the rhs expression is evaluated,
@@ -250,7 +254,7 @@ module template
           k = #30ns a*c;    // Assign at 50 ns
 
           // Use if-else control block for indicating explicit priority among
-          // mutually exclusive events. For example expr1 has hgher priority
+          // mutually exclusive events. For example expr1 has higher priority
           // over expr2.
           If ( expr1 )    blocking assignment statement1;
           else if(expr2)  blocking assignment statement2;
