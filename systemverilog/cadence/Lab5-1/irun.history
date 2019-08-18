@@ -1,0 +1,7 @@
+s1(18Aug2019:01:23:35):  irun driver.v ./lab5-drvr/driver_test.v 
+s2(18Aug2019:01:26:22):  irun driver.v ./lab5-drvr/driver_test.v 
+s3(18Aug2019:01:26:46):  irun driver.v ./lab5-drvr/driver_test.v 
+s4(18Aug2019:01:30:05):  irun driver.v ./lab5-drvr/driver_test.v 
+s5(18Aug2019:01:30:36):  irun driver.v ./lab5-drvr/driver_test.v 
+s6(18Aug2019:01:31:53):  irun driver.v ./lab5-drvr/driver_test.v 
+s7(18Aug2019:01:32:06):  irun driver.v ./lab5-drvr/driver_test.v 

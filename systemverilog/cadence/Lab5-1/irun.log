@@ -1,0 +1,42 @@
+irun(64): 15.20-s008: (c) Copyright 1995-2016 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s008: Started on Aug 18, 2019 at 01:32:06 CDT
+irun
+	driver.v
+	./lab5-drvr/driver_test.v
+Recompiling... reason: file './driver.v' is newer than expected.
+	expected: Sun Aug 18 01:31:47 2019
+	actual:   Sun Aug 18 01:32:03 2019
+file: driver.v
+	module worklib.driver:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		driver_test
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.driver:v <0x486b70a0>
+			streams:   1, words:   264
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           3       3
+		Scalar wires:        1       -
+		Vectored wires:      2       -
+		Initial blocks:      1       1
+		Cont. assignments:   1       1
+		Pseudo assignments:  2       2
+	Writing initial simulation snapshot: worklib.driver_test:v
+Loading snapshot worklib.driver_test:v .................... Done
+ncsim> source /proj/cad/cadence/incisive-15.20.008.lnx86/tools/inca/files/ncsimrc
+ncsim> run
+At time 1 data_en=0 data_in=xxxxxxxx data_out=zzzzzzzz
+At time 2 data_en=1 data_in=01010101 data_out=01010101
+At time 3 data_en=1 data_in=10101010 data_out=10101010
+TEST PASSED
+Simulation complete via $finish(1) at time 3 NS + 0
+./lab5-drvr/driver_test.v:40     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s008: Exiting on Aug 18, 2019 at 01:32:07 CDT  (total: 00:00:01)

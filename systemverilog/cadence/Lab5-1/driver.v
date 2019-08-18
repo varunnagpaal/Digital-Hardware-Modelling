@@ -5,6 +5,6 @@ module driver
     output wire [WIDTH-1:0] data_out
   );
 
-  assign data_out = data_en ? data_in:WIDTH'bz;
+  assign data_out = data_en ? data_in:'bz;
 
 endmodule
