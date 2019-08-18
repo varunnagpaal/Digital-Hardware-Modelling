@@ -38,107 +38,258 @@ module template
   (
    /*
     EXTERNAL INTERFACE (nodes) (WHAT IT DOES - BEHAVIOR)
-    [mode] [data-type] (array_dim_1) [port-name] (array_dim_2)
+    [mode] [object-type][port-name] {array_range_of_objects}
 
-    mode: input, output, inout
-    data-type: logical-type|num_type|other_type
-    port-name: Identifier
-    Identifier: (Alpha|_)Alpha|Num|_|$ (built-in & user defined system tasks and functions start with $)
-    Alpha: A-Za-z
-    Num: 0-9
-    array_dim_1: b:a, b>a
-    array_dim_2: c:d, c<d
-
-    [logical-type]: wire( unsigned,
-                          4-states,
-                          electrical modeling,
-                          user defined vector size,
-                          compulsory for multi-driver nodes and bidirectional
-                          io ports,
-                          multi-driver,
-                          multi-driver conflicts during simulation resolved
-                          using resolution function,
-                          is default data type,
-                          can be ommited for example in ports,
-                          can only be connected (continuous assignment = i.e blocking) ,
-                          cannot be assigned procedurally,
-                          used for combinational logic,
-                          globally visible )
-
-                    logic [num_type_prefix] ( unsigned,
-                                              4-states,
-                                              electrical modeling,
-                                              user defined vector size,
-                                              single driver,
-                                              multi-driver conflicts unresolved
-                                              and issues error )
-
-                    bit( unsigned,
-                         2-states,
-                         non-electrical modeling,
-                         user defined vector size )
-
-                    reg(unsigned,
-                        synthesizable,
-                        can be assigned only inside a procedural block such as
-                        initial, always,
-                        represents piece of storage which retains value until
-                        next invocation of always block,
-                        use blocking assignment(=) for combinational procedural always block,
-                        use non-blocking assignment(<=) for sequential always block - ff, latch )
-
-     [num_type] : byte      [num_type_prefix] (1-byte , signed, 2-states, single driver)
-                  shortint  [num_type_prefix] (2-bytes, signed, 2-states, single driver)
-                  int       [num_type_prefix] (4-bytes, signed, 2-states, single driver)
-                  longint   [num_type_prefix] (8 bytes, signed, 2-states, single driver)
-                  integer   [num_type_prefix] (4 bytes, signed, 4-states, single driver)
-
-     [num_type_prefix] : signed(default)|unsigned
-
-     [other_type]:  real      (only for simulation, not synthesizable)
-                    time      (only for simulation, not synthesizable)
-                    realtime  (only for simulation, not synthesizable)
-
-     2-states : 0, 1
-     4-states : 0, 1, Z, X
-
-     Z - High Impedance, Turned off, Not connected or open circuited
-     X - Unknown state - 0 or 1
-
-     (array)    : [range]
-     range      : n1:n2  (array size = (|n1-n2| + 1)), n1>=0, n2>=0
-     The MSB always is on the left and LSB is always on right of a verilog vector.
-    */
+    [mode]: input(net-type)|output(net-type|variable-type)|inout(net-type)
+            input and inout port is always of net type
+            output port should be a variable type (example reg) if assigned by a procedural block
+                               or a net type (example wire) if driven outside procedural block
+    [object-type]: data-type{array_range_of_data_type}
+    [data-type]: net-type|variable-type|logical-type|num_type|other_type
+    [array_range_of_data_type]: array_range(msb,lsb)|array_range(lsb,msb), msb>lsb
+                                The MSB always is on the left and LSB is always on right of a
+                                verilog vector.
+    [port-name]: Identifier
+    [array_range_of_objects]: array_range(a,b), a<b
+  */
 );
   // ----------------------------------End Header----------------------------//
+
+  /*
+    [array_range(n1,n2)]    : n1:n2  (array size = (|n1-n2| + 1)), n1>=0, n2>=0
+                              | base_index -: offset => base_index:base_index-offset
+                              | base_index +: offset => base_index:base_index-offset
+
+    [Identifier]: (Alpha|_)Alpha|Num|_|$ (built-in & user defined system tasks and functions
+                   start with a $)
+    [Alpha]: A-Za-z
+    [Num]: 0-9
+
+    [net-type]: wire or tri|uwire|supply0|supply1|tri1|tri0|trireg|triand or wand|trior or wor|
+                instance of a net represents physical connection between two entities
+                initialized to high impedance state(Z) by simulator (except trireg initialized to X)
+                can be "driven" only outside procedural blocks
+                receives value driven onto it by its driver(s)
+                during simulation, if a net has
+                  Z value => driver of net is disabled (in real hardware the situation
+                             will either occur for short duration or would not occur because the
+                             bus keepers pull the net to a high or low logic state)
+                  X value => net being driven by multiple drivers (in real hardware the situation
+                             will either occur for short duration or would not occur)
+    [wire or tri]: an interconnection wire.
+                   can have multiple drivers
+                   only difference between wire and tri is syntax
+                   tri and wire completely identical in functionality
+                   wire is just a convenient name when one knows the interconnection wire is a
+                   single-driver net
+                   tri is just a convenient name when one knows the interconnection wire is a
+                   multi-driver net
+    [uwire]: this net-type is an interconnection wire which only accepts only one driver (verilog 2005)
+    [supply0]: VSS or GND
+    [supply1]: VDD
+    [tri1|tri0]: this net-type is for nets that has pull-up or pull-down resistors
+                 When not driven by a driver, the pull-up and pull-down resistors drive it to
+                 weak 1/vdd and weak 0/vss when the net is
+                 When driven by a driver, the net will show the value drive onto it
+                 can never be driven to Z
+    [trireg]: this net-type is for nets with capacitance on them. has two states: driven and capacitance
+              driven state: when net is driven with value 0, 1 or X by a driver,
+                            the net will follow the value driven onto it
+              capacitance state: when net is not driven by a driver or has Z driven onto it ,
+                                then the net will hold the last value
+              can never be driven to Z
+    [triwand or wand]: when a net is driven by two drivers with same signal strength, then the final
+                      value on the net is resolved as the output of an AND gate whose inputs are
+                      the output of the two drivers with possibly conflicting output values.
+                      models emitter-coupled logic
+    [triwand or wand]: when a net is driven by two drivers with same signal strength, then the final
+                      value on the net is resolved as the output of an OR gate whose inputs are
+                      the output of the two drivers with possibly conflicting output values.
+                      models open-collector logic
+    [variable-type]: reg|integer|real|time|realtime
+                     instance of a variable represents an abstract storage element
+                     stores a value until a new value is assigned
+                     initialized to unknown state(X) by simulator i.e. any voltage level b/w VDD/VSS
+                     can be "assigned" only inside a procedural block(except real type which is
+                     intialized to 0 as it it is only variable type that can hold a Z or X value)
+                     can be "read" from inside or outside a procedure
+                     during simulation, if a variable has
+                       Z value => the value Z was either assigned explicitly (say variable is
+                                  one of the drivers of a bus net) or assigned implicitly
+                                  the value Z of a net
+                       X value => the value X was either assigned explicitly as simulator cannot
+                                  resolve value of assigned expression or assigned implicitly
+                                  the value X of a net
+                     In real hardware, variable has value with either 0 or 1 not Z or X
+                     verilog 2001 adds "reg signed"
+
+    [logical-type]: wire( unsigned,
+                        4-states,
+                        electrical modeling,
+                        user defined vector size,
+                        compulsory for multi-driver nodes and bidirectional io ports,
+                        multi-driver,
+                        multi-driver conflicts during simulation resolved using resolution function,
+                        a net type,
+                        is default or implicit data type,
+                        can be ommited for example in ports,
+                        can only be connected (continuous assignment = i.e blocking) ,
+                        cannot be assigned procedurally,
+                        used for combinational logic,
+                        globally visible )
+
+                        Note: One can disable implicit data types by using compiler directive
+                              such as "'default_nettype none" at end of each verilog file where
+                              it needs to be disabled. One can also set an implicit data type
+                              by usign adequate type with aforementioned compiler directive
+                              compiler would then produce error/warning whenever user doesn't
+                              explicitly mentions the data type.
+
+                  logic [num_type_prefix] ( unsigned,
+                                            4-states,
+                                            electrical modeling,
+                                            user defined vector size,
+                                            single driver,
+                                            multi-driver conflicts unresolved and error messages
+                                            generated during compilation or simulation)
+
+                  bit( unsigned,
+                       2-states,
+                       non-electrical modeling,
+                       user defined vector size )
+
+                  reg(unsigned,f
+                      synthesizable,
+                      a variable type,
+                      can be assigned only inside a procedural block such as initial/always,
+                      represents piece of storage which retains value until next invocation,
+                      use blocking assignment(=) for combinational logic,
+                      use non-blocking assignment(<=) for sequential logic(ff, latch)
+
+    [num_type] : byte     [num_type_prefix] (1-byte, signed, 2-states, single driver)
+                 shortint [num_type_prefix] (2-bytes, signed, 2-states, single driver)
+                 int      [num_type_prefix] (4-bytes, signed, 2-states, single driver)
+                 longint  [num_type_prefix] (8 bytes, signed, 2-states, single driver)
+                 integer  [num_type_prefix] (4 bytes, signed, 4-states, single driver)
+    [num_type_prefix] : signed(default)|unsigned
+
+    [other_type]: real      (double precision float, only for simulation, not synthesizable)
+                  time      (8 bytes, 4-state, only for simulation, not synthesizable)
+                  realtime  (same as real, only for simulation, not synthesizable)
+
+    [2-states] : 0, 1
+    [4-states] : 0, 1, Z, X
+
+    [0] : false, low, logic low, ground, vss
+    [1]:  true, high, logic high, power, vdd, vcc
+    [Z] : High Impedance, tri-state, Turned off, Not connected, Not driven, open circuited
+    [X] : Unknown state - 0 or 1 i.e. any voltage level b/w VDD and VSS. Note SV makes
+         no distinction between unknown (state) vs uninitialized/dont care (logic values)
+         unlike VHDL where uninitialized(U, never assigned any value) and dont care (-,
+         like in K-map) have their own logic values compared to unknown state(logic value X
+         when drive strength is strong)
+
+  */
 
   //-----------------------------Start Architecture--------------------------//
   // ~VHDL Architecture
 
-    /*
-        If parameters are not specified in the module header, they maybe
-        specified here.
+    /*  Parameters: If parameters are not specified in the module header,
+                    they maybe specified here. They are instant specific
+                    constants and can be ovverridden while instantiating a
+                    module
 
-        parameter <parameter_name_1> = <paramaeter_name_1_default_value>;
-        parameter <parameter_name_2> = <paramaeter_name_2_default_value>;
+        parameter_type parameter_name = parameter_value;
+
+        To modify module parameters while instantiating the module, one can
+        use following approaches:
+
+        1. use defparam
+
+          my_module inst1(.in1(in11_net), .in2(in12_net), .out(out1_net));
+          defparam inst1.param_width = 5;
+
+          my_module inst2(.in1(in21_net), .in2(in22_net), .out(out2_net));
+          defparam inst2.param_width = 6;
+
+        2. use parameter value assignment
+
+          // positional parameter override
+          my_module #(5) inst1(.in1(in11_net), .in2(in12_net), .out(out1_net) );
+
+          // named parameter override
+          my_module #(.width(6)) inst2(.in1(in21_net), .in2(in22_net), .out(out2_net) );
+
+
+        Local params: These are similar to parameters but are true constants which cannot
+                      unlike parameters cannot be ovverridden while instantiating a module.
+                      They are used for example for definining enumeration of states of
+                      an FSM or within modules that are not instantiated(testbench).
+                      Note: localparam cannot be modified by defparam statement
+
+        localparam  param_name = param_value;
     */
 
     /*
-        Variable declarations (inter-process communication)
+        Internal nets and variable declarations (inter-process communication)
         ~VHDL signal declarations for internal nodes of circuit
-        Used for exchange of dynamic(time varying) information between
-        concurrent processes.
+        Used for exchange of dynamic(time varying) information between concurrent processes.
+
+        (var) [object-type] [variable-name] {array_range_of_objects} = (initial_value);
+        [var]:  an optional keyword to indicate that we are declaring a variable
+        [variable-name]: identifier
+                         Note: Undeclared identifiers are inferred as net type in Verilog 2001
+                               Identifiers with lower/uppercase letters are perceived as distinct
+                               No error/warning is reported identifier is used without declaring it
+                               To generate error/warnings for undeclared identifiers, it is
+                               recommended to use compiler directive " 'default_nettype none"
+                               at end of each verilog file where one expects user to explicitly
+                               provide the declaration for the identifiers.
+        [initial_value]: literal
+                         Note: inital_value is not adequate for modeling hardware reset and
+                               is generally used for simulation purpose.
+
+        [literal]: [size]'[base][value]
+        [size]: positive decimal number of bits(optional).if unsized, then >= 32 bits default size
+        [base]: binary(B/b), Octal(O/o), Decimal(D/d), Hexadecimal(H/h).
+                optionally has prefix "s" to indicate signed value
+        [value]: value that confirms to digits used in base
+                use _ as a separator except 1st character
+                Z/z or X/x allowed for all bases except Decimal
+                can be single Z/z or X/x if basis decimal
+                unsigned number
+            Some examples of literals
+                'h54 : 32-bit hexadecimal
+                8'b1101_1100 : 8-bit binary
+                10'd999: 10-bit unsigned decimal
+                10'ds499: 10-bit signed decimal
+                15: 32-bit signed decimal
+                12'hxfe: 12 bit hexadecimal
+                9'h1_xx01_xxx0: 9-bit binary with x's and z's
+                'o91: unsized octal number of size >= 32-bits
+                8'b11: 0000_0011
+                8'o11: 00_001_001 (9 decimal)
+                8'd11: 0000_1011
+                8'h11: 0001_0001 (17 decimal)
+                'b11: 0000_0000_0000_0000_0000_0000_0000_0011 (unsized hence 32-bit)
+                10'h0z: 00_0000_zzzz
+                10'hz0: zz_zzzz_0000
     */
-    // (var) [data-type] [variable-name] = (initial_value);
-    // var:  an optional keyword to indicate that we are declaring a variable
-    // initial_value: an optional value provided to a variable during
-    // declaration.
-    // Note: This inital_value is not adequate for modeling hardware reset and
-    // is generally used for simulation purpose.
 
     /*
         Instantiate existing modules with port maps
         ~VHDL Component Declaration+Instantiation with generic values+port maps
+
+        1. Variable is used for connecting to input port of a module instance iff input port is to
+        be assigned by a procedural block
+        2. Net is used for connecting to input port of a module instance iff input port is driven
+        outside a procedure
+        3. Net is used for connecting to output port of a module instance
+        4. Net is used for connecting to input-output port of a module instance
+
+        Note: a net can be "driven" by either a net or a variable,
+              a variable can be surely "assigned" by a variable however,
+              if it can also be "assigned" by a net or is yet to be found out
     */
     // [component_module_name] [component_identifier] #(optional-generic-map)[(port-map)];
     // port-map: .component_portname1(net_name),...
@@ -151,33 +302,37 @@ module template
   // HOW IT DOES WHAT IT DOES (HOW IT CREATES THE BEHAVIOR)
     /*
     Summary for SystemVerilog based RTL design:
-      1. Prefer continuous assignments(blocking) for uncomplicated combinational
-         functions(MISO logic functions, multiplexer).
-      2. Do not use procedural blocks other than always_comb, always_ff and
-         always_latch.
+      1. Prefer continuous assignments(blocking) to behaviorally describe
+         uncomplicated combinational functions(MISO logic functions, multiplexer).
+      2. Do not use procedural blocks other than always_comb, always_ff and always_latch.
       3. In an always_comb block, always use blocking assignments (=).
-      4. In always_ff and always_latch blocks, use nonblocking assignments
-         (<=) only.
+      4. In always_ff and always_latch blocks, use nonblocking assignments (<=) only.
       5. Do not make #0 (zero delay expression) procedural assignments.
       6. If writing Verilog exclusively,
 
-      ------------------------------  ------------------------------------------
-      Data Object or type             Write method
-      ------------------------------  ------------------------------------------
-      wire(a net data type)           continuous assignment(blocking, assign wire = ...;)
-      reg                             non-blocking assignment(<=) inside always
-                                      block (sequential logic), initial
-      wire + reg                      blocking assignment(=) inside always
-                                      block(combinational logic)
-      output port(default type wire)  continuous assignment (blocking, assign wire = ...;)
-      input port(default type wire)   N.A
-      ------------------------------  ------------------------------------------
+      ------------------------------------- --------------------------------------------------------
+      Data Object or type                   Write method
+      ------------------------------------- --------------------------------------------------------
+      wire(a net data type)                 continuous assignment(blocking, assign wire = ...;)
+                                            to describe combinational logic in dataflow style
+      output port(type wire)                -DO-
+      inout port(always net type like wire) -DO-
+      reg(a variable data type)             sequential logic: non-blocking assignment(<=) inside
+                                                              always procedural block
+                                            combinational logic: blocking assignment(=) inside
+                                                                 always procedural block
+                                            testbench: non-blocking assignment(<=) inside
+                                                       always procedural block
+      output port(type reg)                 -DO-
+      input port(always net type like wire) N.A
+      ------------------------------------- --------------------------------------------------------
 
       6. If writing SystemVerilog exclusively, use logic type for input/output
          ports, all variables in always blocks, all nets inside the circuit
     */
 
     /* Continuous assignment (blocking =) with optional delay Tpd>=0
+       Models Combinational Logic in dataflow style
 
         assign [#Tpd] [variable_1 or wire_1] = [a&l expression with one or more variables];
         assign [#Tpd] [variable_2 or wire_2] = [function calls(but no tasks)];
@@ -197,7 +352,7 @@ module template
     */
 
     /* Continuous assignment used for expressing conditional execution
-       (synthesis to combinational logic)
+       (synthesis to combinational logic)(dataflow style)
       - Usually used for writing Mux
       - assign [variable_3 or wire_3] = [ (boolean_expr)? expr_true : expr_false];
     */
@@ -215,7 +370,7 @@ module template
 
     /*  Combinational logic
         - A procedural block that implements a MIMO truth table or a digital
-          logic function(equation)
+          logic function(equation) behaviorally
 
         always_comb
         begin
@@ -286,7 +441,7 @@ module template
               blocking assignment statement2;
         end
 
-        // Combinational logic can also be expressed using traditional
+        // Combinational logic can also be expressed behaviorally using traditional
         // procedural block "always" with the sensitivity list containing all
         // inputs of the combinational logic being modeled
 
