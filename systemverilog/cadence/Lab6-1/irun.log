@@ -1,0 +1,45 @@
+irun(64): 15.20-s008: (c) Copyright 1995-2016 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s008: Started on Aug 19, 2019 at 02:21:53 CDT
+irun
+	alu.v
+	lab6-alu/alu_test.v
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		alu_test
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.alu:v <0x21720d18>
+			streams:   2, words:  1625
+		worklib.alu_test:v <0x1dafa372>
+			streams:   5, words: 12227
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           6       6
+		Scalar wires:        1       -
+		Vectored wires:      4       -
+		Always blocks:       1       1
+		Initial blocks:      1       1
+		Cont. assignments:   1       1
+		Pseudo assignments:  3       3
+	Writing initial simulation snapshot: worklib.alu_test:v
+Loading snapshot worklib.alu_test:v .................... Done
+ncsim> source /proj/cad/cadence/incisive-15.20.008.lnx86/tools/inca/files/ncsimrc
+ncsim> run
+At time 1 opcode=000 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=01000010
+At time 2 opcode=001 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=01000010
+At time 3 opcode=010 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=11001000
+At time 4 opcode=011 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=00000010
+At time 5 opcode=100 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=11000100
+At time 6 opcode=101 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=10000110
+At time 7 opcode=110 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=01000010
+At time 8 opcode=111 in_a=01000010 in_b=10000110 a_is_zero=0 alu_out=01000010
+At time 9 opcode=111 in_a=00000000 in_b=10000110 a_is_zero=1 alu_out=00000000
+TEST PASSED
+Simulation complete via $finish(1) at time 9 NS + 0
+./lab6-alu/alu_test.v:57     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s008: Exiting on Aug 19, 2019 at 02:21:55 CDT  (total: 00:00:02)
