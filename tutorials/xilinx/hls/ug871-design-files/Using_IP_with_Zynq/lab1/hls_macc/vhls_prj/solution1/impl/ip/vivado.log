@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Sep 22 02:25:56 2019
+# Process ID: 55924
+# Current directory: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/impl/ip/vivado.log
+# Journal file: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/impl/ip\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Users/varun/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 318.348 ; gain = 77.801
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 22 02:26:21 2019...

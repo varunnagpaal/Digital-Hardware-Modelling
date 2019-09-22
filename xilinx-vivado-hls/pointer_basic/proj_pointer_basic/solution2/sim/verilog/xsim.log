@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# xsim v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 16 03:52:57 2019
+# Process ID: 15676
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/pointer_basic/xsim_script.tcl}
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/pointer_basic/xsim_script.tcl
+# xsim {pointer_basic} -autoloadwcfg -tclbatch {pointer_basic.tcl}
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source pointer_basic.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set d_group [add_wave_group d(wire) -into $cinoutgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_o_ap_vld -into $d_group -color #ffff00 -radix hex
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_o -into $d_group -radix hex
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_i -into $d_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_start -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_done -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_idle -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_pointer_basic_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/LENGTH_d -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_d_group [add_wave_group d(wire) -into $tbcinoutgroup]
+## add_wave /apatb_pointer_basic_top/d_o_ap_vld -into $tb_d_group -color #ffff00 -radix hex
+## add_wave /apatb_pointer_basic_top/d_o -into $tb_d_group -radix hex
+## add_wave /apatb_pointer_basic_top/d_i -into $tb_d_group -radix hex
+## save_wave_config pointer_basic.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 4 [n/a] @ "110000"
+// RTL Simulation : 1 / 4 [n/a] @ "118000"
+// RTL Simulation : 2 / 4 [n/a] @ "122000"
+// RTL Simulation : 3 / 4 [n/a] @ "126000"
+// RTL Simulation : 4 / 4 [n/a] @ "130000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 146 ns : File "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/pointer_basic.autotb.v" Line 287
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Sep 16 03:53:22 2019...

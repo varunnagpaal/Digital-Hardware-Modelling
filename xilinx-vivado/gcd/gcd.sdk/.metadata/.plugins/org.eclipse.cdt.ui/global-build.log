@@ -1,0 +1,89 @@
+04:29:15 **** Clean-only build of configuration Release for project gcd_zynq_sw ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  gcd_zynq_sw.elf.size  gcd_zynq_sw.elf
+' '
+
+04:29:16 Build Finished (took 583ms)
+
+04:29:16 **** Incremental Build of configuration Release for project gcd_zynq_sw ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gcd_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/gcd_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/gcd_main.d" -MT"src/gcd_main.o" -o "src/gcd_main.o" "../src/gcd_main.c"
+../src/gcd_main.c: In function 'main':
+../src/gcd_main.c:194:18: warning: unused variable 'hw_res_valid' [-Wunused-variable]
+     volatile int hw_res_valid = 0;
+                  ^~~~~~~~~~~~
+'Finished building: ../src/gcd_main.c'
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: gcd_zynq_sw.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../gcd_zynq_sw_bsp/ps7_cortexa9_0/lib -o "gcd_zynq_sw.elf"  ./src/gcd_main.o ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: gcd_zynq_sw.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size gcd_zynq_sw.elf  |tee "gcd_zynq_sw.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  77580	   4164	  23360	 105104	  19a90	gcd_zynq_sw.elf
+'Finished building: gcd_zynq_sw.elf.size'
+' '
+04:29:20 **** Clean-only build of configuration Debug for project gcd_zynq_sw ****
+make clean 
+rm -rf  ./src/gcd_main.o ./src/helloworld.o ./src/platform.o  ./src/gcd_main.d ./src/helloworld.d ./src/platform.d  gcd_zynq_sw.elf.size  gcd_zynq_sw.elf
+' '
+04:29:20 **** Incremental Build of configuration Debug for project gcd_zynq_sw ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/gcd_main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/gcd_main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/gcd_main.d" -MT"src/gcd_main.o" -o "src/gcd_main.o" "../src/gcd_main.c"
+../src/gcd_main.c: In function 'main':
+../src/gcd_main.c:194:18: warning: unused variable 'hw_res_valid' [-Wunused-variable]
+     volatile int hw_res_valid = 0;
+                  ^~~~~~~~~~~~
+'Finished building: ../src/gcd_main.c'
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../gcd_zynq_sw_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: gcd_zynq_sw.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../gcd_zynq_sw_bsp/ps7_cortexa9_0/lib -o "gcd_zynq_sw.elf"  ./src/gcd_main.o ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: gcd_zynq_sw.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size gcd_zynq_sw.elf  |tee "gcd_zynq_sw.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  78128	   4164	  23360	 105652	  19cb4	gcd_zynq_sw.elf
+'Finished building: gcd_zynq_sw.elf.size'
+' '
+04:29:40 **** Incremental Build of configuration Debug for project gcd_zynq_sw ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+04:30:21 **** Incremental Build of configuration Debug for project gcd_zynq_sw ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 16 03:52:46 2019
+# Process ID: 8532
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog
+# Command line: wbtcv.exe -mode batch -source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.dir/pointer_basic/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/webtalk.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog\webtalk.jou
+#-----------------------------------------------------------
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.dir/pointer_basic/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.dir/pointer_basic/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Sep 16 03:52:51 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Sep 16 03:52:51 2019...

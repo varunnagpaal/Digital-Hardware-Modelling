@@ -1,0 +1,8 @@
+01:17:16 **** Incremental Build of configuration Debug for project pointer_basic_helloworld_app ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+
+01:17:17 Build Finished (took 791ms)
+

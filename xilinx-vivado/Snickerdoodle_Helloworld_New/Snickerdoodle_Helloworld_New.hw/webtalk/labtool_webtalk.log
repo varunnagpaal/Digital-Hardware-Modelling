@@ -1,0 +1,9 @@
+
+****** Webtalk v2017.4.1 (64-bit)
+  **** SW Build 2117270 on Tue Jan 30 15:32:00 MST 2018
+  **** IP Build 2095745 on Tue Jan 30 17:13:15 MST 2018
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/Snickerdoodle_Helloworld_New/Snickerdoodle_Helloworld_New.hw/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/Snickerdoodle_Helloworld_New/Snickerdoodle_Helloworld_New.hw/webtalk/usage_statistics_ext_labtool.xml' has been successfully sent to Xilinx on Thu Apr  5 02:59:47 2018. For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Apr  5 02:59:47 2018...

@@ -1,0 +1,6 @@
+22:39:22 **** Auto Build of configuration Debug for project hello_snick_sw ****
+make all 
+make: Nothing to be done for `all'.
+
+22:39:22 Build Finished (took 375ms)
+

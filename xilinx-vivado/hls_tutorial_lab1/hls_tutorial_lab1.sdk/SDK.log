@@ -1,0 +1,234 @@
+02:45:32 INFO  : Registering command handlers for SDK TCF services
+02:45:34 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\temp_xsdb_launch_script.tcl
+02:45:46 INFO  : XSCT server has started successfully.
+02:45:47 INFO  : Successfully done setting XSCT server connection channel  
+02:45:47 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper.hdf.
+02:45:48 INFO  : Successfully done setting SDK workspace  
+02:48:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:48:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+02:48:05 INFO  : FPGA configured successfully with bitstream "D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/zybo_zynq_design_wrapper.bit"
+02:50:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+02:50:45 INFO  : 'fpga -state' command is executed.
+02:50:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:50:46 INFO  : Jtag cable 'Digilent Zybo 210279A42EACA' is selected.
+02:50:46 INFO  : 'jtag frequency' command is executed.
+02:50:46 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:50:46 INFO  : Context for 'APU' is selected.
+02:50:46 INFO  : Hardware design information is loaded from 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf'.
+02:50:46 INFO  : 'configparams force-mem-access 1' command is executed.
+02:50:46 INFO  : Context for 'APU' is selected.
+02:50:46 INFO  : 'stop' command is executed.
+02:50:47 INFO  : 'ps7_init' command is executed.
+02:50:47 INFO  : 'ps7_post_config' command is executed.
+02:50:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:50:47 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+02:50:48 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:50:48 INFO  : The application 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:50:48 INFO  : 'configparams force-mem-access 0' command is executed.
+02:50:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+loadhw -hw D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+dow D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:50:48 INFO  : Memory regions updated for context APU
+02:50:49 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:50:49 INFO  : 'con' command is executed.
+02:50:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+con
+----------------End of Script----------------
+
+02:50:49 INFO  : Launch script is exported to file 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_zybo_zynq_lab1_design.elf_on_local.tcl'
+02:53:11 INFO  : Disconnected from the channel tcfchan#1.
+02:53:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+02:53:12 INFO  : 'fpga -state' command is executed.
+02:53:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:53:13 INFO  : Jtag cable 'Digilent Zybo 210279A42EACA' is selected.
+02:53:13 INFO  : 'jtag frequency' command is executed.
+02:53:13 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+02:53:13 INFO  : Context for 'APU' is selected.
+02:53:17 INFO  : Hardware design information is loaded from 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf'.
+02:53:17 INFO  : 'configparams force-mem-access 1' command is executed.
+02:53:18 INFO  : Context for 'APU' is selected.
+02:53:18 INFO  : 'stop' command is executed.
+02:53:19 INFO  : 'ps7_init' command is executed.
+02:53:19 INFO  : 'ps7_post_config' command is executed.
+02:53:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:53:19 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+02:53:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:53:19 INFO  : The application 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:53:19 INFO  : 'configparams force-mem-access 0' command is executed.
+02:53:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+loadhw -hw D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+dow D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:53:20 INFO  : Memory regions updated for context APU
+02:53:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:53:20 INFO  : 'con' command is executed.
+02:53:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+con
+----------------End of Script----------------
+
+02:53:20 INFO  : Launch script is exported to file 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_zybo_zynq_lab1_design.elf_on_local.tcl'
+03:01:36 INFO  : Disconnected from the channel tcfchan#2.
+03:01:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+03:01:38 INFO  : 'fpga -state' command is executed.
+03:01:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:01:38 INFO  : Jtag cable 'Digilent Zybo 210279A42EACA' is selected.
+03:01:38 INFO  : 'jtag frequency' command is executed.
+03:01:38 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+03:01:39 INFO  : Context for 'APU' is selected.
+03:01:43 INFO  : Hardware design information is loaded from 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf'.
+03:01:43 INFO  : 'configparams force-mem-access 1' command is executed.
+03:01:43 INFO  : Context for 'APU' is selected.
+03:01:43 INFO  : 'stop' command is executed.
+03:01:45 INFO  : 'ps7_init' command is executed.
+03:01:45 INFO  : 'ps7_post_config' command is executed.
+03:01:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:01:45 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+03:01:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:01:45 INFO  : The application 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf' is downloaded to processor 'ps7_cortexa9_0'.
+03:01:45 INFO  : 'configparams force-mem-access 0' command is executed.
+03:01:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+loadhw -hw D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+dow D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+03:01:46 INFO  : Memory regions updated for context APU
+03:01:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:01:46 INFO  : 'con' command is executed.
+03:01:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+con
+----------------End of Script----------------
+
+03:01:46 INFO  : Launch script is exported to file 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_zybo_zynq_lab1_design.elf_on_local.tcl'
+03:03:42 INFO  : Disconnected from the channel tcfchan#3.
+03:04:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+03:04:07 INFO  : 'fpga -state' command is executed.
+03:04:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:04:07 INFO  : Jtag cable 'Digilent Zybo 210279A42EACA' is selected.
+03:04:07 INFO  : 'jtag frequency' command is executed.
+03:04:07 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+03:04:07 INFO  : Context for 'APU' is selected.
+03:04:12 INFO  : Hardware design information is loaded from 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf'.
+03:04:12 INFO  : 'configparams force-mem-access 1' command is executed.
+03:04:12 INFO  : Context for 'APU' is selected.
+03:04:12 INFO  : 'stop' command is executed.
+03:04:13 INFO  : 'ps7_init' command is executed.
+03:04:13 INFO  : 'ps7_post_config' command is executed.
+03:04:13 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:04:13 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+03:04:14 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:04:14 INFO  : The application 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf' is downloaded to processor 'ps7_cortexa9_0'.
+03:04:14 INFO  : 'configparams force-mem-access 0' command is executed.
+03:04:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+loadhw -hw D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+dow D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+03:04:14 INFO  : Memory regions updated for context APU
+03:04:15 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:04:15 INFO  : 'con' command is executed.
+03:04:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+con
+----------------End of Script----------------
+
+03:04:15 INFO  : Launch script is exported to file 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_zybo_zynq_lab1_design.elf_on_local.tcl'
+03:09:03 INFO  : Disconnected from the channel tcfchan#4.
+03:18:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo 210279A42EACA" && level==0} -index 1' command is executed.
+03:18:28 INFO  : 'fpga -state' command is executed.
+03:18:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:18:29 INFO  : Jtag cable 'Digilent Zybo 210279A42EACA' is selected.
+03:18:29 INFO  : 'jtag frequency' command is executed.
+03:18:29 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl' is done.
+03:18:29 INFO  : Context for 'APU' is selected.
+03:18:29 INFO  : Hardware design information is loaded from 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf'.
+03:18:29 INFO  : 'configparams force-mem-access 1' command is executed.
+03:18:29 INFO  : Context for 'APU' is selected.
+03:18:29 INFO  : 'stop' command is executed.
+03:18:31 INFO  : 'ps7_init' command is executed.
+03:18:31 INFO  : 'ps7_post_config' command is executed.
+03:18:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:18:31 INFO  : Processor reset is completed for 'ps7_cortexa9_0'.
+03:18:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:18:32 INFO  : The application 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf' is downloaded to processor 'ps7_cortexa9_0'.
+03:18:32 INFO  : 'configparams force-mem-access 0' command is executed.
+03:18:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+loadhw -hw D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_design_wrapper_hw_platform_0/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+dow D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.sdk/zybo_zynq_lab1_design/Debug/zybo_zynq_lab1_design.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+03:18:32 INFO  : Memory regions updated for context APU
+03:18:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+03:18:32 INFO  : 'con' command is executed.
+03:18:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent Zybo 210279A42EACA"} -index 0
+con
+----------------End of Script----------------
+
+03:18:32 INFO  : Launch script is exported to file 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\hls_tutorial_lab1\hls_tutorial_lab1.sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_zybo_zynq_lab1_design.elf_on_local.tcl'
+03:20:22 INFO  : Disconnected from the channel tcfchan#5.

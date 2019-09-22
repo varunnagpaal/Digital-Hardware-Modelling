@@ -1,0 +1,631 @@
+INFO-FLOW: Workspace D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1 opened at Sun Sep 22 02:22:01 -0500 2019
+Command   open_solution done; 0.246 sec.
+Execute   set_part xc7z010clg400-1 
+Execute     add_library xilinx/zynq/zynq:xc7z010:clg400:-1 
+Execute       get_default_platform 
+Execute       license_isbetapart xc7z010 
+Command       license_isbetapart done; error code: 1; 
+Execute       open_platform DefaultPlatform 
+Execute       import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute         config_chip_info -quiet -speed medium 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Command       import_lib done; 0.262 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.339 sec.
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.489 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.501 sec.
+Command       ap_source done; 0.502 sec.
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute       config_chip_info -quiet -speed slow 
+Command     add_library done; 0.808 sec.
+Execute     add_library xilinx/zynq/zynq_fpv6 
+Execute       get_default_platform 
+Execute       open_platform DefaultPlatform 
+Execute       import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command       import_lib done; 0.206 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command     add_library done; 0.228 sec.
+INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
+Execute     get_default_platform 
+Command   set_part done; 1.17 sec.
+Execute   create_clock -period 4 
+Execute     config_clock -quiet -name default -period 4 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+Execute   csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c 
+Execute     is_xip D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc.c 
+Execute     is_xip D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc.c 
+Execute     get_default_platform 
+Execute     source run_sim.tcl 
+Command     ap_source done; 1.192 sec.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 44.603 sec.
+Execute   csynth_design 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -lm 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute       get_config_schedule -relax_ii_for_timing 
+Execute       get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'hls_macc.c' ... 
+INFO-FLOW: Compiling one TU...
+Execute       is_m_axi_addr64 
+INFO-FLOW: Handling hls_macc.c as C
+Execute       get_default_platform 
+Execute       is_encrypted hls_macc.c 
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "hls_macc.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  -o "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E hls_macc.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c
+Command       clang done; 2.498 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c"  -o "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/useless.bc
+Command       clang done; 3.096 sec.
+INFO-FLOW: GCC PP time: 5 seconds per iteration
+Execute       list_core -type functional_unit 
+Execute       tidy_31 xilinx-systemc-detector D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c std=gnu89 -directive=D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.173 sec.
+INFO-FLOW: CDT Preprocessing with tidy-3.1...
+Execute       tidy_31 xilinx-directive2pragma D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c std=gnu89 -directive=D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/solution1.json 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/solution1.json -quiet -fix-errors D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.194 sec.
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.hls_macc.pp.0.c.diag.yml D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -- -std=gnu99 -fhls -ferror-limit=0 -fstrict-dataflow > D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.hls_macc.pp.0.c.out.log 2> D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/xilinx-dataflow-lawyer.hls_macc.pp.0.c.err.log 
+Command       ap_eval done; 0.18 sec.
+Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.393 sec.
+INFO-FLOW: tidy-3.1 time 0 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute       tidy_31 xilinx-ssdm-intrinsics-arguments D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.1.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.1.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.227 sec.
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.1.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  -o "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.2.c" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.1.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.2.c
+Command       clang done; 2.865 sec.
+Execute       get_default_platform 
+INFO-FLOW: Processing labels
+Execute       clang -src D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.2.c"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.bc" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.pragma.2.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.bc
+Command       clang done; 2.367 sec.
+INFO-FLOW: Linking Debug ...
+Execute       llvm-ld D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.g.bc -hls-opt -except-internalize hls_macc -LC:/Xilinx/Vivado/2018.2/win64/lib -lhlsm -lhlsmc++ -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g 
+Command       llvm-ld done; 1.707 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:01:03 . Memory (MB): peak = 104.660 ; gain = 44.578
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:01:03 . Memory (MB): peak = 104.660 ; gain = 44.578
+Execute       ::config_rtl 
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute         transform -promote-dbg-pointer D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.pp.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.pp.0.bc -f 
+Execute         llvm-ld D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado/2018.2/win64/lib -lfloatconversion -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.0 
+Command         llvm-ld done; 1.461 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top hls_macc -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.0.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:02 ; elapsed = 00:01:04 . Memory (MB): peak = 105.621 ; gain = 45.539
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.1.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.2.prechk.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:02 ; elapsed = 00:01:04 . Memory (MB): peak = 105.875 ; gain = 45.793
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.g.1.bc to D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.1.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+Command         transform done; 0.18 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.1.tmp.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+Command         transform done; 0.108 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:01:05 . Memory (MB): peak = 126.734 ; gain = 66.652
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -dead-allocation-elimination -cdfg-build D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.2.bc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Command         transform done; 0.189 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:02 ; elapsed = 00:01:05 . Memory (MB): peak = 126.734 ; gain = 66.652
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 2.115 sec.
+Command     elaborate done; 16.137 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'hls_macc' ...
+Execute       ap_set_top_model hls_macc 
+Execute       get_model_list hls_macc -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model hls_macc 
+Execute       get_model_list hls_macc -filter all-wo-channel 
+INFO-FLOW: Model list for configure: hls_macc
+INFO-FLOW: Configuring Module : hls_macc ...
+Execute       set_default_model hls_macc 
+Execute       apply_spec_resource_limit hls_macc 
+INFO-FLOW: Model list for preprocess: hls_macc
+INFO-FLOW: Preprocessing Module: hls_macc ...
+Execute       set_default_model hls_macc 
+Execute       cdfg_preprocess -model hls_macc 
+Execute       rtl_gen_preprocess hls_macc 
+INFO-FLOW: Model list for synthesis: hls_macc
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hls_macc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model hls_macc 
+Execute       schedule -model hls_macc 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 65.104 seconds; current allocated memory: 74.999 MB.
+Execute       report -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.verbose.sched.rpt -verbose -f 
+Execute       db_write -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.sched.adb -f 
+INFO-FLOW: Finish scheduling hls_macc.
+Execute       set_default_model hls_macc 
+Execute       bind -model hls_macc 
+BIND OPTION: fu_weight=[ 0.0 -- 1.0 ]
+BIND OPTION: model=hls_macc
+BIND OPTION: reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 75.118 MB.
+Execute       report -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.verbose.bind.rpt -verbose -f 
+Execute       db_write -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.bind.adb -f 
+INFO-FLOW: Finish binding hls_macc.
+Execute       get_model_list hls_macc -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess hls_macc 
+INFO-FLOW: Model list for RTL generation: hls_macc
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_macc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -prefix 
+Execute       get_config_rtl -auto_prefix 
+Execute       create_rtl_model hls_macc -vendor xilinx -mg_file D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_macc/a' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_macc/b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_macc/accum' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hls_macc/accum_clr' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hls_macc' to 's_axilite & ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Register 'acc_reg' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'return', 'b', 'accum' and 'accum_clr' to AXI-Lite port HLS_MACC_PERIPH_BUS.
+INFO: [SYN 201-210] Renamed object name 'hls_macc_mul_32s_32s_32_7_1' to 'hls_macc_mul_32s_bkb' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'hls_macc_mul_32s_bkb': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_macc'.
+INFO: [HLS 200-111]  Elapsed time: 0.132 seconds; current allocated memory: 75.424 MB.
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute       gen_rtl hls_macc -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/syn/systemc/hls_macc -synmodules hls_macc 
+Execute       gen_rtl hls_macc -istop -style xilinx -f -lang vhdl -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/syn/vhdl/hls_macc 
+Execute       gen_rtl hls_macc -istop -style xilinx -f -lang vlog -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/syn/verilog/hls_macc 
+Execute       export_constraint_db -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl -f -tool general 
+Execute       report -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.design.xml -verbose -f -dv 
+Execute       report -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.sdaccel.xml -verbose -f -sdaccel 
+Execute       gen_tb_info hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc -p D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db 
+Execute       report -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/syn/report/hls_macc_csynth.rpt -f 
+Execute       report -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/syn/report/hls_macc_csynth.xml -f -x 
+Execute       report -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.verbose.rpt -verbose -f 
+Execute       db_write -model hls_macc -o D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.adb -f 
+Execute       sc_get_clocks hls_macc 
+Execute       sc_get_portdomain hls_macc 
+INFO-FLOW: Model list for RTL component generation: hls_macc
+INFO-FLOW: Handling components in module [hls_macc] ... 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+INFO-FLOW: Found component hls_macc_mul_32s_bkb.
+INFO-FLOW: Append model hls_macc_mul_32s_bkb
+INFO-FLOW: Found component hls_macc_HLS_MACC_PERIPH_BUS_s_axi.
+INFO-FLOW: Append model hls_macc_HLS_MACC_PERIPH_BUS_s_axi
+INFO-FLOW: Append model hls_macc
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: hls_macc_mul_32s_bkb hls_macc_HLS_MACC_PERIPH_BUS_s_axi hls_macc
+INFO-FLOW: To file: write model hls_macc_mul_32s_bkb
+INFO-FLOW: To file: write model hls_macc_HLS_MACC_PERIPH_BUS_s_axi
+INFO-FLOW: To file: write model hls_macc
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute       get_config_sdx -target 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.313 sec.
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.459 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.469 sec.
+Command       ap_source done; 0.47 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+INFO: [RTMG 210-282] Generating pipelined core: 'hls_macc_mul_32s_bkb_MulnS_0'
+Execute         source ./HLS_MACC_PERIPH_BUS.slave.tcl 
+Execute         is_m_axi_addr64 
+Command       ap_source done; 0.195 sec.
+Execute       get_config_sdx -target 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.306 sec.
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.425 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.435 sec.
+Command       ap_source done; 0.436 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute       sc_get_clocks hls_macc 
+Execute       source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_sdx -target 
+Execute       get_config_sdx -profile 
+Execute       ::config_rtl 
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:04 ; elapsed = 00:01:08 . Memory (MB): peak = 126.734 ; gain = 66.652
+INFO: [SYSC 207-301] Generating SystemC RTL for hls_macc.
+INFO: [VHDL 208-304] Generating VHDL RTL for hls_macc.
+INFO: [VLOG 209-307] Generating Verilog RTL for hls_macc.
+Command     autosyn done; 3.141 sec.
+Command   csynth_design done; 19.293 sec.
+Execute   cosim_design 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.321 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.464 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.475 sec.
+Command     ap_source done; 0.476 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc.c 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc_test.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc_test.c_pre.c D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc_test.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/hls_macc_test.c_pre.c.tb.c.line ./sim/autowrap/testbench/hls_macc_test.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc.c D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc.c_pre.c D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/hls_macc.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/hls_macc.c_pre.c.tb.c.line ./sim/autowrap/testbench/hls_macc.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     get_default_platform 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 2.278 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     get_default_platform 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source .run_sim.tcl 
+Execute       source check_sim.tcl 
+Execute       source .sim.status.tcl 
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+Command     ap_source done; 92.498 sec.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+Command   cosim_design done; 155.055 sec.
+Execute   export_design 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.346 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.509 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.521 sec.
+Command     ap_source done; 0.523 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     get_config_sdx -target 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.289 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.442 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.453 sec.
+Command     ap_source done; 0.455 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/hls_macc.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.363 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.519 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.53 sec.
+Command     ap_source done; 0.532 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command   export_design done; 40.062 sec.
+Execute   cleanup_all 

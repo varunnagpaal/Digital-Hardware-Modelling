@@ -1,0 +1,63 @@
+#-----------------------------------------------------------
+# xsim v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 16 01:47:45 2019
+# Process ID: 12244
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/array_arith/proj_array_arith/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/array_arith/xsim_script.tcl}
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/array_arith/proj_array_arith/solution1/sim/verilog/xsim.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/array_arith/proj_array_arith/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/array_arith/xsim_script.tcl
+# xsim {array_arith} -autoloadwcfg -tclbatch {array_arith.tcl}
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source array_arith.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set d_group [add_wave_group d(memory) -into $cinoutgroup]
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/d_q0 -into $d_group -radix hex
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/d_d0 -into $d_group -radix hex
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/d_we0 -into $d_group -color #ffff00 -radix hex
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/d_ce0 -into $d_group -color #ffff00 -radix hex
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/d_address0 -into $d_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_start -into $blocksiggroup
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_done -into $blocksiggroup
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_idle -into $blocksiggroup
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_array_arith_top/AESL_inst_array_arith/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_array_arith_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_array_arith_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_array_arith_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_array_arith_top/LENGTH_d -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_d_group [add_wave_group d(memory) -into $tbcinoutgroup]
+## add_wave /apatb_array_arith_top/d_q0 -into $tb_d_group -radix hex
+## add_wave /apatb_array_arith_top/d_d0 -into $tb_d_group -radix hex
+## add_wave /apatb_array_arith_top/d_we0 -into $tb_d_group -color #ffff00 -radix hex
+## add_wave /apatb_array_arith_top/d_ce0 -into $tb_d_group -color #ffff00 -radix hex
+## add_wave /apatb_array_arith_top/d_address0 -into $tb_d_group -radix hex
+## save_wave_config array_arith.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "110000"
+// RTL Simulation : 1 / 1 [100.00%] @ "202000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 218 ns : File "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/array_arith/proj_array_arith/solution1/sim/verilog/array_arith.autotb.v" Line 220
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Sep 16 01:48:15 2019...

@@ -1,0 +1,79 @@
+23:35:26 INFO  : Registering command handlers for SDK TCF services
+23:35:27 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+23:35:30 INFO  : XSCT server has started successfully.
+23:35:31 INFO  : Successfully done setting XSCT server connection channel  
+23:35:31 INFO  : Successfully done setting SDK workspace  
+23:36:02 INFO  : Registering command handlers for SDK TCF services
+23:36:02 ERROR : Unsatisfied link error while loading librdi_repo_manager.dll: java.lang.UnsatisfiedLinkError: no librdi_repo_manager in java.library.path
+23:36:02 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+23:36:02 ERROR : Error launching XSCT server
+java.io.IOException: Cannot run program "xsct.bat": CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.launchXsdbServer(XSDBCommandManager.java:283)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.ensureServerIsLaunched(XSDBCommandManager.java:168)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.access$1(XSDBCommandManager.java:166)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager$2.run(XSDBCommandManager.java:137)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 9 more
+23:36:02 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+23:36:02 ERROR : Error launching XSCT server
+java.io.IOException: Cannot run program "xsct.bat": CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.launchXsdbServer(XSDBCommandManager.java:283)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.ensureServerIsLaunched(XSDBCommandManager.java:168)
+	at com.xilinx.sdk.xsdb.XSDBCommandManager.issueAndWait(XSDBCommandManager.java:388)
+	at com.xilinx.sdk.xsdb.XsdbCommandUtils.executeAndRespond(XsdbCommandUtils.java:307)
+	at com.xilinx.sdk.sw.internal.SwReposMan.<init>(SwReposMan.java:72)
+	at com.xilinx.sdk.sw.SwDbUtils$SwReposManHolder.<clinit>(SwDbUtils.java:54)
+	at com.xilinx.sdk.sw.SwDbUtils.getReposMan(SwDbUtils.java:67)
+	at com.xilinx.sdk.startup.InitSDK$8.run(InitSDK.java:365)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 13 more
+23:36:02 ERROR : Failed to call init_repo
+Reason: xsct server communication channel is not established.
+23:36:02 ERROR : Exception raised in executing the command =Failed to call init_repo
+Reason: xsct server communication channel is not established. 
+23:37:47 INFO  : Registering command handlers for SDK TCF services
+23:37:48 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+23:37:51 INFO  : XSCT server has started successfully.
+23:37:51 INFO  : Successfully done setting XSCT server connection channel  
+23:37:52 INFO  : Successfully done setting SDK workspace  
+18:12:22 INFO  : Registering command handlers for SDK TCF services
+18:12:25 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+18:12:37 INFO  : XSCT server has started successfully.
+18:12:37 INFO  : Successfully done setting XSCT server connection channel  
+18:12:40 INFO  : Successfully done setting SDK workspace  
+22:35:32 INFO  : Registering command handlers for SDK TCF services
+22:35:35 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+22:35:44 INFO  : XSCT server has started successfully.
+22:35:44 INFO  : Successfully done setting XSCT server connection channel  
+22:35:45 INFO  : Successfully done setting SDK workspace  
+22:47:35 INFO  : Registering command handlers for SDK TCF services
+22:47:35 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+22:47:40 INFO  : XSCT server has started successfully.
+22:47:40 INFO  : Successfully done setting XSCT server connection channel  
+22:47:40 INFO  : Successfully done setting SDK workspace  
+17:32:36 INFO  : Registering command handlers for SDK TCF services
+17:32:38 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+17:32:47 INFO  : XSCT server has started successfully.
+17:32:47 INFO  : Successfully done setting XSCT server connection channel  
+17:32:49 INFO  : Successfully done setting SDK workspace  
+23:21:58 INFO  : Registering command handlers for SDK TCF services
+23:21:59 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\2018.2\temp_xsdb_launch_script.tcl
+23:22:04 INFO  : XSCT server has started successfully.
+23:22:05 INFO  : Successfully done setting XSCT server connection channel  
+23:22:06 INFO  : Successfully done setting SDK workspace  

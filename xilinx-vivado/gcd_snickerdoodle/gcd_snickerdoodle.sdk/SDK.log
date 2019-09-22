@@ -1,0 +1,20 @@
+19:53:58 INFO  : Registering command handlers for SDK TCF services
+19:53:58 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd_snickerdoodle\gcd_snickerdoodle.sdk\temp_xsdb_launch_script.tcl
+19:54:03 INFO  : XSCT server has started successfully.
+19:54:03 INFO  : Successfully done setting XSCT server connection channel  
+19:54:04 INFO  : Successfully done setting SDK workspace  
+19:54:04 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd_snickerdoodle/gcd_snickerdoodle.sdk/gcd_zynq_snick_wrapper.hdf.
+22:49:44 INFO  : Registering command handlers for SDK TCF services
+22:49:45 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd_snickerdoodle\gcd_snickerdoodle.sdk\temp_xsdb_launch_script.tcl
+22:49:54 INFO  : XSCT server has started successfully.
+22:49:55 INFO  : Successfully done setting XSCT server connection channel  
+22:49:55 INFO  : Successfully done setting SDK workspace  
+22:49:55 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd_snickerdoodle/gcd_snickerdoodle.sdk/gcd_zynq_snick_wrapper.hdf.
+23:48:10 INFO  : Invoking Bootgen: bootgen -image gcd_zynq_snick_sw.bif -arch zynq -o D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd_snickerdoodle\gcd_snickerdoodle.sdk\gcd_zynq_snick_sw\bootimage\BOOT.bin
+23:48:10 INFO  : Creating new bif file D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd_snickerdoodle\gcd_snickerdoodle.sdk\gcd_zynq_snick_sw\bootimage\gcd_zynq_snick_sw.bif
+23:48:20 INFO  : Bootgen command execution is done.
+00:10:13 INFO  : Invoking Bootgen: bootgen -image gcd_zynq_snick_sw.bif -arch zynq -split bin -w on
+00:10:13 INFO  : Overwriting existing bif file D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd_snickerdoodle\gcd_snickerdoodle.sdk\gcd_zynq_snick_sw\bootimage\gcd_zynq_snick_sw.bif
+00:10:22 INFO  : Bootgen command execution is done.
+00:12:01 INFO  : Invoking Bootgen: bootgen -image gcd_zynq_snick_sw.bif -arch zynq -split bin -w on
+00:12:10 INFO  : Bootgen command execution is done.

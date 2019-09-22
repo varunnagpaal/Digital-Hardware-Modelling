@@ -1,0 +1,24 @@
+   Build using "C:/Xilinx/Vivado/2018.2/msys64/mingw64/bin/g++"
+   Compiling apatb_hls_macc.cpp
+   Compiling (apcc) hls_macc.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sun Sep 22 02:23:36 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) hls_macc_test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sun Sep 22 02:23:55 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+In file included from D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c:1:
+D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/hls_macc_test.c:55:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe

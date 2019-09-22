@@ -1,0 +1,973 @@
+INFO-FLOW: Workspace D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1 opened at Tue Sep 17 15:12:55 -0500 2019
+Execute     config_clock -quiet -name default -period 3 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Command     import_lib done; 0.215 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.377 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.539 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.549 sec.
+Command     ap_source done; 0.55 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command     import_lib done; 0.167 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     set_part xc7z010clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z010:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z010 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command         import_lib done; 0.159 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       add_library done; 0.178 sec.
+INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
+Execute       get_default_platform 
+Command     set_part done; 0.353 sec.
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 1.346 sec.
+Execute   set_part xc7z010clg400-1 -tool vivado 
+Execute     add_library xilinx/zynq/zynq:xc7z010:clg400:-1 
+Execute       get_default_platform 
+Execute       license_isbetapart xc7z010 
+Command       license_isbetapart done; error code: 1; 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute       config_chip_info -quiet -speed slow 
+Execute     add_library xilinx/zynq/zynq_fpv6 
+Execute       get_default_platform 
+Execute       open_platform DefaultPlatform 
+Execute       import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command       import_lib done; 0.161 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command     add_library done; 0.18 sec.
+Execute     get_default_platform 
+Command   set_part done; 0.323 sec.
+Execute   create_clock -period 3 -name default 
+Execute     config_clock -quiet -name default -period 3 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3ns.
+Execute   source ./gcd/solution1/directives.tcl 
+Execute     set_directive_interface -mode s_axilite -bundle gcd_bus gcd a 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+Execute     set_directive_interface -mode s_axilite -bundle gcd_bus gcd b 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredb bundle=gcd_bus 
+Execute     set_directive_interface -mode s_axilite -bundle gcd_bus gcd pResult 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredb bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredpResult bundle=gcd_bus 
+Execute     set_directive_interface -mode s_axilite -bundle gcd_bus gcd 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredb bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredpResult bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredreturn bundle=gcd_bus 
+Execute   csynth_design 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -lm 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute       get_config_schedule -relax_ii_for_timing 
+Execute       get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'gcd/gcd.c' ... 
+INFO-FLOW: Compiling one TU...
+Execute       is_m_axi_addr64 
+INFO-FLOW: Handling gcd/gcd.c as C
+Execute       get_default_platform 
+Execute       is_encrypted gcd/gcd.c 
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "gcd/gcd.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  -o "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E gcd/gcd.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c
+Command       clang done; 3.011 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c"  -o "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/useless.bc"  
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/useless.bc
+Command       clang done; 2.564 sec.
+INFO-FLOW: GCC PP time: 5 seconds per iteration
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredb bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredpResult bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredreturn bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequireda bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredb bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredpResult bundle=gcd_bus 
+INFO-FLOW: Setting directive 'INTERFACE' s_axilite=positionBoolean0mode port=positionBooleanTextRequiredreturn bundle=gcd_bus 
+Execute       list_core -type functional_unit 
+Execute       tidy_31 xilinx-systemc-detector D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c std=gnu89 -directive=D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/.systemc_flag -quiet -fix-errors D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.521 sec.
+INFO-FLOW: CDT Preprocessing with tidy-3.1...
+Execute       tidy_31 xilinx-directive2pragma D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c std=gnu89 -directive=D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/solution1.json 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/solution1.json -quiet -fix-errors D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.508 sec.
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/xilinx-dataflow-lawyer.gcd.pp.0.c.diag.yml D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -- -std=gnu99 -fhls -ferror-limit=0 -fstrict-dataflow > D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/xilinx-dataflow-lawyer.gcd.pp.0.c.out.log 2> D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/xilinx-dataflow-lawyer.gcd.pp.0.c.err.log 
+Command       ap_eval done; 0.349 sec.
+Execute       tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer -quiet -fix-errors D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pp.0.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.667 sec.
+INFO-FLOW: tidy-3.1 time 1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute       tidy_31 xilinx-ssdm-intrinsics-arguments D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.1.c std=gnu89 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* --checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.1.c -- -std=gnu89 -fhls -ferror-limit=0
+Command       tidy_31 done; 0.488 sec.
+INFO-FLOW: Source preprocessing
+Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado/2018.2/msys" -hls  -fno-exceptions  -D__llvm__  -E "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.1.c"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl=  -o "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.2.c" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -fno-exceptions -D__llvm__ -E D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.1.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -D__cdecl= -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.2.c
+Command       clang done; 2.849 sec.
+Execute       get_default_platform 
+INFO-FLOW: Processing labels
+Execute       clang -src D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.2.c  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.2.c"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=gnu89  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot" -I "C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.bc" 
+INFO-FLOW: exec C:/Xilinx/Vivado/2018.2/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado/2018.2/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.pragma.2.c -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -std=gnu89 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot -I C:/Xilinx/Vivado/2018.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.bc
+Command       clang done; 2.757 sec.
+INFO-FLOW: Linking Debug ...
+Execute       llvm-ld D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.g.bc -hls-opt -except-internalize gcd -LC:/Xilinx/Vivado/2018.2/win64/lib -lhlsm -lhlsmc++ -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g 
+Command       llvm-ld done; 4.317 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 105.902 ; gain = 45.695
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:02 ; elapsed = 00:00:23 . Memory (MB): peak = 105.902 ; gain = 45.695
+Execute       ::config_rtl 
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute         transform -promote-dbg-pointer D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.pp.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.pp.0.bc -f 
+Command         transform done; 0.125 sec.
+Execute         llvm-ld D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado/2018.2/win64/lib -lfloatconversion -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.0 
+Command         llvm-ld done; 1.627 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top gcd -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.0.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+Command         transform done; 0.101 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:25 . Memory (MB): peak = 106.254 ; gain = 46.047
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.1.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.2.prechk.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:25 . Memory (MB): peak = 106.508 ; gain = 46.301
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.g.1.bc to D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.1.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+Command         transform done; 0.182 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.1.tmp.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+Command         transform done; 0.109 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:25 . Memory (MB): peak = 127.727 ; gain = 67.520
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -dead-allocation-elimination -cdfg-build D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.2.bc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Command         transform done; 0.192 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:26 . Memory (MB): peak = 127.727 ; gain = 67.520
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 2.469 sec.
+Command     elaborate done; 21.182 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'gcd' ...
+Execute       ap_set_top_model gcd 
+Execute       get_model_list gcd -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model gcd 
+Execute       get_model_list gcd -filter all-wo-channel 
+INFO-FLOW: Model list for configure: gcd
+INFO-FLOW: Configuring Module : gcd ...
+Execute       set_default_model gcd 
+Execute       apply_spec_resource_limit gcd 
+INFO-FLOW: Model list for preprocess: gcd
+INFO-FLOW: Preprocessing Module: gcd ...
+Execute       set_default_model gcd 
+Execute       cdfg_preprocess -model gcd 
+Execute       rtl_gen_preprocess gcd 
+INFO-FLOW: Model list for synthesis: gcd
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'gcd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model gcd 
+Execute       schedule -model gcd 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.109 sec.
+INFO: [HLS 200-111]  Elapsed time: 25.813 seconds; current allocated memory: 75.148 MB.
+Execute       report -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-434] Only 0 loops out of a total 1 loops have been pipelined in this design.
+Execute       db_write -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.sched.adb -f 
+INFO-FLOW: Finish scheduling gcd.
+Execute       set_default_model gcd 
+Execute       bind -model gcd 
+BIND OPTION: fu_weight=[ 0.0 -- 1.0 ]
+BIND OPTION: model=gcd
+BIND OPTION: reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.109 seconds; current allocated memory: 75.282 MB.
+Execute       report -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.verbose.bind.rpt -verbose -f 
+Execute       db_write -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.bind.adb -f 
+INFO-FLOW: Finish binding gcd.
+Execute       get_model_list gcd -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess gcd 
+INFO-FLOW: Model list for RTL generation: gcd
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'gcd' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -prefix 
+Execute       get_config_rtl -auto_prefix 
+Execute       create_rtl_model gcd -vendor xilinx -mg_file D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'gcd/a' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'gcd/b' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'gcd/pResult' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'gcd' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'return', 'b' and 'pResult' to AXI-Lite port gcd_bus.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'gcd'.
+INFO: [HLS 200-111]  Elapsed time: 0.153 seconds; current allocated memory: 75.598 MB.
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute       gen_rtl gcd -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/syn/systemc/gcd -synmodules gcd 
+Execute       gen_rtl gcd -istop -style xilinx -f -lang vhdl -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/syn/vhdl/gcd 
+Execute       gen_rtl gcd -istop -style xilinx -f -lang vlog -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/syn/verilog/gcd 
+Execute       export_constraint_db -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl -f -tool general 
+Execute       report -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.design.xml -verbose -f -dv 
+Execute       report -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.sdaccel.xml -verbose -f -sdaccel 
+Execute       gen_tb_info gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd -p D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db 
+Execute       report -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/syn/report/gcd_csynth.rpt -f 
+Execute       report -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/syn/report/gcd_csynth.xml -f -x 
+Execute       report -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.verbose.rpt -verbose -f 
+Execute       db_write -model gcd -o D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.adb -f 
+Execute       sc_get_clocks gcd 
+Execute       sc_get_portdomain gcd 
+INFO-FLOW: Model list for RTL component generation: gcd
+INFO-FLOW: Handling components in module [gcd] ... 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+INFO-FLOW: Found component gcd_gcd_bus_s_axi.
+INFO-FLOW: Append model gcd_gcd_bus_s_axi
+INFO-FLOW: Append model gcd
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: gcd_gcd_bus_s_axi gcd
+INFO-FLOW: To file: write model gcd_gcd_bus_s_axi
+INFO-FLOW: To file: write model gcd
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute       get_config_sdx -target 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.338 sec.
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.483 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.493 sec.
+Command       ap_source done; 0.495 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute         source ./gcd_bus.slave.tcl 
+Execute         is_m_axi_addr64 
+Command       ap_source done; 0.121 sec.
+Execute       get_config_sdx -target 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.329 sec.
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command           ap_source done; 0.472 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.482 sec.
+Command       ap_source done; 0.483 sec.
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute       sc_get_clocks gcd 
+Execute       source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_sdx -target 
+Execute       get_config_sdx -profile 
+Execute       ::config_rtl 
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:05 ; elapsed = 00:00:29 . Memory (MB): peak = 127.727 ; gain = 67.520
+INFO: [SYSC 207-301] Generating SystemC RTL for gcd.
+INFO: [VHDL 208-304] Generating VHDL RTL for gcd.
+INFO: [VLOG 209-307] Generating Verilog RTL for gcd.
+Command     autosyn done; 3.003 sec.
+Command   csynth_design done; 24.207 sec.
+Command ap_source done; 25.993 sec.
+Execute cleanup_all 
+INFO-FLOW: Workspace D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1 opened at Tue Sep 17 15:15:32 -0500 2019
+Execute     config_clock -quiet -name default -period 3 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Command     import_lib done; 0.172 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.277 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.396 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.405 sec.
+Command     ap_source done; 0.406 sec.
+Execute     set_part xc7z010clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z010:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z010 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command         import_lib done; 0.16 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       add_library done; 0.179 sec.
+INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
+Execute       get_default_platform 
+Command     set_part done; 0.335 sec.
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 0.946 sec.
+Execute   cosim_design -trace_level all 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.269 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.403 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.412 sec.
+Command     ap_source done; 0.413 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/result.golden.dat 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/gcd_test.c 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/gcd.h 
+Execute     is_encrypted D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/gcd.c 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/gcd_test.c D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd_test.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd_test.c_pre.c D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd_test.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/gcd_test.c_pre.c.tb.c.line ./sim/autowrap/testbench/gcd_test.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     get_default_platform 
+INFO-FLOW: TB processing: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/gcd.c D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd.c_pre.c
+INFO-FLOW: Marker-Pragma convertor: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd.c_pre.c D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/gcd.c_pre.c.line.c ./sim/autowrap/testbench/line.tmp 1
+INFO-FLOW: Converting Markers to Pragmas...
+INFO-FLOW: Marker-Pragma convertor: ./sim/autowrap/testbench/gcd.c_pre.c.tb.c.line ./sim/autowrap/testbench/gcd.c_pre.c.tb.c ./sim/autowrap/testbench/line.tmp 0
+INFO-FLOW: Converting Pragmas to Markers...
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/./sim/autowrap/testbench/tb.status.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     get_default_platform 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source .run_sim.tcl 
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Command     ap_source done; 2.7 sec.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+Execute     get_default_platform 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+INFO: [COSIM 212-12] Generating RTL test bench ...
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source ../tv/cdatafile/ref.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source .run_sim.tcl 
+Execute       source check_sim.tcl 
+Execute       source .sim.status.tcl 
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+Command     ap_source done; 66.497 sec.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+Command   cosim_design done; 131.062 sec.
+Command ap_source done; 132.023 sec.
+Execute cleanup_all 
+INFO-FLOW: Workspace D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1 opened at Tue Sep 17 15:25:33 -0500 2019
+Execute     config_clock -quiet -name default -period 3 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.lib 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_old.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute       get_default_platform 
+Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute       config_chip_info -quiet -speed medium 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Command     import_lib done; 0.191 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.291 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.411 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.42 sec.
+Command     ap_source done; 0.421 sec.
+Execute     set_part xc7z010clg400-1 
+Execute       add_library xilinx/zynq/zynq:xc7z010:clg400:-1 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z010 
+Command         license_isbetapart done; error code: 1; 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute         config_chip_info -quiet -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/target_info.tcl 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.hlp 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_hp.hlp 
+Command         import_lib done; 0.162 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Command       add_library done; 0.181 sec.
+INFO: [HLS 200-10] Setting target device to 'xc7z010clg400-1'
+Execute       get_default_platform 
+Command     set_part done; 0.356 sec.
+Execute     get_default_platform 
+Execute     config_chip_info -quiet -resource  {SLICE 4400}   {LUT 17600}     {FF 35200}  {DSP48E 80}    {BRAM 120}  
+Execute     config_chip_info -quiet -speed slow 
+Command   open_solution done; 1.009 sec.
+Execute   export_design -flow impl -rtl verilog -format ip_catalog 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.326 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.487 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.497 sec.
+Command     ap_source done; 0.498 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     get_config_sdx -target 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.287 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.427 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.435 sec.
+Command     ap_source done; 0.437 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.rtl_wrap.cfg.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.315 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.459 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.47 sec.
+Command     ap_source done; 0.471 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.326 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.469 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.479 sec.
+Command     ap_source done; 0.48 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     get_config_sdx -target 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.266 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.405 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.415 sec.
+Command     ap_source done; 0.416 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.compgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.constraint.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/gcd.tbgen.tcl 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/common.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/generic/autopilot/interface.gen 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/virtex.gen 
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/fsl.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.298 sec.
+Execute           source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/ip/xfir.gen 
+Command         ap_source done; 0.425 sec.
+Execute         source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.434 sec.
+Command     ap_source done; 0.434 sec.
+Execute     source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vivado/2018.2/common/technology/xilinx/common/xilinx_fpv6.gen 
+Execute     get_config_rtl -vivado_synth_design_args 
+Execute     source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/.autopilot/db/global.setting.tcl 
+Execute     get_config_rtl -vivado_synth_strategy 
+Execute     get_config_rtl -vivado_synth_strategy 
+Execute     get_config_rtl -vivado_phys_opt 
+Command   export_design done; 500.736 sec.
+Command ap_source done; 501.763 sec.
+Execute cleanup_all 

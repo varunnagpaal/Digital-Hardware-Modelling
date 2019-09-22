@@ -1,0 +1,15 @@
+23:31:48 INFO  : Registering command handlers for SDK TCF services
+23:31:48 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\temp_xsdb_launch_script.tcl
+23:31:50 INFO  : XSCT server has started successfully.
+23:31:50 INFO  : Successfully done setting XSCT server connection channel  
+23:31:51 INFO  : Successfully done setting SDK workspace  
+23:43:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:43:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+23:53:17 INFO  : Registering command handlers for SDK TCF services
+23:53:17 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-sdk\temp_xsdb_launch_script.tcl
+23:53:19 INFO  : XSCT server has started successfully.
+23:53:20 INFO  : Successfully done setting XSCT server connection channel  
+23:53:20 INFO  : Successfully done setting SDK workspace  

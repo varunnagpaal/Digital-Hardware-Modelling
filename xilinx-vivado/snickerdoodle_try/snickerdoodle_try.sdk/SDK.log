@@ -1,0 +1,122 @@
+23:11:31 INFO  : Registering command handlers for SDK TCF services
+23:11:32 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+23:11:35 INFO  : XSCT server has started successfully.
+23:11:36 INFO  : Successfully done setting XSCT server connection channel  
+23:11:36 INFO  : Successfully done setting SDK workspace  
+23:11:36 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+23:22:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:25:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:56:17 INFO  : Registering command handlers for SDK TCF services
+23:56:19 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+23:56:27 INFO  : XSCT server has started successfully.
+23:56:30 INFO  : Successfully done setting XSCT server connection channel  
+23:56:30 INFO  : Successfully done setting SDK workspace  
+23:56:30 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+23:56:30 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:34:50 INFO  : Registering command handlers for SDK TCF services
+01:34:51 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+01:34:53 INFO  : XSCT server has started successfully.
+01:34:54 INFO  : Successfully done setting XSCT server connection channel  
+01:34:54 INFO  : Successfully done setting SDK workspace  
+01:34:54 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+01:34:57 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:34:57 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1522872159245,  Project:1522863276287
+01:34:57 INFO  : The hardware specification for project 'design_1_wrapper_hw_platform_0' is different from D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+01:34:57 INFO  : Copied contents of D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf into \design_1_wrapper_hw_platform_0\system.hdf.
+01:35:21 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:35:22 INFO  : 
+01:35:23 INFO  : Updating hardware inferred compiler options for snickerdoodleTry.
+01:35:23 INFO  : Clearing existing target manager status.
+01:35:23 WARN  : Given IPC port value is invalid. Using default port 2350
+01:35:23 WARN  : Given XMD timeout value is invalid. Using default value of 50000
+01:35:26 WARN  : Given XMD transaction timeout value is invalid. Using default value of 60000 milli seconds
+01:54:02 WARN  : Given XMD transaction timeout value is invalid. Using default value of 60000 milli seconds
+01:54:05 WARN  : Given XMD transaction timeout value is invalid. Using default value of 60000 milli seconds
+01:54:07 ERROR : Checking FPGA configuration failed..Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not connected to the host
+
+01:54:07 ERROR : Unexpected error while launching program.
+com.xilinx.sdk.targetmanager.TMException: Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not connected to the host
+
+	at com.xilinx.sdk.targetmanager.internal.TM.isFPGAConfigured(TM.java:368)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.isFpgaConfigured(XilinxAppLaunchConfigurationDelegate.java:409)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:303)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+02:00:18 WARN  : Given XMD transaction timeout value is invalid. Using default value of 60000 milli seconds
+02:00:18 ERROR : Checking FPGA configuration failed..Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not connected to the host
+
+02:00:18 ERROR : Unexpected error while launching program.
+com.xilinx.sdk.targetmanager.TMException: Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not connected to the host
+
+	at com.xilinx.sdk.targetmanager.internal.TM.isFPGAConfigured(TM.java:368)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.isFpgaConfigured(XilinxAppLaunchConfigurationDelegate.java:409)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:303)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+02:03:54 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+03:02:53 INFO  : Registering command handlers for SDK TCF services
+03:02:53 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+03:02:55 INFO  : XSCT server has started successfully.
+03:02:56 INFO  : Successfully done setting XSCT server connection channel  
+03:02:56 INFO  : Successfully done setting SDK workspace  
+03:02:56 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+03:02:56 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+03:03:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx Null Cable svftarget_0" && level==0} -index 1' command is executed.
+03:03:07 INFO  : 'fpga -state' command is executed.
+03:03:12 ERROR : Failed to start performance analysis programatically. It can be started manually from Performance Session Manager view.
+03:03:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Xilinx Null Cable svftarget_0" && level==0} -index 1' command is executed.
+03:03:59 INFO  : 'fpga -state' command is executed.
+03:04:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:04:06 INFO  : Jtag cable 'Xilinx Null Cable svftarget_0' is selected.
+03:04:06 INFO  : 'jtag frequency' command is executed.
+03:04:06 INFO  : Sourcing of 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl' is done.
+03:04:09 ERROR : no targets found with "name =~"APU*" && jtag_cable_name =~ "Xilinx Null Cable svftarget_0"". available targets:
+  1  DAP (JTAG port open error. Invalid DAP ACK value: 0)
+  2* xc7z020
+03:04:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper_hw_platform_0/ps7_init.tcl
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Xilinx Null Cable svftarget_0"} -index 0
+----------------End of Script----------------
+
+03:04:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:30:58 INFO  : Registering command handlers for SDK TCF services
+01:30:58 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+01:31:01 INFO  : XSCT server has started successfully.
+01:31:02 INFO  : Successfully done setting XSCT server connection channel  
+01:31:02 INFO  : Successfully done setting SDK workspace  
+01:31:02 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+01:31:02 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.
+01:32:30 ERROR : Failed to connect to hardware server on host '192.168.1.102' and port '3121'.
+Reason: No connection could be made because the target machine actively refused it
+16:15:57 INFO  : Registering command handlers for SDK TCF services
+16:15:57 INFO  : Launching XSCT server: xsct.bat -interactive D:\github\Digital-Hardware-Modelling\xilinx-vivado\snickerdoodle_try\snickerdoodle_try.sdk\temp_xsdb_launch_script.tcl
+16:16:00 INFO  : XSCT server has started successfully.
+16:16:00 INFO  : Successfully done setting XSCT server connection channel  
+16:16:01 INFO  : Successfully done setting SDK workspace  
+16:16:01 INFO  : Processing command line option -hwspec D:/github/Digital-Hardware-Modelling/xilinx-vivado/snickerdoodle_try/snickerdoodle_try.sdk/design_1_wrapper.hdf.
+16:16:01 INFO  : Checking for hwspec changes in the project design_1_wrapper_hw_platform_0.

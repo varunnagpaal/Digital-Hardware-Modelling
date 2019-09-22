@@ -1,0 +1,23 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../pointer_basic_test.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sat Sep 14 22:54:29 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../pointer_basic.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sat Sep 14 22:54:55 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+ Din Dout
+  0   0
+  1   1
+  2   3
+  3   6
+Test passed !
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

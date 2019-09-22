@@ -1,0 +1,27 @@
+22:39:18 **** Incremental Build of configuration Release for project hello_snick_sw ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 Linux gcc compiler'
+arm-linux-gnueabihf-gcc -Wall -O2 -c -fmessage-length=0 -MT"src/helloworld.o" -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: hello_snick_sw.elf'
+'Invoking: ARM v7 Linux gcc linker'
+arm-linux-gnueabihf-gcc  -o "hello_snick_sw.elf"  ./src/helloworld.o   
+'Finished building target: hello_snick_sw.elf'
+' '
+'Invoking: ARM v7 Linux Print Size'
+arm-linux-gnueabihf-size hello_snick_sw.elf  |tee "hello_snick_sw.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+    852	    280	      4	   1136	    470	hello_snick_sw.elf
+'Finished building: hello_snick_sw.elf.size'
+' '
+
+22:39:21 Build Finished (took 3s.426ms)
+
+22:39:21 **** Incremental Build of configuration Debug for project hello_snick_sw ****
+make all 
+make: Nothing to be done for `all'.
+22:39:22 **** Auto Build of configuration Debug for project hello_snick_sw ****
+make all 
+make: Nothing to be done for `all'.

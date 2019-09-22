@@ -1,0 +1,590 @@
+
+*** Running vivado
+    with args -log zybo_zynq_design_hls_macc_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zybo_zynq_design_hls_macc_0_0.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/varun/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+source zybo_zynq_design_hls_macc_0_0.tcl -notrace
+Command: synth_design -top zybo_zynq_design_hls_macc_0_0 -part xc7z010clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12292 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 454.809 ; gain = 93.461
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'zybo_zynq_design_hls_macc_0_0' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ip/zybo_zynq_design_hls_macc_0_0/synth/zybo_zynq_design_hls_macc_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'hls_macc' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:12]
+	Parameter ap_ST_fsm_state1 bound to: 9'b000000001 
+	Parameter ap_ST_fsm_state2 bound to: 9'b000000010 
+	Parameter ap_ST_fsm_state3 bound to: 9'b000000100 
+	Parameter ap_ST_fsm_state4 bound to: 9'b000001000 
+	Parameter ap_ST_fsm_state5 bound to: 9'b000010000 
+	Parameter ap_ST_fsm_state6 bound to: 9'b000100000 
+	Parameter ap_ST_fsm_state7 bound to: 9'b001000000 
+	Parameter ap_ST_fsm_state8 bound to: 9'b010000000 
+	Parameter ap_ST_fsm_state9 bound to: 9'b100000000 
+	Parameter C_S_AXI_HLS_MACC_PERIPH_BUS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_HLS_MACC_PERIPH_BUS_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_HLS_MACC_PERIPH_BUS_WSTRB_WIDTH bound to: 4 - type: integer 
+	Parameter C_S_AXI_WSTRB_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:76]
+INFO: [Synth 8-6157] synthesizing module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_HLS_MACC_PERIPH_BUS_s_axi.v:9]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter ADDR_AP_CTRL bound to: 6'b000000 
+	Parameter ADDR_GIE bound to: 6'b000100 
+	Parameter ADDR_IER bound to: 6'b001000 
+	Parameter ADDR_ISR bound to: 6'b001100 
+	Parameter ADDR_A_DATA_0 bound to: 6'b010000 
+	Parameter ADDR_A_CTRL bound to: 6'b010100 
+	Parameter ADDR_B_DATA_0 bound to: 6'b011000 
+	Parameter ADDR_B_CTRL bound to: 6'b011100 
+	Parameter ADDR_ACCUM_DATA_0 bound to: 6'b100000 
+	Parameter ADDR_ACCUM_CTRL bound to: 6'b100100 
+	Parameter ADDR_ACCUM_CLR_DATA_0 bound to: 6'b101000 
+	Parameter ADDR_ACCUM_CLR_CTRL bound to: 6'b101100 
+	Parameter WRIDLE bound to: 2'b00 
+	Parameter WRDATA bound to: 2'b01 
+	Parameter WRRESP bound to: 2'b10 
+	Parameter WRRESET bound to: 2'b11 
+	Parameter RDIDLE bound to: 2'b00 
+	Parameter RDDATA bound to: 2'b01 
+	Parameter RDRESET bound to: 2'b10 
+	Parameter ADDR_BITS bound to: 6 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_HLS_MACC_PERIPH_BUS_s_axi.v:222]
+INFO: [Synth 8-6155] done synthesizing module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi' (1#1) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_HLS_MACC_PERIPH_BUS_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'hls_macc_mul_32s_bkb' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:43]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 7 - type: integer 
+	Parameter din0_WIDTH bound to: 32 - type: integer 
+	Parameter din1_WIDTH bound to: 32 - type: integer 
+	Parameter dout_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'hls_macc_mul_32s_bkb_MulnS_0' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'hls_macc_mul_32s_bkb_MulnS_0' (2#1) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'hls_macc_mul_32s_bkb' (3#1) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:43]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:262]
+INFO: [Synth 8-6155] done synthesizing module 'hls_macc' (4#1) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'zybo_zynq_design_hls_macc_0_0' (5#1) [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ip/zybo_zynq_design_hls_macc_0_0/synth/zybo_zynq_design_hls_macc_0_0.v:58]
+WARNING: [Synth 8-3331] design hls_macc_mul_32s_bkb has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 505.965 ; gain = 144.617
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 505.965 ; gain = 144.617
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 505.965 ; gain = 144.617
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ip/zybo_zynq_design_hls_macc_0_0/constraints/hls_macc_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ip/zybo_zynq_design_hls_macc_0_0/constraints/hls_macc_ooc.xdc] for cell 'inst'
+Parsing XDC File [D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.runs/zybo_zynq_design_hls_macc_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.runs/zybo_zynq_design_hls_macc_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 852.617 ; gain = 1.563
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 852.617 ; gain = 491.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 852.617 ; gain = 491.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.runs/zybo_zynq_design_hls_macc_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 852.617 ; gain = 491.270
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi'
+INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "wnext" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'tmp_2_reg_105_reg[31:0]' into 'acc_reg_reg[31:0]' [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:132]
+WARNING: [Synth 8-6014] Unused sequential element tmp_2_reg_105_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc.v:132]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'hls_macc_HLS_MACC_PERIPH_BUS_s_axi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 852.617 ; gain = 491.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 12    
+	                9 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 11    
++---Multipliers : 
+	                32x32  Multipliers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  10 Input     32 Bit        Muxes := 1     
+	  10 Input      9 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module hls_macc_HLS_MACC_PERIPH_BUS_s_axi 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  10 Input     32 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module hls_macc_mul_32s_bkb_MulnS_0 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 7     
++---Multipliers : 
+	                32x32  Multipliers := 1     
+Module hls_macc 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  10 Input      9 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:36]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:27]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:36]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:27]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:35]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:33]
+WARNING: [Synth 8-6014] Unused sequential element hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:34]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:28]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:28]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [d:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.srcs/sources_1/bd/zybo_zynq_design/ipshared/3af4/hdl/verilog/hls_macc_mul_32s_bkb.v:28]
+WARNING: [Synth 8-6014] Unused sequential element  was removed. 
+DSP Report: Generating DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register B is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: register A is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg.
+DSP Report: Generating DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg, operation Mode is: (PCIN>>17)+(A''*B'')'.
+DSP Report: register B is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: register A is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg.
+DSP Report: Generating DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg, operation Mode is: (PCIN+(A''*B'')')'.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff0_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff1_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: register hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+DSP Report: operator hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/tmp_product is absorbed into DSP hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[47]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[46]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[45]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[44]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[43]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[42]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[41]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[40]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[39]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[38]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[37]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[36]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[35]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[34]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[33]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[32]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[31]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[30]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[29]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[28]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[27]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[26]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[25]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[24]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[23]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[22]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[21]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[20]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[19]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[18]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff2_reg[17]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[47]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[46]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[45]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[44]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[43]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[42]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[41]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[40]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[39]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[38]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[37]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[36]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[35]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[34]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[33]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[32]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[31]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[30]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[29]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[28]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[27]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[26]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[25]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[24]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[23]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[22]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[21]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[20]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[19]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[18]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff3_reg[17]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[47]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[46]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[45]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[44]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[43]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[42]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[41]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[40]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[39]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[38]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[37]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[36]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[35]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[34]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[33]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[32]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[31]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[30]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[29]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[28]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[27]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[26]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[25]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[24]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[23]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[22]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[21]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[20]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[19]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[18]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[17]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[31]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[30]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[29]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[28]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[27]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[26]) is unused and will be removed from module hls_macc.
+WARNING: [Synth 8-3332] Sequential element (hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/b_reg0_reg[25]) is unused and will be removed from module hls_macc.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 852.617 ; gain = 491.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping           | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|hls_macc    | (A2*B2)'              | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|hls_macc    | (PCIN>>17)+(A''*B'')' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 1    | 1    | 
+|hls_macc    | (PCIN+(A''*B'')')'    | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 1    | 1    | 
++------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 901.398 ; gain = 540.051
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 927.660 ; gain = 566.313
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+----------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                             | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+----------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|hls_macc    | hls_macc_mul_32s_bkb_U1/hls_macc_mul_32s_bkb_MulnS_0_U/buff4_reg[16] | 3      | 17    | NO           | NO                 | NO                | 17     | 0       | 
++------------+----------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |     8|
+|2     |DSP48E1   |     1|
+|3     |DSP48E1_1 |     2|
+|4     |LUT1      |     1|
+|5     |LUT2      |     5|
+|6     |LUT3      |   100|
+|7     |LUT4      |    11|
+|8     |LUT5      |    17|
+|9     |LUT6      |    40|
+|10    |MUXF7     |     1|
+|11    |SRL16E    |    17|
+|12    |FDRE      |   271|
+|13    |FDSE      |     3|
++------+----------+------+
+
+Report Instance Areas: 
++------+-----------------------------------------+-----------------------------------+------+
+|      |Instance                                 |Module                             |Cells |
++------+-----------------------------------------+-----------------------------------+------+
+|1     |top                                      |                                   |   477|
+|2     |  inst                                   |hls_macc                           |   477|
+|3     |    hls_macc_HLS_MACC_PERIPH_BUS_s_axi_U |hls_macc_HLS_MACC_PERIPH_BUS_s_axi |   295|
+|4     |    hls_macc_mul_32s_bkb_U1              |hls_macc_mul_32s_bkb               |    67|
+|5     |      hls_macc_mul_32s_bkb_MulnS_0_U     |hls_macc_mul_32s_bkb_MulnS_0       |    67|
++------+-----------------------------------------+-----------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 192 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:33 . Memory (MB): peak = 930.570 ; gain = 222.570
+Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:56 . Memory (MB): peak = 930.570 ; gain = 569.223
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 136 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:00:59 . Memory (MB): peak = 930.570 ; gain = 580.688
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/hls_tutorial_lab1/hls_tutorial_lab1.runs/zybo_zynq_design_hls_macc_0_0_synth_1/zybo_zynq_design_hls_macc_0_0.dcp' has been generated.

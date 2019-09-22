@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 16 04:59:18 2019
+# Process ID: 14648
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/impl/ip/vivado.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/impl/ip\vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 16 04:59:44 2019...

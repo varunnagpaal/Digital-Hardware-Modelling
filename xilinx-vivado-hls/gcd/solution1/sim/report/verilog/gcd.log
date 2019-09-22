@@ -1,0 +1,169 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/Vivado/2018.2/msys64/mingw64/bin/g++"
+   Compiling apatb_gcd.cpp
+   Compiling (apcc) gcd.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Tue Sep 17 15:16:06 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) gcd_test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Tue Sep 17 15:16:23 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+5 7 1
+15 9 3
+270 192 6
+16 106 2
+60 36 12
+Test passed !
+
+D:\github\Digital-Hardware-Modelling\xilinx-vivado-hls\gcd\solution1\sim\verilog>set PATH= 
+
+D:\github\Digital-Hardware-Modelling\xilinx-vivado-hls\gcd\solution1\sim\verilog>call C:/Xilinx/Vivado/2018.2/bin/xelab xil_defaultlib.apatb_gcd_top glbl -prj gcd.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile "C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s gcd -debug wave 
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_gcd_top glbl -prj gcd.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s gcd -debug wave 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/AESL_axi_slave_gcd_bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_gcd_bus
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_gcd_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd_gcd_bus_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_gcd_bus_s_axi
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.gcd_gcd_bus_s_axi
+Compiling module xil_defaultlib.gcd
+Compiling module xil_defaultlib.AESL_axi_slave_gcd_bus
+Compiling module xil_defaultlib.apatb_gcd_top
+Compiling module work.glbl
+Built simulation snapshot gcd
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/xsim.dir/gcd/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/xsim.dir/gcd/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Tue Sep 17 15:17:08 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Tue Sep 17 15:17:08 2019...
+
+****** xsim v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/gcd/xsim_script.tcl
+# xsim {gcd} -autoloadwcfg -tclbatch {gcd.tcl}
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source gcd.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set a__b__pResult__return_group [add_wave_group a__b__pResult__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/interrupt -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BRESP -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RRESP -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RDATA -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARADDR -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WSTRB -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WDATA -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWADDR -into $a__b__pResult__return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_done -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_idle -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_ready -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_start -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_gcd_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_a -into $tb_portdepth_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_b -into $tb_portdepth_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_pResult -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_a__b__pResult__return_group [add_wave_group a__b__pResult__return(axi_slave) -into $tbcinoutgroup]
+## add_wave /apatb_gcd_top/gcd_bus_INTERRUPT -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BRESP -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RRESP -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RDATA -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARADDR -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WSTRB -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WDATA -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWADDR -into $tb_a__b__pResult__return_group -radix hex
+## save_wave_config gcd.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 5 [n/a] @ "107000"
+// RTL Simulation : 1 / 5 [n/a] @ "293000"
+// RTL Simulation : 2 / 5 [n/a] @ "467000"
+// RTL Simulation : 3 / 5 [n/a] @ "689000"
+// RTL Simulation : 4 / 5 [n/a] @ "920000"
+// RTL Simulation : 5 / 5 [n/a] @ "1094000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 1105500 ps : File "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.autotb.v" Line 285
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Sep 17 15:17:42 2019...
+5 7 1
+15 9 3
+270 192 6
+16 106 2
+60 36 12
+Test passed !
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

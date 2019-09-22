@@ -1,0 +1,19 @@
+   Build using "C:/Xilinx/Vivado/2018.2/msys64/mingw64/bin/g++"
+   Compiling apatb_gcd.cpp
+   Compiling (apcc) gcd.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Tue Sep 17 15:16:06 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) gcd_test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Tue Sep 17 15:16:23 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe

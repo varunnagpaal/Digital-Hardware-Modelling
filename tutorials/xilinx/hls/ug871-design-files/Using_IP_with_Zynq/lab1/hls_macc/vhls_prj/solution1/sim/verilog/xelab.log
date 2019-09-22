@@ -1,0 +1,31 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_hls_macc_top glbl -prj hls_macc.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s hls_macc 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/AESL_axi_slave_HLS_MACC_PERIPH_BUS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_HLS_MACC_PERIPH_BUS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/hls_macc.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_hls_macc_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/hls_macc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hls_macc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/hls_macc_HLS_MACC_PERIPH_BUS_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hls_macc_HLS_MACC_PERIPH_BUS_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/sim/verilog/hls_macc_mul_32s_bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hls_macc_mul_32s_bkb_MulnS_0
+INFO: [VRFC 10-311] analyzing module hls_macc_mul_32s_bkb
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.hls_macc_HLS_MACC_PERIPH_BUS_s_a...
+Compiling module xil_defaultlib.hls_macc_mul_32s_bkb_MulnS_0
+Compiling module xil_defaultlib.hls_macc_mul_32s_bkb(ID=1,NUM_ST...
+Compiling module xil_defaultlib.hls_macc
+Compiling module xil_defaultlib.AESL_axi_slave_HLS_MACC_PERIPH_B...
+Compiling module xil_defaultlib.apatb_hls_macc_top
+Compiling module work.glbl
+Built simulation snapshot hls_macc

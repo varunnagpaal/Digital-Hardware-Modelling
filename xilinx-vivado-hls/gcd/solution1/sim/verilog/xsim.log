@@ -1,0 +1,95 @@
+#-----------------------------------------------------------
+# xsim v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Sep 17 15:17:15 2019
+# Process ID: 7792
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/gcd/xsim_script.tcl}
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/xsim.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/gcd/xsim_script.tcl
+# xsim {gcd} -autoloadwcfg -tclbatch {gcd.tcl}
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source gcd.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set a__b__pResult__return_group [add_wave_group a__b__pResult__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/interrupt -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BRESP -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_BVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RRESP -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RDATA -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_RVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_ARADDR -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WSTRB -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WDATA -into $a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_WVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWREADY -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWVALID -into $a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/AESL_inst_gcd/s_axi_gcd_bus_AWADDR -into $a__b__pResult__return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_done -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_idle -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_ready -into $blocksiggroup
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_start -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_gcd_top/AESL_inst_gcd/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_gcd_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_a -into $tb_portdepth_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_b -into $tb_portdepth_group -radix hex
+## add_wave /apatb_gcd_top/LENGTH_pResult -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_a__b__pResult__return_group [add_wave_group a__b__pResult__return(axi_slave) -into $tbcinoutgroup]
+## add_wave /apatb_gcd_top/gcd_bus_INTERRUPT -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BRESP -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_BVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RRESP -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RDATA -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_RVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_ARADDR -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WSTRB -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WDATA -into $tb_a__b__pResult__return_group -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_WVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWREADY -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWVALID -into $tb_a__b__pResult__return_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_top/gcd_bus_AWADDR -into $tb_a__b__pResult__return_group -radix hex
+## save_wave_config gcd.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 5 [n/a] @ "107000"
+// RTL Simulation : 1 / 5 [n/a] @ "293000"
+// RTL Simulation : 2 / 5 [n/a] @ "467000"
+// RTL Simulation : 3 / 5 [n/a] @ "689000"
+// RTL Simulation : 4 / 5 [n/a] @ "920000"
+// RTL Simulation : 5 / 5 [n/a] @ "1094000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 1105500 ps : File "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.autotb.v" Line 285
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Sep 17 15:17:42 2019...

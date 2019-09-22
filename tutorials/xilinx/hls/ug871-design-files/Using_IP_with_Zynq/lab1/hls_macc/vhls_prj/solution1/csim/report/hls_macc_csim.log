@@ -1,0 +1,28 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../hls_macc_test.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sun Sep 22 02:22:15 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/csim/build'
+../../../../hls_macc_test.c:55:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+../../../../hls_macc_test.c:55:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+1 warning generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../hls_macc.c in debug mode
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Sun Sep 22 02:22:36 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/tutorials/xilinx/hls/ug871-design-files/Using_IP_with_Zynq/lab1/hls_macc/vhls_prj/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+
+*** 32 Tests Passed ***
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

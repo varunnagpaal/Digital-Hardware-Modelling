@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Sep 17 15:18:44 2019
+# Process ID: 15620
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog
+# Command line: vivado.exe -source open_wave.tcl
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/vivado.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog\vivado.jou
+#-----------------------------------------------------------
+start_gui
+source open_wave.tcl
+# current_fileset
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+current_fileset: Time (s): cpu = 00:00:22 ; elapsed = 00:00:13 . Memory (MB): peak = 787.363 ; gain = 71.270
+# open_wave_database gcd.wdb
+open_wave_config D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.wcfg
+save_wave_config {D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/gcd/solution1/sim/verilog/gcd.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 17 18:39:19 2019...

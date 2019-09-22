@@ -1,0 +1,130 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/Vivado/2018.2/msys64/mingw64/bin/g++"
+   Compiling apatb_pointer_basic.cpp
+   Compiling (apcc) pointer_basic_test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Mon Sep 16 03:51:48 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) pointer_basic.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'varun' on host 'varun-laptop' (Windows NT_amd64 version 6.1) on Mon Sep 16 03:52:07 -0500 2019
+INFO: [HLS 200-10] In directory 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+ Din Dout
+  0   0
+  1   1
+  2   3
+  3   6
+Test passed !
+
+D:\github\Digital-Hardware-Modelling\xilinx-vivado-hls\pointer_basic\proj_pointer_basic\solution2\sim\verilog>set PATH= 
+
+D:\github\Digital-Hardware-Modelling\xilinx-vivado-hls\pointer_basic\proj_pointer_basic\solution2\sim\verilog>call C:/Xilinx/Vivado/2018.2/bin/xelab xil_defaultlib.apatb_pointer_basic_top glbl -prj pointer_basic.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile "C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s pointer_basic -debug wave 
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_pointer_basic_top glbl -prj pointer_basic.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile C:/Xilinx/Vivado/2018.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s pointer_basic -debug wave 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/pointer_basic.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_pointer_basic_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/pointer_basic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pointer_basic
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.pointer_basic
+Compiling module xil_defaultlib.apatb_pointer_basic_top
+Compiling module work.glbl
+Built simulation snapshot pointer_basic
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.dir/pointer_basic/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/xsim.dir/pointer_basic/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Sep 16 03:52:51 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Mon Sep 16 03:52:51 2019...
+
+****** xsim v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/pointer_basic/xsim_script.tcl
+# xsim {pointer_basic} -autoloadwcfg -tclbatch {pointer_basic.tcl}
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+source pointer_basic.tcl
+## log_wave -r /
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set d_group [add_wave_group d(wire) -into $cinoutgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_o_ap_vld -into $d_group -color #ffff00 -radix hex
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_o -into $d_group -radix hex
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/d_i -into $d_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_start -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_done -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_idle -into $blocksiggroup
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_rst -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_pointer_basic_top/AESL_inst_pointer_basic/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_pointer_basic_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_pointer_basic_top/LENGTH_d -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_d_group [add_wave_group d(wire) -into $tbcinoutgroup]
+## add_wave /apatb_pointer_basic_top/d_o_ap_vld -into $tb_d_group -color #ffff00 -radix hex
+## add_wave /apatb_pointer_basic_top/d_o -into $tb_d_group -radix hex
+## add_wave /apatb_pointer_basic_top/d_i -into $tb_d_group -radix hex
+## save_wave_config pointer_basic.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 4 [n/a] @ "110000"
+// RTL Simulation : 1 / 4 [n/a] @ "118000"
+// RTL Simulation : 2 / 4 [n/a] @ "122000"
+// RTL Simulation : 3 / 4 [n/a] @ "126000"
+// RTL Simulation : 4 / 4 [n/a] @ "130000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 146 ns : File "D:/github/Digital-Hardware-Modelling/xilinx-vivado-hls/pointer_basic/proj_pointer_basic/solution2/sim/verilog/pointer_basic.autotb.v" Line 287
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Sep 16 03:53:22 2019...
+ Din Dout
+  0   0
+  1   1
+  2   3
+  3   6
+Test passed !
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
