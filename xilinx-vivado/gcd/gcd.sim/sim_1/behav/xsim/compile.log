@@ -1,0 +1,20 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.ip_user_files/bd/gcd_block_design/ip/gcd_block_design_processing_system7_0_2/sim/gcd_block_design_processing_system7_0_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_block_design_processing_system7_0_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.srcs/sources_1/bd/gcd_block_design/ipshared/4fcd/hdl/verilog/gcd_gcd_bus_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_gcd_bus_s_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.srcs/sources_1/bd/gcd_block_design/ipshared/4fcd/hdl/verilog/gcd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.ip_user_files/bd/gcd_block_design/ip/gcd_block_design_gcd_0_1/sim/gcd_block_design_gcd_0_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_block_design_gcd_0_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.ip_user_files/bd/gcd_block_design/ip/gcd_block_design_auto_pc_1/sim/gcd_block_design_auto_pc_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_block_design_auto_pc_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.ip_user_files/bd/gcd_block_design/sim/gcd_block_design.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_block_design
+INFO: [VRFC 10-311] analyzing module gcd_block_design_ps7_0_axi_periph_1
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_14J992X
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.srcs/sources_1/bd/gcd_block_design/hdl/gcd_block_design_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_block_design_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.ip_user_files/bd/gcd_block_design/ip/gcd_block_design_rst_ps7_0_100M_0/sim/gcd_block_design_rst_ps7_0_100M_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity gcd_block_design_rst_ps7_0_100M_0

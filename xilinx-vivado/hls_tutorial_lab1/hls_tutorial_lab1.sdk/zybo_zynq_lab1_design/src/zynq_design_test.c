@@ -60,7 +60,7 @@ int main()
       exit(-1);
    }
 
-   if (0) { // use interrupt
+   if (1) { // use interrupt
       hls_macc_start(&HlsMacc);
       while(!ResultAvailHlsMacc)
          ; // spin

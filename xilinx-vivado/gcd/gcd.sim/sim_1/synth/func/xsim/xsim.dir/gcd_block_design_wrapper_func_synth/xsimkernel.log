@@ -1,0 +1,7 @@
+Running: xsim.dir/gcd_block_design_wrapper_func_synth/xsimk.exe -simmode gui -wdb gcd_block_design_wrapper_func_synth.wdb -simrunnum 0 -socket 30743
+Design successfully loaded
+Design Loading Memory Usage: 15428 KB (Peak: 15428 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 17900 KB (Peak: 17900 KB)
+Simulation CPU Usage: 140 ms

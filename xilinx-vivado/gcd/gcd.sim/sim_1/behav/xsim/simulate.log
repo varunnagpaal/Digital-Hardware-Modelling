@@ -1,0 +1,20 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.M_AXI_GP0.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP0 : Port is ENABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.M_AXI_GP1.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_GP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP0 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_GP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_HP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP0 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_HP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_HP2.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP2 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_HP3.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP3 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: gcd_block_design_wrapper.gcd_block_design_i.processing_system7_0.inst.S_AXI_ACP.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_ACP : Port is DISABLED.

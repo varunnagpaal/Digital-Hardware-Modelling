@@ -1,8 +1,8 @@
-03:18:25 **** Incremental Build of configuration Debug for project zybo_zynq_lab1_design ****
+15:25:24 **** Incremental Build of configuration Debug for project zybo_zynq_lab1_design ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-03:18:26 Build Finished (took 778ms)
+15:25:24 Build Finished (took 306ms)
 

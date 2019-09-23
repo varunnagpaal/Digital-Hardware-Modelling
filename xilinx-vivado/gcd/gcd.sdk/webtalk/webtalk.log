@@ -2,8 +2,8 @@
 # Webtalk v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # 
-# Start of session at: Tue Sep 17 18:39:27 2019
-# Process ID: 10468
+# Start of session at: Sun Sep 22 23:01:11 2019
+# Process ID: 19652
 # Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sdk/webtalk
 # Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
 # Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sdk/webtalk/webtalk.log
@@ -12,7 +12,7 @@
 source sdk_webtalk.tcl
 # webtalk_init -webtalk_dir D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk
 # webtalk_register_client -client project
-# webtalk_add_data -client project -key date_generated -value "2019-09-17 18:39:15" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key date_generated -value "2019-09-22 23:01:07" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key product_version -value "SDK v2018.2" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key build_version -value "2018.2" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_platform -value "amd64" -context "software_version_and_target_device"
@@ -24,9 +24,9 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key target_device -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_package -value "NA" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key target_speed -value "NA" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key random_id -value "o8i924pj9st6i0tol2gtjek4vs" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_id -value "2018.2_2" -context "software_version_and_target_device"
-# webtalk_add_data -client project -key project_iteration -value "2" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key random_id -value "5vu7d1vo65so8sduj7q2c780di" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_id -value "2018.2_7" -context "software_version_and_target_device"
+# webtalk_add_data -client project -key project_iteration -value "7" -context "software_version_and_target_device"
 # webtalk_add_data -client project -key os_name -value "Microsoft Windows 7 , 64-bit" -context "user_environment"
 # webtalk_add_data -client project -key os_release -value "Service Pack 1  (build 7601)" -context "user_environment"
 # webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz" -context "user_environment"
@@ -34,42 +34,31 @@ source sdk_webtalk.tcl
 # webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 # webtalk_add_data -client project -key system_ram -value "16.999 GB" -context "user_environment"
 # webtalk_register_client -client sdk
-# webtalk_add_data -client sdk -key uid -value "1568757374936" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key isZynq -value "true" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key isZynqMP -value "false" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key Processors -value "2" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key VivadoVersion -value "2018.2" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key Arch -value "zynq" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key Device -value "7z010" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key IsHandoff -value "true" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key os -value "NA" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key apptemplate -value "NA" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key RecordType -value "HWCreation" -context "sdk\\\\hardware/1568757374936"
-# webtalk_add_data -client sdk -key uid -value "1568757618347" -context "sdk\\\\bsp/1568757618347"
-# webtalk_add_data -client sdk -key hwid -value "1568757374936" -context "sdk\\\\bsp/1568757618347"
-# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\bsp/1568757618347"
-# webtalk_add_data -client sdk -key apptemplate -value "null" -context "sdk\\\\bsp/1568757618347"
-# webtalk_add_data -client sdk -key RecordType -value "BSPCreation" -context "sdk\\\\bsp/1568757618347"
-# webtalk_add_data -client sdk -key uid -value "1568757800495" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key hwid -value "1568757374936" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key bspid -value "1568757618347" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key newbsp -value "false" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key apptemplate -value "hello_world" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key RecordType -value "APPCreation" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key LangUsed -value "C" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key Procused -value "ps7_cortexa9" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key projSize -value "285.19921875" -context "sdk\\\\application/1568757800495"
-# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key BootgenCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key DebugCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key PerfCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key FlashCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1568763555645"
-# webtalk_transmit -clientid 4050136829 -regid "211512942_1777533573_210679690_827" -xml D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\usage_statistics_ext_sdk.xml -html D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\usage_statistics_ext_sdk.html -wdm D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
-INFO: [Common 17-186] 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd\gcd.sdk\webtalk\usage_statistics_ext_sdk.xml' has been successfully sent to Xilinx on Tue Sep 17 18:39:38 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/SDK/2018.2/doc/webtalk_introduction.html.
-webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 57.445 ; gain = 0.699
+# webtalk_add_data -client sdk -key uid -value "1569142239396" -context "sdk\\\\bsp/1569142239396"
+# webtalk_add_data -client sdk -key hwid -value "1568757374936" -context "sdk\\\\bsp/1569142239396"
+# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\bsp/1569142239396"
+# webtalk_add_data -client sdk -key apptemplate -value "hello_world" -context "sdk\\\\bsp/1569142239396"
+# webtalk_add_data -client sdk -key RecordType -value "BSPCreation" -context "sdk\\\\bsp/1569142239396"
+# webtalk_add_data -client sdk -key uid -value "1569142244523" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key hwid -value "1568757374936" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key bspid -value "1569142239396" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key newbsp -value "true" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key os -value "standalone" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key apptemplate -value "hello_world" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key RecordType -value "APPCreation" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key LangUsed -value "C" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key Procused -value "ps7_cortexa9" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key projSize -value "895.69921875" -context "sdk\\\\application/1569142244523"
+# webtalk_add_data -client sdk -key uid -value "NA" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key RecordType -value "ToolUsage" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key BootgenCount -value "0" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key DebugCount -value "91" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key PerfCount -value "5" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key FlashCount -value "0" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key CrossTriggCount -value "0" -context "sdk\\\\bsp/1569211267166"
+# webtalk_add_data -client sdk -key QemuDebugCount -value "0" -context "sdk\\\\bsp/1569211267166"
+# webtalk_transmit -clientid 571699196 -regid "211512942_1777533573_210679690_827" -xml D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\usage_statistics_ext_sdk.xml -html D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\usage_statistics_ext_sdk.html -wdm D:\\github\\Digital-Hardware-Modelling\\xilinx-vivado\\gcd\\gcd.sdk\\webtalk\\sdk_webtalk.wdm -intro "<H3>SDK Usage Report</H3><BR>"
+INFO: [Common 17-186] 'D:\github\Digital-Hardware-Modelling\xilinx-vivado\gcd\gcd.sdk\webtalk\usage_statistics_ext_sdk.xml' has been successfully sent to Xilinx on Sun Sep 22 23:01:16 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/SDK/2018.2/doc/webtalk_introduction.html.
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 57.246 ; gain = 0.672
 # webtalk_terminate
-INFO: [Common 17-206] Exiting Webtalk at Tue Sep 17 18:39:38 2019...
+INFO: [Common 17-206] Exiting Webtalk at Sun Sep 22 23:01:16 2019...

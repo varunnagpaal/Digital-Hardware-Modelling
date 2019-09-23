@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Sep 22 05:50:22 2019
+# Process ID: 33324
+# Current directory: D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim
+# Command line: wbtcv.exe -mode batch -source D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim/xsim.dir/gcd_block_design_wrapper_func_synth/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim/webtalk.log
+# Journal file: D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim/xsim.dir/gcd_block_design_wrapper_func_synth/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'D:/github/Digital-Hardware-Modelling/xilinx-vivado/gcd/gcd.sim/sim_1/synth/func/xsim/xsim.dir/gcd_block_design_wrapper_func_synth/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Sep 22 05:50:24 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2018.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun Sep 22 05:50:24 2019...
