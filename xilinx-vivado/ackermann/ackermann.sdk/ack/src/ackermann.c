@@ -293,8 +293,9 @@ int main()
 
 	printf("[Ackermann Function A(x, y) on Zynq FPGA(xc7z010clg400-1) and ARM Cortex A-9 CPU Core]\n");
 
-	char ch;
-	do{
+	char ch[1];
+	do
+	{
 	    uint64_t sw_ideal_result;	// ARM SW ideal or expected result
 	    uint64_t sw_custm_result;	// ARM SW custom or actual result
 	    uint64_t hw_result;			// FPGA HW actual result
@@ -314,7 +315,7 @@ int main()
 			printf("Enter maximum value of x (%" PRIu8 " <= x <= 5): ", x_min_in);
 			scanf("%" SCNu8, &x_max_in);
 			printf("%" PRIu8 "\n", x_max_in);
-		}while( x_max_in < x_min_in );
+		}while( x_max_in < x_min_in || x_max_in > 5 );
 
 		printf("Enter minimum value of y (0 <= y): ");
 		scanf("%" SCNu64, &y_min_in);
@@ -461,11 +462,12 @@ int main()
 
 		printf("Done!\n");
 		printf("Do you wish to restart (y/Y, n/N) ? ");
-		scanf("%c", &ch);
-		printf("%c\n", ch);
-	}while( (ch == 'y' || ch == 'Y') && !(ch == 'n' || ch == 'N'));
+		scanf("%s", &ch[0]);
+		printf("%s\n", ch);
+	}while( (ch[0] == 'y' || ch[0] == 'Y') && !(ch[0] == 'n' || ch[0] == 'N'));
 
 
+	printf("Exiting!\n");
     cleanup_platform();
     return status;
 }
