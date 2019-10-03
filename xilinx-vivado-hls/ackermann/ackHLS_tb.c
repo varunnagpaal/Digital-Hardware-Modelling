@@ -41,24 +41,26 @@ int main()
 	X_T	   x;
 	Y_T	   y;
 	OUT_T  out;
-	BOOL_T done;
 
-	/*
 	x = 2;
 	y = 4;
-	done = ackHLS(x,y,&out);
+	ackHLS(x,y,&out);
+
+	printf("\nAck(%llu, %llu): %llu\n", (unsigned long long)x, (unsigned long long)y, (unsigned long long)out);
 
 	x = 3;
 	y = 4;
-	done = ackHLS(x,y,&out);
+	ackHLS(x,y,&out);
 
+	printf("\nAck(%llu, %llu): %llu\n", (unsigned long long)x, (unsigned long long)y, (unsigned long long)out);
+/*
 	x = 4;
 	y = 1;
 	done = ackHLS(x,y,&out);
 */
 	x = 3;
 	y = 20;
-	done = ackHLS(x,y,&out);
+	ackHLS(x,y,&out);
 
 	printf("\nAck(%llu, %llu): %llu\n", (unsigned long long)x, (unsigned long long)y, (unsigned long long)out);
 	/*

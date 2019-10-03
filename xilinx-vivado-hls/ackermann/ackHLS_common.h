@@ -28,6 +28,6 @@ static const bool True = 1;
 
 #define N 9
 
-BOOL_T ackHLS(X_T x, Y_T y, OUT_T *pVal);
+void ackHLS(X_T x, Y_T y, OUT_T *pVal);
 
 #endif // !HLS_COMMON_H
