@@ -2,15 +2,21 @@
  * ackermann.c: Calculates Ackermann function of two numbers on Zynq FPGA and ARM
  *
  *
- * Name: Nagpal, Varun
- * Date: Oct, 03rd 2019
+ * Author	: Nagpal, Varun
+ * Date		: Oct, 03rd 2019
  *
- * Usage: The code can be run in two modes. User needs to choose run mode from SDK serial console when prompted
- * 	Run Mode 0: Calculates Ackermann function of two numbers X and Y provided by user on SDK serial terminal for both Zynq FPGA and ARM CPU core.
- * 	Run Mode 1: Measures and reports average execution time for calculating Ackermann function on both Zynq FPGA and ARM CPU core.
+ * Usage:	1. User is asked to enter range of x and y for which Ackerman function A(x,y) is to be computed
+ * 		  	2. For each pair of x and y in the given range, the function A(x,y) is computed on ARM and FPGA
+ * 		  	3. Actual computed values produced on ARM (produced by custom SW model) and FPGA are compared
+ * 		       against ideal or expected values (generated on ARM using appropriate formulae)
+ * 		  	4. For computations on ARM CPU core, computation time is averaged for number of iterations
+ * 		       which are automatically computed keeping in mind expected order of computation time for A(x,y).
+ * 		  	5. For computation on FPGA, computation time is measured only for one iteration. This is because
+ * 		       fixed circuit architecture guarantees almost no variation in computation time for same inputs
+ * 		       on multiple iterations.
+ * 		  	6. If for given x and y, A(x,y) is computationally infeasible, its computation is simply skipped
+ * 		       for FPGA and ARM CPu core.
  *
- *	To run Mode 0, enter 0 when prompted on SDK serial console
- * 	To run Mode 1, enter 1 when prompted on SDK serial console
  *
  * This application configures UART 16550 to baud rate 9600.
  * PS7 UART (Zynq) is not initialized by this application, since
@@ -28,14 +34,14 @@
 #include "platform.h"
 #include "xil_printf.h"
 
-#include <stdlib.h> // Standard C functions, e.g. exit()
-#include <stdbool.h> // Provides a Boolean data type for ANSI/ISO-C
-#include "xparameters.h" // Parameter definitions for processor peripherals
-#include "xscugic.h" // Processor interrupt controller device driver
-#include "xackhls.h" // Device driver for HLS HW block
+#include <stdlib.h> 		// Standard C functions, e.g. exit()
+#include <stdbool.h> 		// Provides a Boolean data type for ANSI/ISO-C
+#include "xparameters.h" 	// Parameter definitions for processor peripherals
+#include "xscugic.h" 		// Processor interrupt controller device driver
+#include "xackhls.h" 		// Device driver for HLS HW block
 #include "xil_assert.h"
-#include "xtime_l.h"
-#include <inttypes.h>
+#include "xtime_l.h"		// Used to measure time (ARM cc's) a function
+#include <inttypes.h>		// To print uintx_t and intx_t types properly using printf
 
 #define N 9
 
@@ -43,7 +49,7 @@
 volatile static int runHlsHw = 0;
 volatile static int resultAvailHlsHw = 0;
 
-void ackArm(uint8_t x, uint64_t y, uint64_t *pResult)
+void ackArmCustom(uint8_t x, uint64_t y, uint64_t *pResult)
 {
 	uint8_t I = x;
 	uint64_t xar[N];
@@ -83,7 +89,7 @@ void ackArm(uint8_t x, uint64_t y, uint64_t *pResult)
 	*pResult = result;
 }
 
-void ackExpected(uint8_t x, uint64_t y, uint64_t *pVal)
+void ackArmIdeal(uint8_t x, uint64_t y, uint64_t *pVal)
 {
 	switch (x)
 	{
@@ -219,16 +225,49 @@ int hls_hw_init(XAckhls *pHlsHwIpInstance)
 	return XST_SUCCESS;
 }
 
+uint16_t getTestIterations(uint8_t x, uint64_t y)
+{
+	uint16_t testIterations;
+
+	switch(x)
+	{
+	case 0:
+	case 1:
+	case 2:
+		testIterations = 1000;
+		break;
+
+	case 3:
+		if( y >= 0 && y < 10) 		testIterations = 1000;
+		else if( y >= 10 && y < 20)	testIterations = 100;
+		else if( y >= 20 && y < 25)	testIterations = 2;
+		else if( y >= 25 && y < 31)	testIterations = 1;
+		else 						testIterations = 0;
+		break;
+
+	case 4:
+		if( y >= 0 && y < 2) 		testIterations = 1000;
+		else 						testIterations = 0;
+		break;
+
+	case 5:
+		if ( y == 0 ) 				testIterations = 1000;
+		else 						testIterations = 0;
+		break;
+
+	default:
+		testIterations = 0;
+		break;
+	}
+
+	return testIterations;
+}
+
 int main()
 {
     int status;
-    uint8_t data_in_x;			// ACK input A
-    uint64_t data_in_y;			// ACK input B
-    uint64_t hw_res_data;		// HW result
-    uint64_t sw_res_data;		// SW result
     XAckhls hlsHwInstance;		// HLS IP instance
     XScuGic intCntrlInstance;	// Interrupt controller instance
-    int runMode;				// Run mode. 1 - measure avg exec time of ACK on HW and SW, 0 - calculate ACK of two input numbers
 
     // Always hope for the best!
     status = XST_SUCCESS;
@@ -252,147 +291,180 @@ int main()
     	exit(-1);
     }
 
-	printf("[ACK on Zynq FPGA(xc7z010clg400-1) and ARM cortex A-9 cpu core]\n");
-    do
-    {
-    	printf("Enter run mode (0 -  Calculate ACK of two user provided numbers, 1-Measure avg ACK execution time on FPGA and ARM CPU core): ");
-    	scanf("%d", &runMode);
-    	printf("%d\n", runMode);
+	printf("[Ackermann Function A(x, y) on Zynq FPGA(xc7z010clg400-1) and ARM Cortex A-9 CPU Core]\n");
 
-    	if( (runMode !=0 ) && (runMode !=1 ) )
-    	{
-    		printf("Illegal mode!!. Please re-enter 0 or 1\n");
-    	}
-    }while( (runMode !=0 ) && (runMode !=1 )  );
+	char ch;
+	do{
+	    uint64_t sw_ideal_result;	// ARM SW ideal or expected result
+	    uint64_t sw_custm_result;	// ARM SW custom or actual result
+	    uint64_t hw_result;			// FPGA HW actual result
 
-    if( 0 == runMode )
-    {
-		// Calculate Ackermann function two unsigned numbers X and Y provided by user as inputs on serial console
-		printf("Enter X: ");
-		scanf("%" SCNu8, &data_in_x);
-		printf("%" PRIu8 "\n", data_in_x);
+		uint8_t x_min_in;
+		uint8_t x_max_in;
+		uint64_t y_min_in;
+		uint64_t y_max_in;
 
-		printf("Enter Y: ");
-		scanf("%" SCNu64, &data_in_y);
-		printf("%" PRIu64 "\n", data_in_y);
+		do{
+			printf("Enter minimum value of x (0 <= x <= 5): ");
+			scanf("%" SCNu8, &x_min_in);
+			printf("%" PRIu8 "\n", x_min_in);
+		}while( x_min_in > 5 );
 
-		// Setup user provided data for Ackermann inputs X and Y
-		XAckhls_Set_x(&hlsHwInstance, data_in_x);
-		XAckhls_Set_y(&hlsHwInstance, data_in_y);
+		do{
+			printf("Enter maximum value of x (%" PRIu8 " <= x <= 5): ", x_min_in);
+			scanf("%" SCNu8, &x_max_in);
+			printf("%" PRIu8 "\n", x_max_in);
+		}while( x_max_in < x_min_in );
 
-		// Check if HW IP instance is ready
-		if(!XAckhls_IsReady(&hlsHwInstance))
+		printf("Enter minimum value of y (0 <= y): ");
+		scanf("%" SCNu64, &y_min_in);
+		printf("%" PRIu64"\n", y_min_in);
+
+		do{
+			printf("Enter maximum value of y (%" SCNu64 " <= y): ", y_min_in);
+			scanf("%" SCNu64, &y_max_in);
+			printf("%" PRIu64 "\n", y_max_in);
+		}while( y_max_in < y_min_in );
+
+		printf("A(x,y),ARM-ideal(value),ARM-custom(value),FPGA(value),PASS/FAIL,Iterations,ARM-ideal(cc),ARM-ideal(sec),ARM-custom(cc),ARM-custom(sec),FPGA(cc),FPGA(sec)\n");
+
+		for( uint8_t x = x_min_in; x <= x_max_in; ++x)
 		{
-			print("HLS HW peripheral is not ready! Exiting.\n");
-			exit(-1);
-		}
-
-		// Enable the interrupt
-		enable_interrupt(&hlsHwInstance);
-
-		// Start the HW IP instance
-		XAckhls_Start(&hlsHwInstance);
-
-		// Wait for PS ISR to be triggered by IP Instance
-		while(!resultAvailHlsHw); // blocked waiting
-
-		// Read HW result
-		hw_res_data = XAckhls_Get_pResult(&hlsHwInstance);
-
-		// Call the software model of the HW IP
-		ackArm(data_in_x, data_in_y, &sw_res_data);
-
-		// Check if results are identical
-		printf("ACK(X=%" PRIu8 ", Y=%" PRIu64 ") from FPGA HW: %" PRIu64 "\n", data_in_x, data_in_y, hw_res_data );
-		printf("ACK(X=%" PRIu8 ", Y=%" PRIu64 ") from ARM CPU core: %" PRIu64 "\n", data_in_x, data_in_y, sw_res_data );
-		if( hw_res_data == sw_res_data )
-		{
-			print("Hardware and software results match!\n");
-			status = XST_SUCCESS;
-		}
-		else
-		{
-			print("Hardware and software results DONOT match!!!\n");
-			status = XST_FAILURE;
-		}
-    }
-    else
-    {
-		// Measure and report the avg ACK execution time on FPGA and ARM processor core
-		XTime timeHwStart,timeHwEnd, timeHwAccum;
-		XTime timeSwStart,timeSwEnd, timeSwAccum;
-
-		// Number of iterations over which execution times will be averaged
-		int testIterations = 1;
-
-		// Setup fixed data for ACK inputs x and y
-		printf("Enter X: ");
-		scanf("%" SCNu8, &data_in_x);
-		printf("%" PRIu8 "\n", data_in_x);
-
-		printf("Enter Y: ");
-		scanf("%" SCNu64, &data_in_y);
-		printf("%" PRIu64 "\n", data_in_y);
-
-		printf("Running timing test for %d iterations to measure average execution time. Please wait for results....\n", testIterations);
-		timeHwAccum = 0;
-		timeSwAccum = 0;
-		for(int i = 0; i <testIterations; ++i)
-		{
-			// Setup input parameters of HLS block
-			XAckhls_Set_x(&hlsHwInstance, data_in_x);
-			XAckhls_Set_y(&hlsHwInstance, data_in_y);
-
-			// Check if HW IP instance is ready
-			if(!XAckhls_IsReady(&hlsHwInstance))
+			for( uint64_t y = y_min_in; y <= y_max_in; ++y)
 			{
-				print("HLS HW peripheral is not ready! Exiting ...\n");
-				exit(-1);
-			}
+				// Number of iterations over which execution times of A(x,y) will be averaged on ARM CPU core
+				uint16_t testIterations = getTestIterations(x,y);
 
-			// Enable the interrupt
-			enable_interrupt(&hlsHwInstance);
+				// We don't run any iterations of functions which are infeasible to compute
+				if( 0 == testIterations ) continue;
 
-			// Start the HW IP instance
-			XTime_GetTime(&timeHwStart);
-			XAckhls_Start(&hlsHwInstance);
+				// Measure and report the ACK execution time on ARM(ideal), ARM(custom) and FPGA
+				XTime timeSwIdealStart = 0;
+				XTime timeSwIdealEnd = 0;
+				XTime timeSwIdealAccum = 0;
+				XTime timeSwCustmStart = 0;
+				XTime timeSwCustmEnd = 0;
+				XTime timeSwCustmAccum = 0;
+				XTime timeHwStart = 0;
+				XTime timeHwEnd = 0;
+				XTime timeHw = 0;
 
-			// Wait for PS ISR to be triggered by IP Instance
-			while(!resultAvailHlsHw); // blocked waiting
-			XTime_GetTime(&timeHwEnd);
+				for(int i = 0; i < testIterations; ++i)
+				{
+					// Call the Ideal SW model of HW IP on ARM CPU core
+					XTime_GetTime(&timeSwIdealStart);
+					ackArmIdeal(x, y, &sw_ideal_result);
+					XTime_GetTime(&timeSwIdealEnd);
 
-			// Read HW result
-			hw_res_data = XAckhls_Get_pResult(&hlsHwInstance);
+					// Accumulate execution time of Ideal SW model on ARM CPU core
+					timeSwIdealAccum += (timeSwIdealEnd-timeSwIdealStart);
 
-			// Accumulate HW execution time on Zynq FPGA
-			timeHwAccum += (timeHwEnd-timeHwStart);
+					// Call the Custom SW model of HW IP on ARM CPU core
+					XTime_GetTime(&timeSwCustmStart);
+					ackArmCustom(x, y, &sw_custm_result);
+					XTime_GetTime(&timeSwCustmEnd);
 
-			// Call the software model of the HW IP
-			XTime_GetTime(&timeSwStart);
-			ackArm(data_in_x, data_in_y, &sw_res_data);
-			XTime_GetTime(&timeSwEnd);
+					// Accumulate execution time of Custom SW model on ARM CPU core
+					timeSwCustmAccum += (timeSwCustmEnd-timeSwCustmStart);
 
-			// Accumulate SW execution time on ARM CPU core
-			timeSwAccum += (timeSwEnd-timeSwStart);
+					if( i == 0)
+					{
+						// We compute A(x,y) on FPGA only once as its hardware circuit is fixed
+						// and would return results in same time (cc or sec) for any iteration.
 
-			// Check if results are identical
-			printf("ACK(X=%" PRIu8 ", Y=%" PRIu64 ") from FPGA HW: %" PRIu64 "\n", data_in_x, data_in_y, hw_res_data );
-			printf("ACK(X=%" PRIu8 ", Y=%" PRIu64 ") from ARM CPU core: %" PRIu64 "\n", data_in_x, data_in_y, sw_res_data );
-			if( hw_res_data == sw_res_data )
-			{
-				print("Hardware and software results match!\n");
-				status = XST_SUCCESS;
-			}
-			else
-			{
-				print("Hardware and software results DONOT match!!!\n");
-				status = XST_FAILURE;
+						// Setup input parameters of FPGA HW IP block
+						XAckhls_Set_x(&hlsHwInstance, x);
+						XAckhls_Set_y(&hlsHwInstance, y);
+
+						// Check if FPGA HW IP instance is ready
+						if(!XAckhls_IsReady(&hlsHwInstance))
+						{
+							print("FPGA HLS HW IP HW peripheral is not ready! Exiting ...\n");
+							status = XST_FAILURE;
+							break;
+						}
+
+						// Enable the interrupt
+						enable_interrupt(&hlsHwInstance);
+
+						// Start the HW IP instance
+						XTime_GetTime(&timeHwStart);
+						XAckhls_Start(&hlsHwInstance);
+
+						// Wait for PS ISR to be triggered by IP Instance
+						while(!resultAvailHlsHw); // blocked waiting
+						XTime_GetTime(&timeHwEnd);
+
+						// Reset hw result available flag
+						resultAvailHlsHw = 0;
+
+						// Read HW result
+						hw_result = XAckhls_Get_pResult(&hlsHwInstance);
+
+						// Get HW execution time on Zynq FPGA
+						timeHw += (timeHwEnd-timeHwStart);
+
+						// A(x,y)
+						printf("A(%" PRIu8 ",%" PRIu64 "),", x, y);
+
+						// ARM-ideal(value)
+						printf("%" PRIu64 ",", sw_ideal_result);
+
+						// ARM-custom(value)
+						printf("%" PRIu64 ",", sw_custm_result);
+
+						// FPGA(value)
+						printf("%" PRIu64 ",", hw_result);
+
+						// PASS/FAIL
+						if( sw_custm_result != sw_ideal_result)
+						{
+							printf("FAIL(ARM),");
+							status = XST_FAILURE;
+							break;
+						}
+						else if( hw_result != sw_ideal_result)
+						{
+							printf("FAIL(FPGA),");
+							status = XST_FAILURE;
+							break;
+						}
+						else
+						{
+							printf("PASS,");
+							status = XST_SUCCESS;
+						}
+
+						// Iterations
+						printf("%" PRIu16 ",", testIterations);
+					}
+				}
+
+				// ARM-ideal(cc) ARM-ideal(sec) ARM-custom(cc) ARM-custom(sec)
+				printf("%llu,%e,",
+						(unsigned long long)((double)timeSwIdealAccum/(double)testIterations),
+						((double)timeSwIdealAccum)/((double)COUNTS_PER_SECOND *(double)testIterations));
+
+				// ARM-custom(cc) ARM-custom(sec)
+				printf("%llu,%e,",
+						(unsigned long long)((double)timeSwCustmAccum/(double)testIterations),
+						((double)timeSwCustmAccum)/((double)COUNTS_PER_SECOND *(double)testIterations));
+
+				// FPGA(cc) FPGA(sec)
+				printf("%llu,%e",
+						(unsigned long long)((double)timeHw/(double)testIterations),
+						((double)timeHw)/((double)COUNTS_PER_SECOND *(double)testIterations));
+
+				printf("\n");
 			}
 		}
+
 		printf("Done!\n");
-		printf("ACK execution on Zynq FPGA: average %llu clock cycles and average time of %e sec.\n", (unsigned long long)((double)timeHwAccum/(double)testIterations), ((double)timeHwAccum)/((double)COUNTS_PER_SECOND *(double)testIterations));
-		printf("ACK execution on ARM CPU core: average %llu clock cycles and average time of %e sec.\n", (unsigned long long)((double)timeSwAccum/(double)testIterations), ((double)timeSwAccum)/((double)COUNTS_PER_SECOND *(double)testIterations));
-    }
+		printf("Do you wish to restart (y/Y, n/N) ? ");
+		scanf("%c", &ch);
+		printf("%c\n", ch);
+	}while( (ch == 'y' || ch == 'Y') && !(ch == 'n' || ch == 'N'));
+
 
     cleanup_platform();
     return status;
