@@ -55,20 +55,22 @@
 #include <inttypes.h>		// To print uintx_t and intx_t types properly using printf
 #include "xtime_l.h"		// Used to measure time (ARM cc's) a function
 
-#define DEBUG_WR
-#undef DEBUG_WR
-#define DEBUG_RD
-#undef DEBUG_RD
+#define DEBUG_DDR_WR
+#undef DEBUG_DDR_WR				// maybe be commented out
+#define DEBUG_DDR_RD
+#undef DEBUG_DDR_RD				// maybe be commented out
 
-#define MATCH_RD_WR_TEST
 
-#if defined(MATCH_RD_WR_TEST)
-#undef TIME_DDR_TEST
+#define DDR_RD_WR_MATCH_TEST
+#undef DDR_RD_WR_MATCH_TEST		// maybe be commented out
+
+#if defined(DDR_RD_WR_MATCH_TEST)
+#undef DDR_RD_WR_TIME_TEST
 #else
-#define TIME_DDR_TEST
+#define DDR_RD_WR_TIME_TEST
 #endif
 
-#define IO_DATA_BIT_SZ 16
+#define IO_DATA_BIT_SZ 8
 
 #if (IO_DATA_BIT_SZ == 8)
 typedef u8 io_t;
@@ -86,7 +88,45 @@ int main()
 {
     init_platform();
 
-    u32 ddrStartAddress = XPAR_PS7_DDR_0_S_AXI_BASEADDR*2;
+    /* The full range of ddr on Zynq on Zybo is addresses 0x0000_0000 to 0x3fff_0000
+     * i.e. 0x40000000 bytes = 1073741824 bytes = 1024 MBytes = 1 GBytes
+     * Some part of this range is reserved and rest can be accessed depending upon the device.
+     * See Table 4-1: System-Level Address Map in UG585 for further details.
+     * One of these sub-ranges in the 1 GB ddr which can be accessed by cpu, acp and all interconnect
+     * masters (PL/PS) is 0x0010_0000 to 0x3FFF_FFFF i.e. 3FF00000 = 1072693248 bytes = 1023 MBytes.
+     * We use this last 1023 MB range of 1 GB for our purpose and ignore starting 1 MB range of 1 GB ddr
+     * Furthermore, the starting section of this remaining 1023 MB ddr sub-range is usually used (not mandatory)
+     * to store program executable code sections (text, data, bss) as well as its stack/heap data.
+     * The allocation of memory regions for the elf file and its stack/heap is done through the linker script lscript.ld file.
+     * The size of various instruction sections (text, data, bss) of binary executable elf file
+     * are indicated in the compiler output in console window whenever the project is compiled
+     * For example, upon compiling this project (Build all), we should see some console output as follows:
+     *
+		'Invoking: ARM v7 Print Size'
+		arm-none-eabi-size ddr_hls_hp_app.elf  |tee "ddr_hls_hp_app.elf.size"
+		   text	   data	    bss	    dec	    hex	filename
+		  71116	   2580	  23328	  97024	  17b00	ddr_hls_hp_app.elf
+		'Finished building: ddr_hls_hp_app.elf.size'
+
+	 * The compiler output above shows the size of various sections (text, data, bss sections)
+	 * of binary executable elf file.  Under dec and hex columns it shows total size of these section in
+	 * decimal as 97024 bytes and in hex as 0x17b00 bytes. In addition, memory required to store
+	 * stack & heap for this executable elf is listed as 0x2000 each in the linker script(ldscript.ld)
+	 * and which is mapped after bss,text,data sections.
+	 * In total therefore we must exclude first 0x17b00+0x2000+0x2000 = 0x1BB00 = 113408 bytes (locations)
+	 * in ddr subrange (last 1023 MBytes) starting from its base address 0x0010_0000.
+	 * This region must not be used for storing (donot write) any user data, either from PS or PL,
+	 * otherwise the instructions as well stack/heap data can get corrupted and program may stop working at runtime.
+	 * To be on safe side, we exclude the first 128 KB = 0x20000 locations (1 MB to be more safe) starting
+	 * from ddr base address (0x0010_0000)
+	 *
+	 * NOTE: It is possible to relocate instruction/stack/heap in some other memory regions
+	 * such mapped to devices such as qspi, ocm on chip 256 KB memory (ps_ram_x) etc.
+	 * on Zynq device. Similarly sizes of stack/heap can also be increased or decreased.
+	 * All this can be done by changing the linker script (ldscript.ld) file contents
+	 * However it is not recommended to change this script unless it there is a special need.
+     */
+    u32 ddrStartAddress = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x20000;
     u32 ddrEndAddress = XPAR_PS7_DDR_0_S_AXI_HIGHADDR;
 
     io_t wrValue;
@@ -114,7 +154,7 @@ int main()
 
     	printf("Location: 0x%08x, WR Value: 0x%016x, RD Value: 0x%016x\n", 0x00234567, wrValue, rdValue);
 
-#ifdef TIME_DDR_TEST
+#ifdef DDR_RD_WR_TIME_TEST
     XTime timeDdrRdBeg = 0;
     XTime timeDdrRdEnd = 0;
     XTime timeDdrRd = 0;
@@ -125,7 +165,7 @@ int main()
 
     // Fill entire DDR locations with value equal to last 2 bytes of address value of address location being written
     printf("WRITING %lu bytes to DDR\n", ddrEndAddress-ddrStartAddress);
-#ifdef TIME_DDR_TEST
+#ifdef DDR_RD_WR_TIME_TEST
     XTime_GetTime(&timeDdrWrBeg);
 #endif
 
@@ -145,18 +185,18 @@ int main()
         Xil_Out16(ddrAddress, wrValue);
 #endif
 
-#ifdef DEBUG_WR
+#ifdef DEBUG_DDR_WR
         printf("Location: 0x%08x, WR Value: 0x%016x\n", ddrAddress, wrValue);
 #endif
     }
-#ifdef TIME_DDR_TEST
+#ifdef DDR_RD_WR_TIME_TEST
     XTime_GetTime(&timeDdrWrEnd);
     timeDdrWr = timeDdrWrEnd-timeDdrWrBeg;
 #endif
     // Read every value from DDR and match. Exit on first fail
     printf("READING %lu bytes from DDR\n", ddrEndAddress-ddrStartAddress);
 
-#ifdef TIME_DDR_TEST
+#ifdef DDR_RD_WR_TIME_TEST
     XTime_GetTime(&timeDdrRdBeg);
 #endif
 
@@ -174,21 +214,8 @@ int main()
     	io_t rdValue = Xil_In16(ddrAddress);
 #endif
 
-#ifdef MATCH_RD_WR_TEST
+#ifdef DDR_RD_WR_MATCH_TEST
     	io_t wrValue = (io_t)ddrAddress;
-
-#if (IO_DATA_BIT_SZ == 8)
-    	io_t rdValueEndianSwapped = Xil_EndianSwap16(rdValue);
-#elif (IO_DATA_BIT_SZ == 16)
-    	io_t rdValueEndianSwapped = Xil_EndianSwap16(rdValue);
-#elif (IO_DATA_BIT_SZ == 32)
-    	io_t rdValueEndianSwapped = Xil_EndianSwap32(rdValue);
-#elif (IO_DATA_BIT_SZ == 64)
-    	io_t rdValueEndianSwapped = Xil_EndianSwap64(rdValue);
-#else
-    	io_t rdValueEndianSwapped = Xil_EndianSwap16(rdValue);
-#endif
-
 
 #if (IO_DATA_BIT_SZ == 8)
     	if(rdValue != (u16)wrValue )
@@ -208,12 +235,12 @@ int main()
         }
 #endif
 
-#ifdef DEBUG_RD
+#ifdef DEBUG_DDR_RD
     	printf("Location: 0x%08x, WR Value: 0x%016x, RD Value: 0x%016x\n", ddrAddress, wrValue, rdValue);
 #endif
     }
 
-#ifdef TIME_DDR_TEST
+#ifdef DDR_RD_WR_TIME_TEST
     XTime_GetTime(&timeDdrRdEnd);
     timeDdrRd = timeDdrRdEnd-timeDdrRdBeg;
 
@@ -228,7 +255,9 @@ int main()
 			(double)((double)(ddrEndAddress  - ddrStartAddress)*(double)COUNTS_PER_SECOND/(double)timeDdrRd) );
 #endif
 
+#ifdef DDR_RD_WR_MATCH_TEST
     printf("All Matched!\n\r");
+#endif
 
     cleanup_platform();
     return 0;
