@@ -46,23 +46,24 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "platform.h"
 #include "xil_printf.h"
 #include "xhls_func.h"
-#include "xil_io.h"			// for reading/writing to individual memory locations
-#include "xil_mem.h"		// for memcpy
+#include "xil_io.h"					// for reading/writing to individual memory locations
+#include "xil_mem.h"				// for memcpy
 #include "xparameters.h"
-#include <inttypes.h>		// To print uintx_t and intx_t types properly using printf
-#include "xtime_l.h"		// Used to measure time (ARM cc's) a function
+#include <inttypes.h>				// To print uintx_t and intx_t types properly using printf
+#include "xtime_l.h"				// Used to measure time (ARM cc's) a function
+#include "datasets.h"
 
 #define DEBUG_DDR_WR
-#undef DEBUG_DDR_WR				// maybe be commented out
+#undef DEBUG_DDR_WR					// maybe be commented out
 #define DEBUG_DDR_RD
-#undef DEBUG_DDR_RD				// maybe be commented out
-
+#undef DEBUG_DDR_RD					// maybe be commented out
 
 #define DDR_RD_WR_MATCH_TEST
-#undef DDR_RD_WR_MATCH_TEST		// maybe be commented out
+//#undef DDR_RD_WR_MATCH_TEST		// maybe be commented out
 
 #if defined(DDR_RD_WR_MATCH_TEST)
 #undef DDR_RD_WR_TIME_TEST
@@ -70,7 +71,7 @@
 #define DDR_RD_WR_TIME_TEST
 #endif
 
-#define IO_DATA_BIT_SZ 8
+#define IO_DATA_BIT_SZ 64
 
 #if (IO_DATA_BIT_SZ == 8)
 typedef u8 io_t;
@@ -83,6 +84,7 @@ typedef u64 io_t;
 #else
 typedef u16 io_t;
 #endif
+
 
 int main()
 {
@@ -126,33 +128,39 @@ int main()
 	 * All this can be done by changing the linker script (ldscript.ld) file contents
 	 * However it is not recommended to change this script unless it there is a special need.
      */
-    u32 ddrStartAddress = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x20000;
+    u32 ddrStartAddress = XPAR_PS7_DDR_0_S_AXI_BASEADDR + 0x400000;
     u32 ddrEndAddress = XPAR_PS7_DDR_0_S_AXI_HIGHADDR;
+
+    printf("Size of 16-bit buffer: %d\n", sizeof(dataIn16X));
+    printf("Number of elements in 16-bit buffer: %d\n", sizeof(dataIn16X)/sizeof(dataIn16X[0]));
+
+    printf("Size of 8-bit buffer: %d\n", sizeof(dataIn8X));
+    printf("Number of elements in 8-bit buffer: %d\n", sizeof(dataIn8X)/sizeof(dataIn8X[0]));
 
     io_t wrValue;
 #if (IO_DATA_BIT_SZ == 8)
         wrValue = 0x67;
-        Xil_Out8(0x00234567, wrValue );
-    	io_t rdValue = Xil_In8(0x00234567);
+        Xil_Out8(0x01234567, wrValue );
+    	io_t rdValue = Xil_In8(0x01234567);
 #elif (IO_DATA_BIT_SZ == 16)
     	wrValue = 0x4567;
-    	Xil_Out16(0x00234567, wrValue);
-    	io_t rdValue = Xil_In16(0x00234567);
+    	Xil_Out16(0x01234567, wrValue);
+    	io_t rdValue = Xil_In16(0x01234567);
 #elif (IO_DATA_BIT_SZ == 32)
     	wrValue=0x01234567;
-    	Xil_Out32(0x00234567, wrValue);
-    	io_t rdValue = Xil_In32(0x00234567);
+    	Xil_Out32(0x01234567, wrValue);
+    	io_t rdValue = Xil_In32(0x01234567);
 #elif (IO_DATA_BIT_SZ == 64)
     	wrValue=0x0123456701234567;
-    	Xil_Out64(0x00234567, wrValue);
-    	io_t rdValue = Xil_In64(0x00234567);
+    	Xil_Out64(0x01234567, wrValue);
+    	io_t rdValue = Xil_In64(0x01234567);
 #else
     	wrValue=0x4567;
-    	Xil_Out16(0x00234567, wrValue);
-    	io_t rdValue = Xil_In16(0x00234567);
+    	Xil_Out16(0x01234567, wrValue);
+    	io_t rdValue = Xil_In16(0x01234567);
 #endif
 
-    	printf("Location: 0x%08x, WR Value: 0x%016x, RD Value: 0x%016x\n", 0x00234567, wrValue, rdValue);
+    	printf("Location: 0x%08lx, WR Value: 0x%016llx, RD Value: 0x%016llx\n",(unsigned long) 0x01234567, wrValue, rdValue);
 
 #ifdef DDR_RD_WR_TIME_TEST
     XTime timeDdrRdBeg = 0;
@@ -186,7 +194,7 @@ int main()
 #endif
 
 #ifdef DEBUG_DDR_WR
-        printf("Location: 0x%08x, WR Value: 0x%016x\n", ddrAddress, wrValue);
+        printf("Location: 0x%08lx, WR Value: 0x%016llx\n", ddrAddress, wrValue);
 #endif
     }
 #ifdef DDR_RD_WR_TIME_TEST
@@ -230,13 +238,13 @@ int main()
 #endif
         {
         	printf("Match Failed!\n");
-        	printf("Location: 0x%08x, WR Value: 0x%016x, RD Value: 0x%016x\n", ddrAddress, wrValue, rdValue );
-        	exit(0);
+        	printf("Location: 0x%08lx, WR Value: 0x%016llx, RD Value: 0x%016llx\n", ddrAddress, wrValue, rdValue );
+        	exit(-1);
         }
 #endif
 
 #ifdef DEBUG_DDR_RD
-    	printf("Location: 0x%08x, WR Value: 0x%016x, RD Value: 0x%016x\n", ddrAddress, wrValue, rdValue);
+    	printf("Location: 0x%08lx, WR Value: 0x%016llx, RD Value: 0x%016llx\n", ddrAddress, wrValue, rdValue);
 #endif
     }
 
