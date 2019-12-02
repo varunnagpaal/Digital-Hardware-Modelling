@@ -12,20 +12,71 @@
 #include "xil_cache.h"
 #include "Dataset16.h"
 
-#define N 16
+#define KNNBRS 9
+#define ROWS ((1<<16)+1)
+#define DIM	 16
 
 // To interface with ISR
 volatile static int runHlsHw = 0;
 volatile static int resultAvailHlsHw = 0;
 
-void ArmSwModel(uint16_t volatile const *pSrcBuffer,
-                uint16_t volatile *pDestBuffer
+typedef int32_t data_t;
+
+// Note: to store distance squared,
+// 		 we need bit size of atleast 16+16+log2(dimensions)
+//		 = 32+3 = 35 bits for 8 dims,
+//		 = 32+4 = 36 bits for  16 dimensions
+typedef int64_t datasqrd_t;
+
+typedef struct
+{
+	data_t rowIndex;
+	datasqrd_t distSqrd;
+}NbrDistSqrdType;
+
+int sortPointsByDistance(const void* obj1, const void *obj2)
+{
+	int64_t d1 = ((NbrDistSqrdType*)obj1)->distSqrd;
+	int64_t d2 = ((NbrDistSqrdType*)obj2)->distSqrd;
+
+	if( d1 < d2 ) 		return -1;
+	else if (d1 > d2 )	return +1;
+	else				return 0;
+}
+
+void ArmSwModel(int volatile const *pSrcBuffer,
+				int Nbrs,
+                int volatile *pKIndexes
                 )
 {
-    for(int i=0; i < N; ++i)
-    {
-        pDestBuffer[i] = pSrcBuffer[i]+1;
-    }
+	static NbrDistSqrdType NbrsDistSqrdObjs[ROWS-1];
+
+	int	volatile const *pRefDataPoint = &pSrcBuffer[0];
+	int volatile const *pSrcDataPoints = &pSrcBuffer[DIM+1];
+
+	for( int32_t r = 0; r < ROWS-1; ++r)
+	{
+		int64_t tempDiff = 0;
+		int64_t tempSqrd = 0;
+		int64_t tempSqrdSum = 0;
+		for( data_t d = 1 ; d <= DIM; ++d )
+		{
+			data_t const refCoordinate = pRefDataPoint[d];
+			data_t const ptCoordinate = pSrcDataPoints[r*(DIM+1)+d];
+			tempDiff = (ptCoordinate - refCoordinate);
+			tempSqrd = tempDiff * tempDiff;
+			tempSqrdSum += tempSqrd;
+		}
+		NbrsDistSqrdObjs[r].rowIndex = r;
+		NbrsDistSqrdObjs[r].distSqrd = tempSqrdSum;
+	}
+
+	qsort(NbrsDistSqrdObjs, ROWS-1, sizeof(NbrDistSqrdType), sortPointsByDistance);
+
+	for( data_t k=0; k < KNNBRS; ++k )
+	{
+		pKIndexes[k] = 	NbrsDistSqrdObjs[k].rowIndex;
+	}
 }
 
 // Enable PL to PS interrupt
@@ -139,6 +190,12 @@ int main()
 
     XKnearestneighbor hlsHwInstance;    // HLS IP instance
     XScuGic intCntrlInstance;   		// Interrupt controller instance
+    XTime timeSwBegin = 0;
+    XTime timeSwEnd = 0;
+    XTime timeSw = 0;
+    XTime timeHwBegin = 0;
+    XTime timeHwEnd = 0;
+    XTime timeHw = 0;
 
     u32 ddrStartAddress = (u32)XPAR_PS7_DDR_0_S_AXI_BASEADDR + (u32)0x00800000;
     u32 ddrEndAddress = XPAR_PS7_DDR_0_S_AXI_HIGHADDR;
@@ -151,20 +208,15 @@ int main()
     }
 
     // Destination buffers for output data (stored on stack/text/data segment mapped to ddr)
-    uint16_t dataOutHw[N];
-    uint16_t dataOutSw[N];
+    int volatile kIndexesOutSw[KNNBRS];
 
-    for( int i=0; i<N; ++i)
+    for( int i=0; i<KNNBRS; ++i)
     {
-    	dataOutHw[i] = 0;
-    	dataOutSw[i] = 0;
+    	kIndexesOutSw[i] = 0;
     }
 
-    // Input data (stored on stack/text/data segment mapped to ddr)
-    const uint16_t dataIn8X[N] = {14,57,13,26,45,43,12,97,77,55,90,11,62,23,16,89};
-
     // Before starting the IP, make sure buffers in memory is flushed from cache to ddr
-    Xil_DCacheFlushRange((INTPTR)dataIn8X, sizeof(dataIn8X));
+    Xil_DCacheFlushRange((INTPTR)&dataset16[0], sizeof(dataset16));
 
     // Initialize HLS Hardware
     status = hls_hw_init(&hlsHwInstance);
@@ -184,7 +236,7 @@ int main()
 
     // Send address of source and destination memory buffers on DDR
     // as register values through AXI-lite to the FPGA HLS IP
-    XKnearestneighbor_Set_data16(&hlsHwInstance, (u32)&dataIn8X[0]);
+    XKnearestneighbor_Set_data16(&hlsHwInstance, (u32)&dataset16[0]);
 
     // Check if FPGA HW IP instance is ready
     if(!XKnearestneighbor_IsReady(&hlsHwInstance))
@@ -196,6 +248,7 @@ int main()
     // Enable the interrupt
     enable_interrupt(&hlsHwInstance);
 
+    XTime_GetTime(&timeHwBegin);
     // Start the HW IP instance
     XKnearestneighbor_Start(&hlsHwInstance);
 
@@ -207,46 +260,42 @@ int main()
     // in ddr is moved to cache
     //Xil_DCacheInvalidateRange((INTPTR)dataOutHw, sizeof(dataOutHw) );
 
+    XTime_GetTime(&timeHwEnd);
+    timeHw = timeHwEnd - timeHwBegin;
+
     // Reset hw result available flag
     resultAvailHlsHw = 0;
 
+    XTime_GetTime(&timeSwBegin);
+
     // Call the SW model of HW IP on ARM CPU core
-    ArmSwModel(&dataIn8X[0], &dataOutSw[0]);
+    ArmSwModel(&dataset16[0], KNNBRS, &kIndexesOutSw[0]);
 
-    // Compare HW and Sw results
-    for( int i=0; i<N; i++)
-    {
-        printf("i: %d, ARM CPU: %d, FPGA HLS: %d\n", i, dataOutSw[i], dataOutHw[i]);
-        if( dataOutHw[i] != dataOutSw[i] )
-        {
-            status = XST_FAILURE;
-        }
-        else
-        {
-        	status = XST_SUCCESS;
-        }
-    }
+    XTime_GetTime(&timeSwEnd);
+    timeSw = timeSwEnd - timeSwBegin;
 
+	printf("SW cc: %llu, HW cc: %llu, SW Time(sec): %e, HW Time(sec): %e\n",
+			timeSw,
+			timeHw,
+			(double)timeSw/(double)COUNTS_PER_SECOND,
+			(double)timeHw/(double)COUNTS_PER_SECOND);
+
+#if 0
     printf( "Out data bytes: %lu\n", XKnearestneighbor_Get_knearest_TotalBytes(&hlsHwInstance));
     printf( "Out data depth: %lu\n", XKnearestneighbor_Get_knearest_Depth(&hlsHwInstance));
     printf( "Out data bit width: %lu\n", XKnearestneighbor_Get_knearest_BitWidth(&hlsHwInstance));
     printf( "Out data base address: %lu\n", XKnearestneighbor_Get_knearest_BaseAddress(&hlsHwInstance));
     printf( "Out data high address: %lu\n", XKnearestneighbor_Get_knearest_HighAddress(&hlsHwInstance));
+#endif
 
-    uint16_t* outBeginAdd = (uint16_t*)XKnearestneighbor_Get_knearest_BaseAddress(&hlsHwInstance);
+    int* kIndexesOutHw = (int*)XKnearestneighbor_Get_knearest_BaseAddress(&hlsHwInstance);
 
     // Compare HW and Sw results
-    for( int i=0; i<N; i++)
+    for( int i=0; i<KNNBRS; i++)
     {
-        printf("i: %d, ARM CPU: %d, FPGA HLS: %d\n", i, dataOutSw[i], outBeginAdd[i]);
-        if( outBeginAdd[i] != dataOutSw[i] )
-        {
-            status = XST_FAILURE;
-        }
-        else
-        {
-        	status = XST_SUCCESS;
-        }
+        printf("i: %d, ARM CPU: %d, FPGA HLS: %d\n", i, kIndexesOutSw[i], kIndexesOutHw[i]);
+        if( kIndexesOutHw[i] != kIndexesOutSw[i] ) 	status = XST_FAILURE;
+        else										status = XST_SUCCESS;
     }
 
     if( XST_FAILURE == status ) printf("Test Failed!!!\n");
