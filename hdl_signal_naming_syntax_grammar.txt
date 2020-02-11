@@ -38,6 +38,6 @@ io_mode ::= "I" | "O" | "IO" | ""
 // Subprograms                          : lower case
 // Constants, Generics/Parameters       : upper case
 // VHDL variables                       : PascalCaps or camelCaps
-// VHDL signals                         : signal_identifier in PascalCaps or camelCaps
-// SV Intra-process(Local) Variables    : PascalCaps or camelCaps
+// VHDL signals                        : signal_identifier in PascalCaps or camelCaps
+// SV Intra-process(Local) Variables     : PascalCaps or camelCaps
 // SV Inter-process(Shared) Variables   : signal_identifier in PascalCaps or camelCaps

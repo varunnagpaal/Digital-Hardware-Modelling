@@ -9,6 +9,7 @@
 
 #Code files not to ignore
 !*.c
+!*.cpp
 !*.h
 !*.v
 !*.sv

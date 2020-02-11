@@ -30,13 +30,43 @@
 
 /*
   In SystemVerilog, alternative to timescale macro is as follows:
+  module testbench;
+    // placed inside module
+    // are declarations not directives
+    // must be first statement of the module
+    // scope limited to module and nested module
+    timeunit    1ns;
+    timeprecision   100ps;
 
-  timeunit    1ns;
-  timeprecision   100ps;
+    logic a, b;
+
+    initial begin
+      #20ns a = 1'b0;
+      #14   b = 1'b1;
+    end
+  endmodule
 
   or
 
   timeunit 1ns/100ps; // similar to `timescale 1ns/100ps.
+
+  In addition, SV allows to use time literals with time unit can be explicity and arbitrarily
+  specified with the time value independently from the declared timescale directive
+  Example: 10ps, 1.5ps, 1step (simulation step. no 2step etc.).
+
+  However, SV still scales literal to declared timeunit and rounds it to current time precision
+  So timeunit and timeprecision must be specified for the scope where time literals are specified
+  Example:
+
+  timeunit    1ns;
+  timeprecision   100ps;
+
+  30ns    // 30ns
+  1us     // scaled to 1000ns
+  4.27ns  // rounded to 4.3 ns
+  #1step  // advances simulation by 1 simulation step or timeprecision of 100ps
+
+
 */
 
 module Testbench;

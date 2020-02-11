@@ -38,13 +38,13 @@ module template
   (
    /*
     EXTERNAL INTERFACE (nodes) (WHAT IT DOES - BEHAVIOR)
-    [mode] [object-type][port-name] {array_range_of_objects}
+    [mode] [object-type] [port-name] {array_range_of_objects}
 
     [mode]: input(net-type)|output(net-type|variable-type)|inout(net-type)
-            input and inout port is always of net type
+            input and inout port is always of net type (note: sv allows them to be also variable type. but this is seldom useful)
             output port should be a variable type (example reg) if assigned by a procedural block
                                or a net type (example wire) if driven outside procedural block
-    [object-type]: data-type{array_range_of_data_type}
+    [object-type]: data-type {signed} {array_range_of_data_type}
     [data-type]: net-type|variable-type|logical-type|num_type|other_type
     [array_range_of_data_type]: array_range(msb,lsb)|array_range(lsb,msb), msb>lsb
                                 The MSB always is on the left and LSB is always on right of a
@@ -57,8 +57,18 @@ module template
 
   /*
     [array_range(n1,n2)]    : n1:n2  (array size = (|n1-n2| + 1)), n1>=0, n2>=0
-                              | base_index -: offset => base_index:base_index-offset
-                              | base_index +: offset => base_index:base_index-offset
+                              | base_index -: offset => base_index:base_index-offset+1  // little endian
+                              | base_index +: offset => base_index:base_index+offset-1  // little endian
+
+                              logic [31: 0] a_vect; // little endian
+                              logic [0 :31] b_vect; // big endian
+                              logic [63: 0] dword;
+                              integer sel;
+                              a_vect[ 0 +: 8] // == a_vect[ 7 : 0]
+                              a_vect[15 -: 6] // == a_vect[15 : 10]
+                              b_vect[ 0 +: 8] // == b_vect[0 : 7]
+                              b_vect[15 -: 6] // == b_vect[10 :15]
+                              dword[8*sel +: 8] // variable part-select with fixed width
 
     [Identifier]: (Alpha|_)Alpha|Num|_|$ (built-in & user defined system tasks and functions
                    start with a $)
@@ -74,7 +84,7 @@ module template
                   Z value => driver of net is disabled (in real hardware the situation
                              will either occur for short duration or would not occur because the
                              bus keepers pull the net to a high or low logic state)
-                  X value => net being driven by multiple drivers (in real hardware the situation
+                  X value => net is being driven by multiple drivers (in real hardware the situation
                              will either occur for short duration or would not occur)
     [wire or tri]: an interconnection wire.
                    can have multiple drivers
@@ -89,7 +99,7 @@ module template
     [supply1]: VDD
     [tri1|tri0]: this net-type is for nets that has pull-up or pull-down resistors
                  When not driven by a driver, the pull-up and pull-down resistors drive it to
-                 weak 1/vdd and weak 0/vss when the net is
+                 weak 1/vdd and weak 0/vss
                  When driven by a driver, the net will show the value drive onto it
                  can never be driven to Z
     [trireg]: this net-type is for nets with capacitance on them. has two states: driven and capacitance
@@ -102,13 +112,13 @@ module template
                       value on the net is resolved as the output of an AND gate whose inputs are
                       the output of the two drivers with possibly conflicting output values.
                       models emitter-coupled logic
-    [triwand or wand]: when a net is driven by two drivers with same signal strength, then the final
-                      value on the net is resolved as the output of an OR gate whose inputs are
-                      the output of the two drivers with possibly conflicting output values.
-                      models open-collector logic
+    [triwor or wor]: when a net is driven by two drivers with same signal strength, then the final
+                     value on the net is resolved as the output of an OR gate whose inputs are
+                     the output of the two drivers with possibly conflicting output values.
+                     models open-collector logic
     [variable-type]: reg|integer|real|time|realtime
                      instance of a variable represents an abstract storage element
-                     stores a value until a new value is assigned
+                     stores a value until a new value is assigned and holds value even when new value is not assigned
                      initialized to unknown state(X) by simulator i.e. any voltage level b/w VDD/VSS
                      can be "assigned" only inside a procedural block(except real type which is
                      intialized to 0 as it it is only variable type that can hold a Z or X value)
@@ -151,14 +161,23 @@ module template
                                             user defined vector size,
                                             single driver,
                                             multi-driver conflicts unresolved and error messages
-                                            generated during compilation or simulation)
+                                            generated during compilation or simulation,
+                                            sv only)
+
+                                            Verilog   Full SV         Default SV
+                                            -------   -------------   ----------
+                                            reg sig   var logic sig   logic sig
+                                            wire sig  wire logic sig  wire sig
 
                   bit( unsigned,
                        2-states,
                        non-electrical modeling,
-                       user defined vector size )
+                       user defined vector size.
+                       replacement for reg, logic or integer to increase simulation performance
+                       as unlike reg, logic or integer which can have 4-states, bit has only 2 states,
+                       sv only)
 
-                  reg(unsigned,f
+                  reg(unsigned,
                       synthesizable,
                       a variable type,
                       can be assigned only inside a procedural block such as initial/always,
@@ -166,19 +185,27 @@ module template
                       use blocking assignment(=) for combinational logic,
                       use non-blocking assignment(<=) for sequential logic(ff, latch)
 
-    [num_type] : byte     [num_type_prefix] (1-byte, signed, 2-states, single driver)
-                 shortint [num_type_prefix] (2-bytes, signed, 2-states, single driver)
-                 int      [num_type_prefix] (4-bytes, signed, 2-states, single driver)
-                 longint  [num_type_prefix] (8 bytes, signed, 2-states, single driver)
+    [num_type] : byte     [num_type_prefix] (1-byte, signed, 2-states, single driver, sv only)
+                 shortint [num_type_prefix] (2-bytes, signed, 2-states, single driver, sv only)
+                 int      [num_type_prefix] (4-bytes, signed, 2-states, single driver, sv only)
+                 longint  [num_type_prefix] (8 bytes, signed, 2-states, single driver, sv only)
                  integer  [num_type_prefix] (4 bytes, signed, 4-states, single driver)
     [num_type_prefix] : signed(default)|unsigned
 
-    [other_type]: real      (double precision float, only for simulation, not synthesizable)
+    [other_type]: real      (double precision float, not 4 -states, only for simulation, not synthesizable)
                   time      (8 bytes, 4-state, only for simulation, not synthesizable)
-                  realtime  (same as real, only for simulation, not synthesizable)
+                  realtime  (same as real, not 4 -states, only for simulation, not synthesizable)
+                  short_real (4-byte, sv only)
 
-    [2-states] : 0, 1
-    [4-states] : 0, 1, Z, X
+    [2-states] : 0, 1 (initialized to 0 which hides failure to initialize the design,
+                      not recommended to use in rtl code but useful for testbench code
+                      as well as clk, rst which are always 0 or 1)
+    [4-states] : 0, 1, Z, X (performance overhead during simulation compared to 2-states,
+                             exposes failure to initialize the design by showing value x,
+                             4-state type when assigned to a 2-state type results in Z/X mapping to 0
+                             which hides uninitialized or undriven values,
+                             conversion between 4-state and 2-state is bad idea)
+
 
     [0] : false, low, logic low, ground, vss
     [1]:  true, high, logic high, power, vdd, vcc
@@ -274,7 +301,14 @@ module template
                 'b11: 0000_0000_0000_0000_0000_0000_0000_0011 (unsized hence 32-bit)
                 10'h0z: 00_0000_zzzz
                 10'hz0: zz_zzzz_0000
-    */
+
+                SV allows unsized literals
+                logic [5:0] bus;
+                bus = '0; // 000000
+                bus = '1; // 111111
+                bus = 'z; // zzzzzz
+                bus = 'x; // xxxxxx
+                */
 
     /*
         Instantiate existing modules with port maps
@@ -283,16 +317,20 @@ module template
         1. Variable is used for connecting to input port of a module instance iff input port is to
         be assigned by a procedural block
         2. Net is used for connecting to input port of a module instance iff input port is driven
-        outside a procedure
+        outside a procedural block
         3. Net is used for connecting to output port of a module instance
         4. Net is used for connecting to input-output port of a module instance
 
         Note: a net can be "driven" by either a net or a variable,
               a variable can be surely "assigned" by a variable however,
-              if it can also be "assigned" by a net or is yet to be found out
+              if it can also be "assigned" by a net (very likely) or not is yet to be found out
+              Yes indeed
+                module some(output reg out_d, input wire in_a, in_b)
+                  out_d = in_a && in_b;
+                endmodule
     */
     // [component_module_name] [component_identifier] #(optional-generic-map)[(port-map)];
-    // port-map: .component_portname1(net_name),...
+    // port-map: .component_portname1(net_or_var_name),...
     // optional-generic-map: .parameter_name(parameter_value), ...
 
     // Instantiate built in gates primitives
@@ -305,7 +343,8 @@ module template
       1. Prefer continuous assignments(blocking) to behaviorally describe
          uncomplicated combinational functions(MISO logic functions, multiplexer).
       2. Do not use procedural blocks other than always_comb, always_ff and always_latch.
-      3. In an always_comb block, always use blocking assignments (=).
+      3. In an always_comb block, always use blocking assignments (=). always_comb block allows
+         only single driver to a logic type
       4. In always_ff and always_latch blocks, use nonblocking assignments (<=) only.
       5. Do not make #0 (zero delay expression) procedural assignments.
       6. If writing Verilog exclusively,
@@ -315,16 +354,21 @@ module template
       ------------------------------------- --------------------------------------------------------
       wire(a net data type)                 continuous assignment(blocking, assign wire = ...;)
                                             to describe combinational logic in dataflow style
+                                            always "driven" outside procedural block
       output port(type wire)                -DO-
-      inout port(always net type like wire) -DO-
-      reg(a variable data type)             sequential logic: non-blocking assignment(<=) inside
-                                                              always procedural block
-                                            combinational logic: blocking assignment(=) inside
-                                                                 always procedural block
-                                            testbench: non-blocking assignment(<=) inside
-                                                       always procedural block
+      inout port(default net type like wire) -DO-.
+                                            Note: SV allows i/o port to be variable type also.
+                                            but this is seldom useful
+                                            "var logic" required for input port to be a 4-state variable type
+      reg(a variable data type)             non-blocking assignment(<=): sequential logic, testbench
+                                            blocking assignment(=): combinational logic
+                                            always "assigned" by a procedural block
+
       output port(type reg)                 -DO-
-      input port(always net type like wire) N.A
+      input port(default net type like wire) N.A.
+                                            Note: SV allows inout port to be variable type also.
+                                            but this is seldom useful
+                                            "var logic" required for inout port to be a 4-state variable type
       ------------------------------------- --------------------------------------------------------
 
       6. If writing SystemVerilog exclusively, use logic type for input/output
@@ -357,100 +401,120 @@ module template
       - assign [variable_3 or wire_3] = [ (boolean_expr)? expr_true : expr_false];
     */
 
-    /* Procedural Blocks
+    /* Procedural Blocks or Processes
       -  process which executes concurrent outside w.r.t to other processes but
-         which executes within itself sequentially.
+         which executes within itself sequentially like a programming language.
          i.e. concurrent outside and sequential inside
         - Can update more than 1 variable
         - Expressed as set of statements that get executed in sequence
         - Can use local variables for temporary purpose
+        - always and initial are two types of procedural blocks
         - Control conditions for activation of process
         - Procedural block as a whole executes as a concurrent process
+        - Any procedural block or process consists of set of either blocking
+          assignment statements (=) that execute in sequence within process
+          to describe combinational logic or non-blocking assignment statements(<=)
+          that execute concurrently within process each other to descibe sequential logic
     */
 
-    /*  Combinational logic
+    /*  Describing Combinational logic behaviorally using always Procedural block or Process
+        Combinational logic can be expressed behaviorally using always procedural block or
+        process construct with a sensitivity list that contains comma separated list of ALL
+        inputs of the combinational logic being modeled
         - A procedural block that implements a MIMO truth table or a digital
           logic function(equation) behaviorally
-
-        always_comb
-        begin
-          // Variable declaration statements for temporary storage
-          // (intra-process)(scope: local to process)
-          // (var) [data-type] [variable-name] = (initial_value);
-          // lhs must be reg or tbu. rhs can be input port, literal, logic, reg,
-          // wire or bit.
-          //
-          // Procedural assignment statements
-          // - blocking (=) or non-blocking assignment (<=).
-          //
-          // Use blocking assignments to describe combinational logic
-          // behaviorally in always_comb block
-          //
-          // Blocking assignment statements: blocks the execution of process
-          // until the statement is executed. Process execution proceeds from
-          // one statement to next sequentially blocking each time a statement
-          // is encountered. Each statement execution involves evaluation of
-          // RHS expression and assignment of this result to LHS expression
-          // after 0 delay (unspecified delay) or in specified delay
-          // (#[time][timeunit])
-          // ~VHDL variable assignment ":=""
-          // i.e Effect of Verilog blocking assignment to a variable is
-          // same as effect of VHDL variable update within a process.
-
-          // 1. Blocking assignment with no delay: evalue rhs and assign this
-          //    result to LHS immediately.
-          a = b|c;          // Assign at 0ns
-
-          // 2. Blocking assignment with delay: process execution suspended
-          //    until simulation time advances by specified delay (20ns)
-          //    Evaluate rhs but assign this result to LHS after specified
-          //    time(20ns) has elapsed
-          d = #20ns a-c;    // Assign at 20 ns
-          k = #30ns a*c;    // Assign at 50 ns
-
-          // Use if-else control block for indicating explicit priority among
-          // mutually exclusive events. For example expr1 has higher priority
-          // over expr2.
-          If ( expr1 )    blocking assignment statement1;
-          else if(expr2)  blocking assignment statement2;
-          else            blocking assignment statement3;
-
-          // Use case-endcase control construct when there is no priority
-          // among mutually exclusive events. Case alternatives are usually
-          // constant but maybe variables. Case expression itself is a
-          // variable. For example alt1, alt2 and default have same priority.
-          // It is usually used for implementing a lookup table or small
-          // memory adressing scheme.
-          //
-          // NOTE: There is no need to add break statement at the end of a
-          //       case statement
-          case (expr)
-                  alt1:       blocking assignment statement1;
-                  alt2:       blocking assignment statement2;
-                  default:    blocking assignment default_statement;
-          endcase
-
-          // Verilog supports Looping construct in form of a for statement.
-          // This mainly helps to generate repetitive sub-structures of a
-          // combinational logic block.
-          // Note: In SystemVerilog one may use i++ or i=i+1 as loop variable
-          //       update statement. However Verilog only supports later i.e
-          //       i=i+1 loop variable update statement
-          for( loop var init; loop reentry expression; loop var update)
-              blocking assignment statement1;
-              blocking assignment statement2;
-        end
-
-        // Combinational logic can also be expressed behaviorally using traditional
-        // procedural block "always" with the sensitivity list containing all
-        // inputs of the combinational logic being modeled
-
-        always@(<list of combinational inputs>)
-        begin
-            // blocking assignment statement1;
-            // blocking assignment statement2;
-        end
+        - The procedural constructs that can be used to  describe combinational
+          logic are:
+            always_comb,
+            always @(*) or
+            always@(comma separated list of ALL inputs to the combinational circuits)
     */
+
+    /* Behavioral level Combinational Logic Verilog Style 1 (Recommended) */
+    always @(*)
+    begin
+        // blocking assignment statement1;
+        // blocking assignment statement2;
+    end
+
+    /* Behavioral level Combinational Logic Verilog Style 2 */
+    always @(<comma separated list of ALL combinational inputs>)
+    begin
+        // blocking assignment statement1;
+        // blocking assignment statement2;
+    end
+
+    /* Behavioral level Combinational Logic SystemVerilog Style (Recommended) */
+    always_comb
+    begin
+      // Variable declaration statements for temporary storage
+      // (intra-process)(scope: local to process)
+      // (var) [data-type] [variable-name] = (initial_value);
+      // lhs must be reg or tbu. rhs can be input port, literal, logic, reg,
+      // wire or bit.
+      //
+      // Procedural assignment statements
+      // - blocking (=) or non-blocking assignment (<=).
+      //
+      // Use blocking assignments to describe combinational logic
+      // behaviorally in always_comb block
+      //
+      // Blocking assignment statements: blocks the execution of process
+      // until the statement is executed. Process execution proceeds from
+      // one statement to next sequentially blocking each time a statement
+      // is encountered. Each statement execution involves evaluation of
+      // RHS expression and assignment of this result to LHS expression
+      // after 0 delay (unspecified delay) or in specified delay
+      // (#[time][timeunit]) as prefix of lhs i.e. #tpd lhs = rhs;
+      // ~VHDL variable assignment ":=""
+      // i.e Effect of Verilog blocking assignment to a variable is
+      // same as effect of VHDL variable update within a process.
+
+      // 1. Blocking assignment with no delay: evalue rhs and assign this
+      //    result to LHS immediately.
+      a = b|c;          // Assign at 0ns
+
+      // NOTE: always_comb block enforces only a single driver to a logic type
+
+      // 2. Blocking assignment with delay: process execution suspended
+      //    until simulation time advances by specified delay (20ns)
+      //    Evaluate rhs but assign this result to LHS after specified
+      //    time(20ns) has elapsed
+      #20ns d = a-c;  // Assign at 20 ns
+      #30   k = a*c;  // Assign at 50 ns (assuming timescale is 1ns)
+
+      // Use if-else control block for indicating explicit priority among
+      // mutually exclusive events. For example expr1 has higher priority
+      // over expr2.
+      If ( expr1 )    blocking assignment statement1;
+      else if(expr2)  blocking assignment statement2;
+      else            blocking assignment statement3;
+
+      // Use case-endcase control construct when there is no priority
+      // among mutually exclusive events. Case alternatives are usually
+      // constant but maybe variables. Case expression itself is a
+      // variable. For example alt1, alt2 and default have same priority.
+      // It is usually used for implementing a lookup table or small
+      // memory adressing scheme.
+      //
+      // NOTE: There is no need to add break statement at the end of a
+      //       case statement
+      case (expr)
+              alt1:       blocking assignment statement1;
+              alt2:       blocking assignment statement2;
+              default:    blocking assignment default_statement;
+      endcase
+
+      // Verilog supports Looping construct in form of a for statement.
+      // This mainly helps to generate repetitive sub-structures of a
+      // combinational logic block.
+      // Note: In SystemVerilog one may use i++ or i=i+1 as loop variable
+      //       update statement. However Verilog only supports later i.e
+      //       i=i+1 loop variable update statement
+      for( loop var init; loop reentry expression; loop var update)
+          blocking assignment statement1;
+          blocking assignment statement2;
+    end
 
     /* Sequential Logic
 
@@ -472,25 +536,37 @@ module template
             // Non-blocking assignment with a specified delay: evaluate rhs but
             // defer(schedule) its assignment to LHS until current simulation
             // time advances by specified delay
-            // TBU
-            #5 p <= 'b1;
+            // TBU: NOTE: below format to specify delay for non-blocking assignment
+            // is not correct and is only valid for blocking assignment delays. see
+            // below to know how to correctly specify delays for non-blocking assignments
+            // called as intra-assignment delay
+            #5 p <= 'b1;  // incorrect.  should be p <= #5 'b1;'
 
         else
             // Procedural assignment statement: prefer non-blocking assignment
-            // or describing sequential logic.
+            // for describing sequential logic.
             // Non-blocking assignment with no delay specified: Evaluate RHS but
             // defer(schedule) its assignment to LHS until end of current
             // simulation time step.
             // In terms of hardware semantics, this means that all non-blocking
             // assignments happpen in parallel
             // ~VHDL continuous assignment '<='
-            x <= a & b;
-            y <= a|c;
+            x <= a & b;       // zero delay delta representing c2q delay
+            y <= a|c;         // zero delay delta representing c2q delay
             z < = a & b | c;
 
             // Non-blocking assignment with a specified delay: evaluate rhs but
             // defer(schedule) its assignment to LHS until current simulation
-            // time advances by specified delay
+            // time advances by specified delay.
+            // NOTE unlike blocking delay which is prefix in blocking statement
+            // such as #tpd lhs = rhs
+            // this type of delay called intra-assignment delay is used for
+            // non-blocking assignments has a different format where the delay
+            // is specified in-between lhs= and rhs i.e. lhs = #tpd rhs
+            // This delay doesn't block or suspend the procedure and procedure
+            // continues to execute following assignments and reaches end in zero time
+            // however the rhs value is only now assigned after specified delay to lhs
+            // relative to the start time of the always block
             // TBU
             l <= #20ns a;     // assign at time 20ns ahead of current simulation timepoint
             m <= #30ns a+b-c; // assign at time 30ns ahead of current simulation timepoint
@@ -510,6 +586,13 @@ module template
     end
     */
 
+    /* Testbench using procedural block or process
+       1. Uses "initial" construct as procedural block
+       2. Execution of initial procedural block or process starts at beginning of simulation
+       3. When all statements inside initial process or block complete, the process terminates
+       4. Is executed only once unlike always consturct which repeats after every completion
+          until simulation ends
+    */
     /*  Macros for Compile time Conditional inclusion or exclusion of Verilog
 
         One can define macros using 'define macro just like in C/C++. Macro

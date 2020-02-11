@@ -15,10 +15,10 @@ public:
 	double		 _clkPeriod;
 	sc_time_unit _timeUnit;
 
-	// Clock 
+	// Clock
 	sc_clock clock;
 
-	// Ports for Stimulus process 
+	// Ports for Stimulus process
 	sc_out<sc_logic> reset;		// Active-low synchronous reset
 	sc_out<sc_logic> clear;		// Active-high asynchronous clear
 	sc_out<sc_logic> preset;	// Active-high asynchronous preset
@@ -30,7 +30,7 @@ public:
 	// Ports for Monitor process
 	sc_in<sc_lv<W> > in_data;
 
-	// Allows constructor to have additional arguments 
+	// Allows constructor to have additional arguments
 	// and to be defined in cpp file
 	SC_HAS_PROCESS( testbench );
 	testbench( sc_module_name name, double clkPeriod, sc_time_unit timeUnit );
