@@ -43,12 +43,12 @@ I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Desig
 - **Logic, RTL Design and Computer Architecture (Verilog, System Verilog, Vhdl)**
   - Digital Design: A Systems Approach by William J. Dally, R. Curtis Harting, Tor M. Aamodt
   - RTL Modeling with SystemVerilog for Simulation and Synthesis using SystemVerilog for ASIC and FPGA design by Stuart Sutherland
+  - Digital Systems Design with SystemVerilog by Mark Zwolinski
   - RTL hardware using VHDL by Pong Chu
   - Circuit design and simulation with VHDL by Volnei A. Pedroni
   - Logic and Computer Design Fundamentals 5th Edition by M. Morris Mano, Charles R. Kime, Tom Martin
   - Digital design and Computer Architecture - ARM edition by Harris & Harris
-  - HDL WITH DIGITAL DESIGN VHDL AND VERILOG by Nazeih Botros
-  - Digital Systems Design with SystemVerilog
+  [//]: # (- HDL WITH DIGITAL DESIGN VHDL AND VERILOG by Nazeih Botros)
 
 - **High Level Synthesis (Algorithms to Architecture)**
   - VLSI Digital Signal Processing Systems: Design and Implementation by Keshab K. Parhi
