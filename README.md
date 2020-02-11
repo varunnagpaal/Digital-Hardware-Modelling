@@ -68,7 +68,7 @@ I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Desig
   - Top-Down Digital VLSI Design: From Architectures to Gate-Level Circuits and FPGAs by Hubert Kaeslin
   - Embedded Systems Design with Platform FPGAs: Principles and Practices by Ron Sass, Andrew G. Schmidt
   - Reconfigurable Computing, Volume 1: The Theory and Practice of FPGA-Based Computation (Systems on Silicon) by Scott Hauck et al.
-  - The Simple Art of SoC Design Closing the Gap between RTL and ESL by Michael
+  - The Simple Art of SoC Design Closing the Gap between RTL and ESL by Michael Keating
 
 - **Topic Specific Books**
   - FSM in Hardware (VHDL/SystemVerilog) by Volnei A. Pedroni
