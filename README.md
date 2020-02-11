@@ -75,7 +75,6 @@ I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Desig
   - Static Timing Analysis for Nanometer Designs A Practical Approach by J. Bhasker, Rakesh Chadha
   - High-Speed Serial I/O Made Simple A Designer's Guide with FPGA Applications by Abhijit Athavale, Carl Christensen
 
-  [//]: # (
-  - Digital Systems Engineering by William J. Dally and John W. Poulton
-  - Signal Integrity - Simplified by Eric Bogatin
-  - High Speed Digital Design Design of High Speed Interconnects and Signaling by Hanqiao Zhang, Steven Krooswyk and Jeff Ou )
+  [//]: # (- Digital Systems Engineering by William J. Dally and John W. Poulton)
+  [//]: # (- Signal Integrity - Simplified by Eric Bogatin)
+  [//]: # (- High Speed Digital Design Design of High Speed Interconnects and Signaling by Hanqiao Zhang, Steven Krooswyk and Jeff Ou)
