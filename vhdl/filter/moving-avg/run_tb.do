@@ -1,3 +1,4 @@
+quit -sim
 vmap -del sandbox
 vlib sandbox
 vmap sandbox sandbox

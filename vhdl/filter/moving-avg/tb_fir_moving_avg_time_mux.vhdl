@@ -13,16 +13,12 @@ architecture test of Testbench is
     -- Constants to initialize generics of DUT
     constant L      : natural := 256;
     constant L_BW   : natural := natural(ceil(log2(real(L))));
-    constant R      : natural := 16;
-    constant R_BW   : natural := natural(ceil(log2(real(R))));
-    constant M      : natural := 16;
-    constant M_BW   : natural := natural(ceil(log2(real(M))));
     constant W      : natural := 16;
 
     -- Simulation control
     constant CLK_CYCLE_TIME : time      := 10 ns;
     signal   sim_end        : boolean   := false;
-    signal   sample_cnt     : natural   := 256;--natural(2**(W-1));
+    signal   sample_cnt     : natural   := 1024;--natural(2**(W-1));
 
     -- Signals to connect ports of DUT
     signal clk       : std_logic                        := '0';                 -- clock
@@ -37,10 +33,6 @@ begin
     DUT: entity work.fir(rtl)
          generic map ( L    => L,       -- L = Filter length or number of points to be averaged
                        L_BW => L_BW,    -- L_BW = Ceil(Log2(L))
-                       R    => R,       -- R = Number of resources (adders and multiplexers)
-                       R_BW => R_BW,    -- R_BW = Ceil(Log2(R))
-                       M    => M,       -- M = L/R = Samples to be processed per resource (adder)
-                       M_BW => M_BW,    -- M_BW = Ceil(Log2(M)) = number of select bits for M samples
                        W    => W        -- W = Bit width of input and output sample data (signed)
                     )
          port map   ( clk       => clk,     -- clock
@@ -103,30 +95,31 @@ begin
         -- Enable filter and wait for M clock cycles (falling edges)
         en := '1';
         apply_stimulus( en, integer(x) );
-        for i in 1 to M loop
-            wait until falling_edge( clk );
-        end loop;
 
         -- Apply simple increasing stimulus
         for i in 0 to (sample_cnt-1) loop
-            apply_stimulus( en, i+1, M*CLK_CYCLE_TIME );
+            wait until falling_edge( clk );
+            apply_stimulus( en, i+1 );
         end loop;
 
         -- Apply random stimulus
         for i in 0 to (sample_cnt-1) loop
+            wait until falling_edge( clk );
+            
             -- x = random number between 0.0 and 1.0 (exclusive)
             uniform( seed1, seed2, x );
-            apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
+            apply_stimulus( en, integer(floor(x * real(2**W))) );
         end loop;
 
         -- Apply upward trend stimulus
         for i in 0 to (sample_cnt-1) loop
+            wait until falling_edge( clk );
             if ( i rem 4 = 0 ) then
                 -- x = random number between 0.0 and 1.0 (exclusive)
                 uniform( seed1, seed2, x );
-                apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
+                apply_stimulus( en, integer(floor(x * real(2**W))) );
             else
-                apply_stimulus( en, i, M*CLK_CYCLE_TIME );
+                apply_stimulus( en, i );
             end if;
         end loop;
 
@@ -136,16 +129,20 @@ begin
             if ( i rem 4 = 0 ) then
                 -- x = random number between 0.0 and 1.0 (exclusive)
                 uniform( seed1, seed2, x );
-                apply_stimulus( en, integer(floor(x * real(2**W - 1))), M*CLK_CYCLE_TIME );
+                apply_stimulus( en, integer(floor(x * real(2**W))) );
             else
-                apply_stimulus( en, i, M*CLK_CYCLE_TIME );
+                apply_stimulus( en, i );
             end if;
         end loop;
 
         -- Disable the filter
+        wait until falling_edge( clk );
         en := '0';
-        apply_stimulus( en, 0, M*CLK_CYCLE_TIME );
+        apply_stimulus( en, 0 );
 
+        wait until falling_edge( clk );
+        wait until falling_edge( clk );
+        
         -- End simulation
         sim_end <= true;
         wait;

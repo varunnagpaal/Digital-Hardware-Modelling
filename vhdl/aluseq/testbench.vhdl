@@ -71,14 +71,16 @@ begin
       wait for DELAY;
     end procedure apply_stim;
   begin
-    -- Initialize all to 0 
-    data_a <= x"0";
-    data_b <= x"0";
-    data_cin <= '0';
-    ctrl <= ( others => '0' ); -- NOP0
-    wait for 2 * CLK_CYCLE_TIME;
+    -- Initialize all to 0
+    apply_stim( 0, 0, '0', 0, 2 * CLK_CYCLE_TIME );
+    --data_a <= x"0";
+    --data_b <= x"0";
+    --data_cin <= '0';
+    --ctrl <= ( others => '0' ); -- NOP0
+    --wait for 2 * CLK_CYCLE_TIME;
 
     -- test stimulus 1: NOP
+    --apply_stim( x"A", x"2", '0', x"F", CLK_CYCLE_TIME );
     data_a <= x"A";
     data_b <= x"2";
     ctrl <= ( others => '1' ); -- NOPF
