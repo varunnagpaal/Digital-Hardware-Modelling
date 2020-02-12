@@ -6,15 +6,27 @@ Idea of this repo came from my own answer(advice) I wrote for a question on quor
 
 The idea for this repository is to therefore build hardware models in Verilog, SystemVerilog, VHDL,  SystemC, HLS(C++,OpenCL) at various levels of abstraction: Logic, RTL,TLM and Behavioral/Algorithmic. Also, as much as possible, focus would be to make the hardware models which are:
 - Generic, Reusable and Portable
-- Compatible with standard hardware/software interfaces
 - Built using best practices for design and coding
-- Script driven simulation, synthesis and functional verification (test benches)
+- Integrable in larger designs through simple handshake interface or as Memory mapped Master/Slave IP on industry standard bus interfaces such as AXI
+- Script driven
+  - C simulation (golden reference stimulus-response generation)
+  - C/RTL Co-simulation (Pre-Synthesis or RTL Functional Verification using Testbenches )
+  - IP Export and IP Integration (Memory mapped master/slave)
+  - Design constraint specification (clock, i/o pin constraints)
+  - Logic Synthesis
+  - Post-Synthesis or Gate Level Functional Verification using Testbenches
+  - Technology Mapping
+  - Placement and Routing
+  - Timing Analysis and Closure
+  - Reporting (waveform dumps, timing, area, power)
+  - Bit-stream generation and writing bitstream on target FPGA device
+  - In-circuit testing of design on target FPGA board through JTAG/GPIO ports using signal generators, integrated/external logic analyzers setup as a test-fixture.
 
-### Following is list of some of projects I have thought about as of now for this repository:
+### Following is list of some of projects for this repository:
 1. Glue Logic: Register, Shift-Register, Counters, Encoder/Decoder, Mux/Demux, Block RAMs
 2. IEEE Pipelined Floating Point Fused Multiplier Accumulator Unit (32-bit and 64-bit)
 3. DSP Algorithms: 2D or 3D FFT, FIR (CIC etc.) and IIR Filters(Biquad IIR etc.)
-4. Serial Interface or Controllers IP such as I2C, SPI, 16450 UART, SERDES (Serializer Deserializer)
+4. Serial Interface or Controllers IP such as I2C, SPI, 16450 UART, SERDES (Serializer Deserializer), Digital PLL
 5. Bidirectional bus master/slave interfaces(mux or tristate based), Bus arbiter for multiple masters
 6. Direct Digital Synthesizer(DDS) using external DAC
 7. Processor Micro-architecture units: Instruction Fetch, Pre-decode, Decode, ALU(scalar and simd vector), Register File, Register R/W, Register Rename, Dispatch, Retire, Branch predictors, Buffers(Instruction, BTB), Queues(Instruction Issue, Load/Store), DMA IP, DRAM Controller(Memory R/W), Cache Controller, Instruction Cache, Data Cache, Scratch pad shared memory, Coherent cache controller
@@ -32,9 +44,12 @@ The idea for this repository is to therefore build hardware models in Verilog, S
 - **FPGA Boards**
   - Digilent Zybo Zynq Z-7010 ARM/FPGA SoC Development Board
   - Snickerdoodle Zynq Z-7020 ARM/FPGA SoC Development Board
+  - Digilent Nexys 3 Xilinx Spartan-6 FPGA Board
   - Microsemi SmartFusion Mixed Signal SoC(FPGA with ARM Cortex M3)
 
-- **Digital/Analog Oscilloscope cum Signal Generator**: Digilent Analog Discovery
+- **Instruments for Debugging and Measurements**
+  - Digilent JTAG HS3 Programming Cable
+  - Digilent Analog Discovery Digital/Analog Oscilloscope plus Signal Generator
 
 ### Parts
 I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Design-Modelling/blob/master/Parts/LAOE-PE-PartsList.xlsx) from my [Analog Design and Modeling](https://github.com/varunnagpaal/Analog-Design-Modelling) github project.
