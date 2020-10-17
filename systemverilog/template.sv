@@ -38,39 +38,67 @@ module template
   (
    /*
     EXTERNAL INTERFACE (nodes) (WHAT IT DOES - BEHAVIOR)
-    [mode] [object-type] [port-name] {array_range_of_objects}
+    [mode] [data-type] {signed} {range:vector}* [port-name] {range:array}*
 
     [mode]: input(net-type)|output(net-type|variable-type)|inout(net-type)
             input and inout port is always of net type (note: sv allows them to be also variable type. but this is seldom useful)
-            output port should be a variable type (example reg) if assigned by a procedural block
-                               or a net type (example wire) if driven outside procedural block
-    [object-type]: data-type {signed} {array_range_of_data_type}
+            output port should be a 
+              - variable type (example reg) if assigned by a procedural block
+              - net type (example wire) if driven outside procedural block
     [data-type]: net-type|variable-type|logical-type|num_type|other_type
-    [array_range_of_data_type]: array_range(msb,lsb)|array_range(lsb,msb), msb>lsb
-                                The MSB always is on the left and LSB is always on right of a
-                                verilog vector.
-    [port-name]: Identifier
-    [array_range_of_objects]: array_range(a,b), a<b
+    [range:vector]: range(msb,lsb) // msb>lsb, little endian
+                    range(lsb,msb) // msb>lsb, big endian                    
+                    A vector also called packed array is an array of consecutive bits
+    [port-name]: Identifier                    
+    [range:array]: (range_size=|b-a|+1)|range(a,b) where a != b. It is suggested to use a<b but not necessary
+                   An array also called an unpacked array is a collection of net-type, 
+                   variable-type, logical-type, num-type or other_type
+                   Verilog-2001 allows arrays of any number of dimensions of any data-type except events
+                   Verilog-2001 allows arrays of any number of dimensions of any data-type including events
+                   Note: range_size=b-a+1 is expanded as range(a,b), a < b
+    range(n1,n2) : n1:n2  (array size = (|n1-n2| + 1)), n1>=0, n2>=0
+
+    // Output port which is a 1D-unpacked array of size 16 elements x 1-bit reg-variable/element
+    Example 1: output reg in_n [0:15];
+
+    // Input port which is a 2D-unpacked array of size 2 x 8 elements with 1-bit logic/element
+    Example 2: input logic 2d_lookup_table [2][8];  
+
+    // Input port which is a 3D-unpacked array of size 4 x 6 x 8 elements with 1-bit logic/element
+    Example 3: input logic 3d_lookup_table [0:3][6][0:7];
+
+    // Input port which is a 1D-unpacked array of size 1024 elements with little-endian 8-bit wire/element
+    Example 4: input wire [7:0] in_mem reg [1024];      
+
+    Example 5:  An input port which is a 1D-Array (unpacked) of 4096 elements x
+                where each element is a 1D-Vector (packed) of logic type of size 8-bit each in little endian format
+              
+                input logic [7:0] in_p1 [0:4095];
+
+                [mode] [data-type] [range:vector] [port-name:identifier] [range:array]
+                mode                    : input
+                data-type               : logic
+                [range:vector]          : [7:0]   // 8-bit vector/element
+                [port-name:identifier]  : in_p1
+                [range:array]           : 0:4095  // 4096 elements
+
+      Example 6: An output port which is a 1D-Array (unpacked)  of 1024 elements x 
+                 where each element has 4 subfields in little endian format x
+                 where each subfield is a 1D-vector (packed) of logic type of size 8-bit each in little endian format
+              
+                output logic [3:0][7:0] out_p1 [0:1023];
+
+                [mode] [data-type] [range:vector] [port-name:identifier] [range:array]
+                mode                    : output
+                data-type               : logic
+                [range:vector]          : [3:0][7:0]  // 4 subfields/element x 8-bit vector/subfield = 32-bit vector/element in little endian
+                [port-name:identifier]  : out_p1
+                [range:array]           : 0:1023      // 1024 elements
   */
 );
   // ----------------------------------End Header----------------------------//
 
-  /*
-    [array_range(n1,n2)]    : n1:n2  (array size = (|n1-n2| + 1)), n1>=0, n2>=0
-                              | base_index -: offset => base_index:base_index-offset+1  // little endian
-                              | base_index +: offset => base_index:base_index+offset-1  // little endian
-
-                              logic [31: 0] a_vect; // little endian
-                              logic [0 :31] b_vect; // big endian
-                              logic [63: 0] dword;
-                              integer sel;
-                              a_vect[ 0 +: 8] // == a_vect[ 7 : 0]
-                              a_vect[15 -: 6] // == a_vect[15 : 10]
-                              b_vect[ 0 +: 8] // == b_vect[0 : 7]
-                              b_vect[15 -: 6] // == b_vect[10 :15]
-                              dword[8*sel +: 8] // variable part-select with fixed width
-
-    [Identifier]: (Alpha|_)Alpha|Num|_|$ (built-in & user defined system tasks and functions
+  /*[Identifier]: (Alpha|_)Alpha|Num|_|$ (built-in & user defined system tasks and functions
                    start with a $)
     [Alpha]: A-Za-z
     [Num]: 0-9
@@ -185,11 +213,11 @@ module template
                       use blocking assignment(=) for combinational logic,
                       use non-blocking assignment(<=) for sequential logic(ff, latch)
 
-    [num_type] : byte     [num_type_prefix] (1-byte, signed, 2-states, single driver, sv only)
-                 shortint [num_type_prefix] (2-bytes, signed, 2-states, single driver, sv only)
-                 int      [num_type_prefix] (4-bytes, signed, 2-states, single driver, sv only)
-                 longint  [num_type_prefix] (8 bytes, signed, 2-states, single driver, sv only)
-                 integer  [num_type_prefix] (4 bytes, signed, 4-states, single driver)
+    [num_type] : byte     [num_type_prefix] (1-byte, signed, 2-states, single driver, little endian, sv only)
+                 shortint [num_type_prefix] (2-bytes, signed, 2-states, single driver, little endian, sv only)
+                 int      [num_type_prefix] (4-bytes, signed, 2-states, single driver, little endian, sv only)
+                 longint  [num_type_prefix] (8 bytes, signed, 2-states, single driver, little endian, sv only)
+                 integer  [num_type_prefix] (4 bytes, signed, 4-states, single driver, little endian)
     [num_type_prefix] : signed(default)|unsigned
 
     [other_type]: real      (double precision float, not 4 -states, only for simulation, not synthesizable)
@@ -262,7 +290,7 @@ module template
         ~VHDL signal declarations for internal nodes of circuit
         Used for exchange of dynamic(time varying) information between concurrent processes.
 
-        (var) [object-type] [variable-name] {array_range_of_objects} = (initial_value);
+        (var) [data-type] {signed} {range:vector}* [variable-name] {range:array}* = (initial_value);
         [var]:  an optional keyword to indicate that we are declaring a variable
         [variable-name]: identifier
                          Note: Undeclared identifiers are inferred as net type in Verilog 2001
@@ -514,6 +542,137 @@ module template
       for( loop var init; loop reentry expression; loop var update)
           blocking assignment statement1;
           blocking assignment statement2;
+
+      int array_var_1d[10];
+      for( int i = 0; i < array_var_1d.size() ; i++)
+        array_var_1d[i] = i+1;
+
+      $display("My array:%p", array_var_1d); // %p format specifier to print arrays
+
+      // SystemVerilog supports foreach loop
+      // Its argument is the array variable name along with loop iteration variable 
+      // say j inside square brackets []. The iteration variable such as j is 
+      // - automatically declared and is read-only
+      // - its range cum indexing direction (increment or decrement) automatically determined.
+      foreach( array_var_1d[j] ) 
+        array_var_1d[j] = j+1;      
+
+      int array_var_2d[5][10];
+      foreach( array_var_2d[i,j] )  // note: [i,j] is special format instead of [i][j]
+        array_var_2d[i][j] = j+i;
+
+      /* Array Initilizations
+        
+        1: Pattern Assignments  to Unpacked Arrays can be made using format '{}
+        - by order or key but not in the same assignment
+        - key is the element index or range of element indexes
+        - use default keyword to assign default values to all others
+
+        NOTE: the apostrophe ' followed by { in pattern assignment shows that csv's are list
+              of epxressions and not the SystemVerilog concatenation operator ' latter of
+              which packs values in a list into a vector
+      */
+      int arr1[3:0];
+      arr1 = '{0,1,2,3};        // arr1[3] = 0, arr1[2] = 1, arr1[1] = 2, arr1[0] = 3
+      arr1 = '{default:1};      // arr1[3] = 1, arr1[2] = 1, arr1[1] = 1, arr1[0] = 1
+
+      int arr1[4];
+      arr1 = '{0,1,2,3};        // arr1[3] = 3, arr1[2] = 2, arr1[1] = 1, arr1[0] = 0
+      arr1 = '{default:0};      // arr1[3] = 0, arr1[2] = 0, arr1[1] = 0, arr1[0] = 0
+
+      // index:value
+      arr1 = '{3:1, default:0};       // arr1[3] = 1, arr1[2] = 0, arr1[1] = 0, arr1[0] = 0
+      arr1 = '{0:7, 1:6, default:5};  // arr1[3] = 5, arr1[2] = 5, arr1[1] = 6, arr1[0] = 7
+
+      int arr2[4] = '{0:2, 3:5, default:9}; // equivalent to '{2, 9, 9, 5}
+      int arr3[8] = '{2{0,3,5,7}}; // replicates list 0,3,5,7 twice i.e. '{0,3,5,7,0,3,5,7}
+      
+      logic [7:0] data [0:1] [0:3]; // 2-by-4 array layout
+      data = '{ '{0,1,2,3}, '{4,5,6,7} }; // 2-by-4 nested lists
+
+      $display("My array: %p", data); // %p format specifier to print arrays
+
+      // Above array assignment is equivalent to the separate assignments of:
+      data[0][0] = 0; 
+      data[0][1] = 1;
+      data[0][2] = 2;
+      data[0][3] = 3;
+      data[1][0] = 4;
+      data[1][1] = 5;
+      data[1] [2] = 6;
+      data[1][3] = 7;
+
+      /* Array assignments or comparison
+        One can assign/compare one array to another as long as they have same layout
+        - data type, size, signedness
+        - dimensions and same size for each dimension
+      */
+      bit [31:0] a_f[0:3], b_f[4];
+      a_f = b_f ;
+
+      bit [0:31] up_f[4:1];
+      a_f = up_f; // ok since same layout even thougn a_f has little-endian words and up_f has big-endian words
+      a_f[0:1] = up_f[3:2]; // Ok: copying array slices
+      a_f[3:1] = up_f[1:3]; // Not Ok: since we used range direction opposite to what was declared
+      
+      // above is equivalent to 
+      a_f[0] = up_f[4];
+      a_f[1] = up_f[3];
+      a_f[2] = up_f[2];
+      a_f[3] = up_f[1];
+
+      if( a_f == b_f ) // ok
+      if( a_f == up_f ) // ok
+      if( a_f[0:2] == up_f[3:1] ) // ok
+
+      /* Array bit select
+         Note: A read from a fixed-size array with an out of bounds index doesn't 
+               give any warning unless linting flag is set during compilation 
+               and returmns the default value of the type (0 for 2-state type, X for 4-state type)
+      */
+      int arr1[8];
+      arr[4] = 5; // ok
+      arr[9] = 10;// ok: no warning for out of bound accesss unless linting flag is set during compilation
+
+
+      /* Fixed and Variable Part Select
+          [beg_bit_pos +: width]
+          [beg_bit_pos -: width]
+            beg_bit_pos : can be a variable expression
+            width       : must be a constant expression
+      */
+
+      /* Fixed Part Select: little endian
+        beg_bit_pos +: width => beg_bit_pos:beg_bit_pos+width-1
+        beg_bit_pos -: width => beg_bit_pos:beg_bit_pos-width+1
+      */
+      logic [31:0] a_vect; 
+      a_vect[0 +: 8] // == a_vect[7:0]
+      a_vect[15 -: 6] // == a_vect[15:10]
+
+      /* Fixed Part Select: big endian
+        beg_bit_pos -: width => beg_bit_pos-width+1:beg_bit_pos
+        beg_bit_pos +: width => beg_bit_pos+width-1:beg_bit_pos
+      */
+      logic [0:31] b_vect; 
+      b_vect[0 +: 8] // == b_vect[0:7]
+      b_vect[15 -: 6] // == b_vect[10:15]
+
+      // Variable part-select
+      logic [63:0] dword; 
+
+      for(int sel = 0; sel <= 7; sel++)
+        $display("%d", dword[8*sel +: 8] );
+
+        // Above for loop unrolls to following
+        $display("%d", dword[0 +: 8] );   // dword[7:0]
+        $display("%d", dword[8 +: 8] );   // dword[15:8]
+        $display("%d", dword[16 +: 8] );  // dword[23:16]
+        $display("%d", dword[24 +: 8] );  // dword[31:24]
+        $display("%d", dword[32 +: 8] );  // dword[39:32]
+        $display("%d", dword[40 +: 8] );  // dword[47:40]
+        $display("%d", dword[48 +: 8] );  // dword[55:48]
+        $display("%d", dword[56 +: 8] );  // dword[63:56]      
     end
 
     /* Sequential Logic
