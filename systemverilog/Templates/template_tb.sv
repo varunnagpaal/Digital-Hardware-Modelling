@@ -18,7 +18,7 @@
   [precision-timeunit] => all delays should be calculated upto a precision of precision-timeunit
 
   reference-timeunit >= precision-timeunit
-  Note: that only numbers legal for use is timescale directives are 1, 10 and 100
+  Note: that only numbers legal for use in timescale directives are 1, 10 and 100
 
   Timescale can always be later overriden by a new timescale directive
   Note that in case there are multiple modules being compiled with some modules
@@ -50,7 +50,7 @@
 
   timeunit 1ns/100ps; // similar to `timescale 1ns/100ps.
 
-  In addition, SV allows to use time literals with time unit can be explicity and arbitrarily
+  In addition, SV allows using time literals with time unit explicity and arbitrarily
   specified with the time value independently from the declared timescale directive
   Example: 10ps, 1.5ps, 1step (simulation step. no 2step etc.).
 
@@ -114,7 +114,10 @@ module Testbench;
                    an always block
 
   fork-join Block:  Statements within a fork-join block are executed in parallel
-                    A fork-join block is non-synthesizable
+                    A fork-join block is non-synthesizable.
+                    Used for applying stimulus which would otherwise require line-by-line
+                    verbose code
+
 */
   initial
   begin
@@ -145,11 +148,11 @@ module Testbench;
         cycle i.e. before RHS evaluations (before non blocking assignments)
     $monitor
         generates output continuously whenever any one of its arguments changes
-        value. i.e after RHS evaluations and non-blovking assignments. Only one
+        value. i.e after RHS evaluations and non-blocking assignments. Only one
         monitor can be active at a time.
     $strobe
-        generates output at end of simulation cycle i.e. it generates output
-        with only stable data i.e. after RHS evaluatins (after non blocking
+        generates output at the end of simulation cycle i.e. it generates output
+        with only stable data i.e. after RHS evaluations (after non blocking
         assignments)
 */
     $display( message_with_format_specifiers_and_delimiter_chars_with_default_newline_at_end,
