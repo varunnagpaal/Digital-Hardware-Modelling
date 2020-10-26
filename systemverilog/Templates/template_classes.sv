@@ -11,7 +11,7 @@
 
 /* SV Class
   - Declared inside a module, program, package, interface etc.
-  - User defined data type which contains
+  - User defined data type which has
     - methods or member tasks/functions
       - member methods cannot be overloaded i.e. multiple definitions of a class
         member method (task/function) with different number/types of arguments.
@@ -25,6 +25,15 @@
       - static methods can only modify static properties. They can be called either
         from the class name using scope resolution operator :: (recommended) or from
         class handle using . member access operator
+    - parameters to make the class into a parameterized or template class
+          - parameter can be a value or a type
+          - parameter may have a default value which can be overriden during class
+            specialization (new class created for new paramter value).
+          - when parameter is a type such as T, then member methods must work for
+            all expected type overrides during class instantiation. This includes
+            SV types such as enum and struct.
+          - Every new parameter value creates a new class with new set of static
+            members. This is called class specialization.
   - Used for OOP for TB and Simulation Models
   - Supports OOP features such as
     - Inheritance
@@ -240,5 +249,47 @@ module template_classes;
       return ErrorFrame::errCount;
     endfunction: get_error_cnt
   endclass //ErrorFrame extends TagFrame
+
+  //  Paramterized and Template Class: tQueue
+  class tQueue #(parameter int D = 1024, 
+                          type T = int);
+    local T data[D];
+    static local depth;
+    local int size;
+
+    //  Group: Functions
+    task enqueue(parameters);
+      //...
+    endtask: enqueue
+    
+    task dequeue(parameters);
+      //...
+    endtask: dequeue
+
+    function int getsize();
+      return size;
+    endfunction: name
+
+    function bool isFull();
+      return ((size == depth) ? True:False);
+    endfunction
+    
+    function bool isEmpty();
+      return ((size == 0) ? True:False);
+    endfunction
+
+    //  Constructor: new
+    function new(string name = "queue");
+      tQueue::depth = D;
+    endfunction: new
+
+    initial begin
+      tQueue #(.depth(512), .T(logic [3:0]) fifoQueue = new;
+
+      fifoQueue.enqueue(...);
+      fifoQueue.dequeue(...);
+
+    end  
+  endclass: tQueue
 
 endmodule: template_classes
