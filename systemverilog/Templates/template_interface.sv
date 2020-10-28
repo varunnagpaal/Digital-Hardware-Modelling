@@ -10,58 +10,60 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /* SV Interfaces 
-  - placed in a separate file and compiled by simulator
-  - when to be made synthesizable, can contain constructs such as 
-    - mandatory set of nets and variables as a type (like a C struct)
+  - can contain synthesizable constructs such as 
+    - mandatory set of nets and variables grouped as a type (like a C struct)
     - optional protocol functionality in form of functions (zero delay, zero clock cycle)
-    - optional module port(Modport) definitions which is a subset of interface signals
-  - can also contain non-synthesizable constructs for Transaction level and Verification such as 
-      - its own i/o ports
-      - continuous assignments
-      - tasks, functions
-      - initial/always blocks
-      - assertions
-    with signal directions.
-  - CANNOT declare or instantiate modules, primitives, specify blocks, configurations  
+    - optional module port (Modport) definitions which is a subset of interface signals 
+      with signal directions.
+  - can contain non-synthesizable constructs for Transaction level and Verification such as 
+    - its own i/o ports
+    - continuous assignments
+    - tasks, functions
+    - initial/always blocks
+    - assertions
+  - CANNOT declare or instantiate modules, primitives, specify blocks, configurations
+  - placed in a separate file and compiled by simulator
   - can be instantiated 
-    - inside a module eg: instead of creating individual i/o ports 
-    or internal i/o nodes of a module of type nets and variables, one can create an interface 
-    which contains those nets and variables and instantiate that interface
+    - inside a module eg: instead of creating module i/o ports or internal i/o nodes
+      of type nets and variables, one can create an interface which contains those 
+      nets and variables and instantiate that interface
     - using generate statements or in arrays
-    - within other interfaces (i.e supports nested interfaces)
+    - within other interfaces i.e nested interfaces are supported!
   - can act as a port type
   - can be parameterized
   - member nets or variables of an Interface can be from its interface instance
   - Applications: 
       - Define ports as interface instance instead of individual nets/vars
-      - When conecting instances of two modules, use interface instance over nets/
-      - A standard bus in form of module is connected to multiple master/slave modules
-        such as bus can be represented by instance of an interface and other modules may 
-        connect to the bus through ports defined as instance of same interface
+      - When conecting instances of two modules, use port of type interface instance
+        over port of type nets.
+      - Model Buses with Master Slave devices: A standard bus in form of module is
+        connected to multiple master/slave modules such as bus can be represented
+        by instance of an interface and other modules may connect to the bus through
+        ports defined as instance of same interface.
 
   - Modport of an Interface
-    - view of an interface which is a subset of its signals along with signal directions
-    - it is defined within the interface definition
-    - no limit on defining number of modports for an interface
+    - view of an interface which is a subset of its signals along with signal directions.
+    - it is defined within the interface definition.
+    - no limit on defining number of modports for an interface.
     - there are two ways to define ports of a module as type of interface modport 
       - during module declaration of module: port defined as type of an interface modport
       - during module insantiation 
-        - module should first define its port as a type of parent interface of the target modport
-        - bind or map the modport of the parent interface during module instantiation
+        - module should first defines its port as a type of parent interface of the target modport
+        - bind or map the target modport of the parent interface during module instantiation
         - this gives the flexibility to create instances of same module with various modports
 
-  - Interface MethodS
+  - Interface Methods
     - A SV task defined as part of an interface which can perform read/write operations on 
       the interface signals is called as an Interface Method.
     - Any module which uses an interface for making interconnection can also access the 
-      interface methods ala tasks defined within that interface definition
+      interface methods aka tasks defined within that interface definition.
     - The call to the interface method aka interface task is made using syntax
       - interface_object.taskname(task_argument_values)
     - Typical operations on interface signals such as read/write are generally defined as part
       of a testbench. Instead SV allows defining tasks as part of an interface called as 
-      Interface Method. This enables reusing the task for instances of various modules in a 
-      testbench whose ports are based on the interface. This also prevents copying similar 
-      tasks to various modules and thus reducs maintenance.
+      Interface Method. This enables sharing the same task among instances of various modules
+      whose ports are based on the interface. This also prevents copying similar tasks to 
+      various module and thus reduces maintenance.
 
   - Generic Interface Reference
     - declare a module port type with keyword "interface" rather than using a specific
@@ -70,7 +72,7 @@
     - Later during module instantiation, the module port can be bound to specific interface type 
     - this allows same module to be used with different interface types each of which may implement
       may have different set of signals, modports, coverage, assertions, custom tasks, functions etc.
-    - generic interface reference canare only supported using named-port connections syntax
+    - generic interface reference are only supported using named-port connections syntax
     - also note that module which has a port defined as a generic interface reference cannot just 
       connect using this generic interface and must be bound to a specific interface type 
       which consists of signals, interface methods etc that are referenced within the module
@@ -86,7 +88,12 @@
               logic [7:0] addr,
       inout   wire [7:0] data,
       output  logic gnt, rdy
-    );  
+    );
+  
+  always_ff @(posedge clk) begin
+    ...      
+  end
+
   endmodule: memory
 
   //  Module: cpucore without Interface
@@ -131,7 +138,7 @@
     logic [1:0] mode;
     logic [7:0] addr;
     wire  [7:0] data;
-  endinterface //interfacename
+  endinterface //if_bus
 
   //  Module: memory with Interface
   module memory
@@ -241,7 +248,7 @@
   endmodule: top
 
 /* Example 4: Interface with port and parameters */
-  interface if_fancy_bus(input clk)
+  interface if_fancy_bus(input clk) // interface with port
     #(
       DW = 16, AW = 8   // parameters for an interface
     )(
@@ -253,12 +260,12 @@
     ...    
   endinterface: if_fancy_bus
   
-  interface if_ novel_bus
+  interface if_novel_bus    // interface with no port
     parameter DW = 16;      // parameters for an interface
     logic [D-1:0] = x, y;
     ...  
     
-  endinterface: if_ novel_bus
+  endinterface: if_novel_bus
   
   module top;
     if_fancy_bus #(.DW(32), .AW(4)))  fbus1(clk); // pasing interface parameter values during module instantiation
@@ -468,20 +475,29 @@
     ...
   endmodule: cpucore
 
+  /* Example 8: Generic Interfaces */
+
+  //  Module: cpucore
+  module cpucore( interface bus);  // port is of generic interface reference instead of a specific interface type. Actual interface type bound during instantiation
+    ...
+  endmodule: cpucore
+
+  
+  //  Module: memory
+  module memory( interface bus);  // port is of generic interface reference instead of a specific interface type. Actual interface type bound during instantiation
+    ...
+  endmodule: memory
+
   //  Module: top with Interface
   module top;
     logic   clk = 0;
-    if_bus  bus(clk);    
+    if_bus  busx(clk);  // a specific interface type
 
-    logic  [7:0] data_rd;
-    logic  [7:0] data_wr;
-
-    //  Module: top
-    module top;
+    ...
     
-      if_bus busx();  // bus object of specific interface type
+    if_bus busx(clk);  // bus object of specific interface type
 
-      memory mem(.bus(busx));   // named-port connection syntax to bind specific interface type to generic interface reference
-      cpucore cpu(.bus(busx));  // named-port connection syntax to bind specific interface type to generic interface reference
+    memory mem(.bus(busx));   // named-port connection syntax to bind specific interface type to generic interface reference
+    cpucore cpu(.bus(busx));  // named-port connection syntax to bind specific interface type to generic interface reference
       
-    endmodule: top
+  endmodule: top  
