@@ -273,7 +273,9 @@
   endmodule
 
 
-/* Example 5: Interface with defined modports used to define ports of modules during module definition */
+/* Example 5: Interface with defined modports used to define ports of 
+  modules during module definition (recommended)
+*/
   
   // interface must be declared in a separate file and compiled separately
   interface if_bus( input clk );
@@ -298,7 +300,7 @@
               logic [1:0] mode,
               logic [7:0] addr );
 
-  endinterface //interfacename
+  endinterface //if_bus
 
   //  Module: memory with Interface
   module memory
@@ -346,7 +348,9 @@
   endmodule: top  
 
 
-/* Example 6: Interface definining Modports with Modport selection during module instantiation */
+/* Example 6: Interface definining Modports with Modport selection 
+  during module instantiation (not recommended)
+*/
   
   // interface must be declared in a separate file and compiled separately
   interface if_bus( input clk );

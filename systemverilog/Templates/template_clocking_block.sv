@@ -10,31 +10,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /* Clocking blocks is a verification construct with following purpose:
-  - declaration of a clocking block is its implicit instantiation.
-  - Designed to prevent race condition between clock and data signals on active
-    clock edges when a testbench drives data into DUT inputs and samples DUT outputs.
-  - Used by a testbench to drive outputs and sample inputs into/from DUT relative
-    to a clock signal.
-  - Explicitly defines timing for a set of i/o signals relative to a clock signal.
-  - Separates signal timing from signal related functions.
+  - Explicitly defines timing for a set of pre-delcared i/o signals relative to
+    a clock signal thereby separating signal timing from signal function.
   - Data outputs driven on an active clock edge by a clocking block have a +ve 
     skew (+ve delay) added to the output transition relative to the active clock
-    edge i.e. outputs are driven at time slightly after active clock edge.
+    edge i.e. outputs are driven at time slightly after active clock edge (output hold time).
   - Data inputs sampled on an active clock edge by a clocking block have a -ve 
     skew (-ve delay) added to the input transition relative to the active clock
-    edge i.e. inputs are sampled at time slightly before active clock edge.
-  - can be declared inside a module or an interface.
-  - cannot be declared inside a package or compilation unit scope.
-  - cannot declare signals.
-  - declares direction of pre-declared testbench i/o signals along with optional 
+    edge i.e. inputs are sampled at time slightly before active clock edge (input setup time).
+  - Used by a testbench to drive outputs and sample inputs into/from DUT relative
+    to a clock signal.
+  - Designed to prevent race condition between clock and data signals on active
+    clock edges when a testbench drives data into DUT inputs and samples DUT outputs.
+  - Declaration of a clocking block is its implicit instantiation.
+  - Declared inside a module or an interface.
+  - Cannot be declared inside a package or compilation unit scope.
+  - Cannot declare signals.
+  - Asynchronous signals such as reset should never be driven or sampled through 
+    a clocking block.
+  - Declares direction of pre-declared testbench i/o signals along with optional 
     explicit skew for each i/o signal.
-  - declares optional default skew for signals whose explicit skew not indicated.
-  - when neither default nor explicit skew is declared in clocking block, a default  
+  - Declares optional default skew for signals whose explicit skew not indicated.
+  - When neither default nor explicit skew is declared in clocking block, a default  
     #1step input skew and #0 output skew is applied.
-  - input with #1step skew is sampled at end of previous time step before clocking 
+  - Input with #1step skew is sampled at end of previous time step before clocking 
     block event.
-  - output with #0 skew is driven at same moment as clocking block event
-  - skew should be either a 
+  - Output with #0 skew is driven at same moment as clocking block event
+  - Skew should be either a 
     - positive number (#6)
     - time literal (#1ns, #2step)
     - edge of clocking block event (posedge, negedge edge)
@@ -127,7 +129,7 @@ module testbench;
     default input  #2             // 2: input skew is -2
             output #1;            //    output skew is +1
    
-    // testbench signal declarations with optional explicit skew
+    // testbench signal direction declaration with optional explicit skew
     input negedge in_ready2;
     output posedge out_valid2;
   endclocking
@@ -137,7 +139,7 @@ module testbench;
     default input  #2             // 2: input skew is -1
             output #4;            //    output skew is +4
    
-    // testbench signal declarations with optional explicit skew
+    // testbench signal direction declaration with optional explicit skew
     input in_data2;
     output out_data2 = top.dut.data;  // associating an out of scope signal referred by hierarchichal expression to a virtual signal inside this clocking block so that this clocking block can drive it
   endclocking  
