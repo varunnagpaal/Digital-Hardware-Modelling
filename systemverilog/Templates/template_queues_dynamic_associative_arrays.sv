@@ -155,7 +155,7 @@ myQueue.max();  // returns max value.
 myQueue.min();  // returns min value. 
 myQueue.unique();  // returns only uniqe values.
 myQueue.unique_index() with (item>10);  // returns indexes of elements in queueu which are unique 
-myQueue.find_index with (item<=3);  //  returns all indexes of elements in queue with value <= 3
+myQueue.find_index with (item<=3);  //  returns indexes of elements in queue with value <= 3
 
 
 

@@ -28,7 +28,7 @@
       sure for a given seed, same sequence is generated for every simulation run.
     - use randomize(variable1, variable2, ..) function defined in the in-built 
       package std to generate random values on variables variable1, variable2 etc. 
-      It returns 1 on success. 0 otherwise. Randomiztion generally fails when specified
+      It returns 1 on success. 0 otherwise. Randomization generally fails when specified
       constraints have a conflict which prevents randomizer to generate the random
       sequence. std::randomize() is fully-qualified way to call randomize function.
     - only variable/logic types can be randomized but not nets types.
@@ -119,8 +119,8 @@ initial begin
 
     // generate constrained random stimulus with CONDITIONAL constraint expression defining
     // subset of values using "with" alongwith if-else
-                                ret = randomize(data) with {if(someVar1 == value1) data > 255; else
-                                                            if(someVar1 == value2) data < 128;};                                
+    ret = randomize(data) with {if(someVar1 == value1) data > 255; else
+                                if(someVar1 == value2) data < 128;};                                
   end
 
   // using randcase with constant probability weights per statement block

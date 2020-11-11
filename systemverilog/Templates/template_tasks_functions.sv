@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Module Name  : template_interface
-// File name    : template_interface.sv
+// Module Name  : template_task_functions
+// File name    : template_task_functions.sv
 // Description  : Template for SystemVerilog Tasks and Functions
 // Type         : 
 // Limitations  : None

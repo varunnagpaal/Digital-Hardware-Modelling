@@ -17,7 +17,7 @@
     - Easy to design, create, analyze, debug, maintain transactions instead of individual signals
   - Can have parameters such as address, data etc.
   - Often used in script-driven testbenche verification (Transaction Based )
-  - Require well defined interfaces for the design and verification environment.
+  - Requires well defined interfaces for the design and verification environment.
 
   Transaction Based Verification
   - System based verification at abstraction level of transactions instead 
@@ -28,10 +28,10 @@
       - Stimulus pattern in form of high-level transactions abstracted from the bus
         protocol. It forms the test data set that is to be driven into a DUT
     - Verification Component
-      - Reads one transaction at a time from Sequences and drives them in a 
+      - Reads one transaction at a time from Sequencer and drives them in a 
         pre-determined order into the interface of the DUT in form of RTL i/o 
         signals.
-      - Performs translation between transactions from sequences and RTL i/o
+      - Performs translation between transactions from sequencer and RTL i/o
         signals at the DUT interface.
       - Has upto three sub-components
         - Sequencer or Stimulus Generator
@@ -39,7 +39,7 @@
           to control the order in which driver will feed stimulus into the DUT.
           It provides transaction ordering facilities in form of randomization.
         - Driver or Bus functional model (BFM)
-          Emulates a component that drives a DUT via a set of signals called Bus/
+          Emulates a component that drives a DUT via a set of i/o signals called Bus.
           It provides conversion between high-level transactions from/to sequencer 
           and low level signals to/from the DUT interface.
         - Monitor or Collector
@@ -59,8 +59,9 @@
   - However VCs should not be connected directly to a DUT interface
     This is because of following issues:
     - VC class which is designed to drive-monitor a specific interface type 
-      of a DUT cannot be reused to drive-monitor DUTs with different interface. 
-      This prevents reusability of a VC which is a SystemVerilog class.
+      of a DUT cannot be reused to drive-monitor DUTs with separate instance
+      of same interface type. This prevents reusability of a VC which is 
+      a SystemVerilog class.
     - Ideally a VC class should be a reusable model in the sense that 
       it should be possible to create multiple instances of VC should
       each specialized to drive-monitor a different interface instances
@@ -157,13 +158,13 @@ module template_virtual_interface;
               virtual interface if_bus vBus);
 
     @(negedge clk)
-      vBus.mode = 2'b10;
-      vBus.req = 1;
+      vBus.mode <= 2'b10;
+      vBus.req <= 1;
 
     @(posedge clk)
       if( vBus.gnt && vBus.rdy ) begin
-        vBus.address = inAddr;
-        vBus.data = inData;
+        vBus.address <= inAddr;
+        vBus.data <= inData;
       end
     endtask: read
 
@@ -192,8 +193,8 @@ class bfm_model;
   // virtual interface manipulated by class method
   task write(input logic [7:0] inAddress, inData);
     @(posedge clk)
-      vIfBus.address = inAddress;
-      vIfBus.data = inData;
+      vIfBus.address <= inAddress;
+      vIfBus.data <= inData;
   endtask: name  
 endclass //bfm_model
 
@@ -246,7 +247,7 @@ module test
   initial begin
     @(posedge clk)
     myBusIf.wData <= 16'hFF01;  // compiler error: virtual interface cannot drive a net type but only read it
-    myBusIf.Data <= 16'hFF01;   // ok: wData indurectly driven via Data by interface while Data driven via virtual interface
+    myBusIf.Data <= 16'hFF01;   // ok: wData indirectly driven via Data by interface while Data driven via virtual interface
   end  
 endmodule: test
 

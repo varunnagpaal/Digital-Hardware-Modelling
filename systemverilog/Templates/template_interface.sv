@@ -262,7 +262,7 @@
   
   interface if_novel_bus    // interface with no port
     parameter DW = 16;      // parameters for an interface
-    logic [D-1:0] = x, y;
+    logic [DW-1:0] x, y;
     ...  
     
   endinterface: if_novel_bus
@@ -348,7 +348,7 @@
   endmodule: top  
 
 
-/* Example 6: Interface definining Modports with Modport selection 
+/* Example 6: Interface defining Modports with Modport selection 
   during module instantiation (not recommended)
 */
   
@@ -505,3 +505,85 @@
     cpucore cpu(.bus(busx));  // named-port connection syntax to bind specific interface type to generic interface reference
       
   endmodule: top  
+
+/* Example 9: Putting Interface wrapper around existing module */
+
+  module memory(
+      input   logic clk, req, start,
+              logic [1:0] mode,
+              logic [7:0] addr,
+      inout   wire [7:0] data,
+      output  logic gnt, rdy );
+  
+    always_ff @(posedge clk) begin
+      ...      
+    end
+  endmodule: memory
+
+  module cpucore(
+      input   logic clk, gnt, rdy,
+      inout   wire  [7:0] data,
+      output  logic req, start
+              logic [1:0] mode,
+              logic [7:0] addr);
+
+      always_ff @(posedge clk) begin
+        ...      
+      end
+  endmodule: cpucore
+
+ // interface must be declared in a separate file and compiled separately
+  interface if_bus( input clk );
+    logic req, gnt, start, rdy;
+    logic [1:0] mode;
+    logic [7:0] addr;
+    wire  [7:0] data;
+
+    // Modport: slave
+    modport slave(
+      input  logic req, start,
+             logic [1:0] mode,
+             logic [7:0] addr,
+      inout  wire [7:0] data,
+      output logic gnt, rdy );
+
+    // Modport: master
+    modport master(
+      input   logic gnt, rdy,
+      inout   wire  [7:0] data,
+      output  logic req, start
+              logic [1:0] mode,
+              logic [7:0] addr );
+  endinterface //if_bus
+
+  // creating interface wrapper around cpucore module
+  module cpucore_if_wrapper(if_bus.master bus);
+    cpucore dut(.clk(bus.clk),
+                .gnt(bus.gnt),
+                .rdy(bus.rdy),
+                .data(bus.data),
+                .req(bus.req),
+                .start(bus.start),
+                .mode(bus.mode),
+                .addr(bus.addr));
+  endmodule: cpucore_if_wrapper
+
+  // creating interface wrapper around memory module
+  module memory_if_wrapper(if_bus.slave bus);
+    memory dut(.clk(bus.clk),
+                .gnt(bus.gnt),
+                .rdy(bus.rdy),
+                .data(bus.data),
+                .req(bus.req),
+                .start(bus.start),
+                .mode(bus.mode),
+                .addr(bus.addr));
+  endmodule: memory_if_wrapper
+
+  initial begin
+    logic clk = 0;
+    if_bus bus(clk)
+    cpucore_if_wrapper cpu0(.bus(bus));
+    memory_if_wrapper mem0(.bus(bus));
+
+  end
