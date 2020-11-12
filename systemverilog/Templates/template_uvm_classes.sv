@@ -27,8 +27,8 @@ uvm_sequence
   - start_item(handle_sequence_item_obj)
   - some code
   - finish_item(handle_sequence_item_obj) 
-  to send data demanded by the driver. Start item starts
-  only after driver calls seq_item_port.get_next_item(handle_sequence_item_obj) and finish_item finishes only
+  to send data demanded by the driver. Start item starts only after the driver calls 
+  seq_item_port.get_next_item(handle_sequence_item_obj) and finish_item finishes only
   after the driver calls seq_item_port.item_done()
 - Has a post-body (virtual task that consumes time) where we drop the raised objection
 
