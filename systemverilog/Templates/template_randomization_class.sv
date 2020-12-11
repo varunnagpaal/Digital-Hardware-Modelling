@@ -97,7 +97,7 @@ class randclass3;
   constraint  {(var1%2 == 0) }
   constraint constr_odd_var2  {(var2%2 != 0) }
   constraint constr_range_var3  {var3 inside {[0:4096], [8192:16384], 32278}; } // set membership type constraint
-  constraint constr_flag {  conditional constraint
+  constraint constr_flag {  // conditional constraint
     flag == 1 -> var3 > 1024;
     flag == 0 -> var3 < 512;
   }
