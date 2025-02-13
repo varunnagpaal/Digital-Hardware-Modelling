@@ -93,4 +93,4 @@ I will be using some of the [parts](https://github.com/varunnagpaal/Analog-Desig
 
   [//]: # (- Digital Systems Engineering by William J. Dally and John W. Poulton)
   [//]: # (- Signal Integrity - Simplified by Eric Bogatin)
-  [//]: # (- High Speed Digital Design Design of High Speed Interconnects and Signaling by Hanqiao Zhang, Steven Krooswyk and Jeff Ou)
+  [//]: # (- High Speed Digital Design Design of High Speed Interconnects and Signaling by Hanqiao Zhang, Steven Krooswyk and Jeffrey Ou)
